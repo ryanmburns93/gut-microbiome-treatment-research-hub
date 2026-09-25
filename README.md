@@ -15,6 +15,7 @@ step, no servers.
 | Landing page | `/` | `index.html` |
 | Knowledge Base (searchable index) | `/knowledge/` | `knowledge/index.html` |
 | Knowledge entries | `/knowledge/<name>/` | `_knowledge/<name>.md` |
+| Evidence Map (interactive graph) | `/evidence-map/` | `evidence-map/index.html`, data in `_data/topics.csv` + `_data/studies.csv` |
 | Resources & Links | `/resources/` | `resources/index.html`, links in `_data/resources.yml` |
 | About + contact form | `/about/` | `about/index.md` |
 
@@ -25,10 +26,12 @@ _config.yml              Site title, URL, contact form endpoint
 _data/navigation.yml     Main menu (add new pages here)
 _data/categories.yml     Knowledge Base sections
 _data/resources.yml      Resources & Links page content
+_data/topics.csv         Evidence Map topics (exported from the curation Sheet)
+_data/studies.csv        Evidence Map studies (exported from the curation Sheet)
 _knowledge/              One Markdown file per knowledge entry
 _layouts/, _includes/    Page templates (header, footer, entry layout, cards)
 assets/css/main.css      All styles (colors are variables at the top)
-assets/js/               Menu toggle, Knowledge Base search, contact form
+assets/js/               Menu toggle, Knowledge Base search, Evidence Map, contact form
 google-apps-script/      Contact form backend (Apps Script + setup guide)
 docs/                    How-to guides and the entry template (not published)
 ```
@@ -36,6 +39,7 @@ docs/                    How-to guides and the entry template (not published)
 ## Guides
 
 - **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)**: turn on GitHub Pages and connect your domain.
+- **[docs/EVIDENCE-MAP.md](docs/EVIDENCE-MAP.md)**: curate studies in Google Sheets and publish them to the Evidence Map.
 - **[docs/ADDING-CONTENT.md](docs/ADDING-CONTENT.md)**: add knowledge entries, resources, sections, and new pages.
 - **[google-apps-script/SETUP.md](google-apps-script/SETUP.md)**: connect the contact form to a Google Sheet.
 

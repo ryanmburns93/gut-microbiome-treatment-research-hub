@@ -1,0 +1,9 @@
+id,title,authors,year,journal,url,study_type,sample_size,treatments,conditions,other_topics,finding,conclusion,relevance,status
+example-01,Example study 1 (placeholder),Example author,2024,Example journal,,Randomized controlled trial,120,fmt,rcdi,microbial-diversity;bile-acids,benefit,Placeholder: replace with the study's main conclusion in one or two sentences.,Placeholder: replace with why this study matters to the broader topic.,example
+example-02,Example study 2 (placeholder),Example author,2023,Example journal,,Systematic review,,fmt,rcdi,,benefit,Placeholder conclusion.,Placeholder relevance.,example
+example-03,Example study 3 (placeholder),Example author,2022,Example journal,,Randomized controlled trial,80,fmt,ulcerative-colitis,microbial-diversity,mixed,Placeholder conclusion.,Placeholder relevance.,example
+example-04,Example study 4 (placeholder),Example author,2021,Example journal,,Meta-analysis,,probiotics,ibs,,mixed,Placeholder conclusion.,Placeholder relevance.,example
+example-05,Example study 5 (placeholder),Example author,2023,Example journal,,Randomized controlled trial,200,probiotics,antibiotic-diarrhea,,benefit,Placeholder conclusion.,Placeholder relevance.,example
+example-06,Example study 6 (placeholder),Example author,2020,Example journal,,Randomized controlled trial,60,prebiotics,ibs,scfa,no-effect,Placeholder conclusion.,Placeholder relevance.,example
+example-07,Example study 7 (placeholder),Example author,2022,Example journal,,Cohort study,500,dietary-fiber,ulcerative-colitis,scfa;microbial-diversity,benefit,Placeholder conclusion.,Placeholder relevance.,example
+example-08,Example study 8 (placeholder),Example author,2024,Example journal,,Animal study,,dietary-fiber,,scfa;bile-acids,n/a,Placeholder conclusion.,Placeholder relevance.,example

@@ -41,6 +41,18 @@ title: Home
 	</div>
 </section>
 
+<section class="section section-flush">
+	<div class="container">
+		<div class="map-callout">
+			<div>
+				<h2>Explore the Evidence Map</h2>
+				<p>See how treatments, conditions, and mechanisms connect through the research, and open the studies behind each connection.</p>
+			</div>
+			<a class="button" href="{{ '/evidence-map/' | relative_url }}">Open the Evidence Map</a>
+		</div>
+	</div>
+</section>
+
 {% assign recent = site.knowledge | sort: "last_reviewed" | reverse %}
 {% if recent.size > 0 %}
 <section class="section section-alt">

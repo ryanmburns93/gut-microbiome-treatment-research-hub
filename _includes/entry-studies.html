@@ -1,0 +1,41 @@
+{% comment %}
+  Studies from _data/studies.csv tagged with a topic whose `entry` column
+  points at this Knowledge Base entry.
+{% endcomment %}
+{% assign entry_topics = site.data.topics | where: "entry", page.slug %}
+{% for topic in entry_topics %}
+	{% assign topic_studies = "" | split: "" %}
+	{% for study in site.data.studies %}
+		{% if study.status == "hidden" %}{% continue %}{% endif %}
+		{% capture ids_text %}{{ study.treatments }};{{ study.conditions }};{{ study.other_topics }}{% endcapture %}
+		{% assign ids = ids_text | remove: " " | split: ";" %}
+		{% if ids contains topic.id %}{% assign topic_studies = topic_studies | push: study %}{% endif %}
+	{% endfor %}
+	{% if topic_studies.size > 0 %}
+	{% assign topic_studies = topic_studies | sort: "year" | reverse %}
+	<section class="entry-studies">
+		<h2>Studies in the Evidence Map ({{ topic_studies.size }})</h2>
+		<p><a href="{{ '/evidence-map/' | relative_url }}#topic={{ topic.id }}">See how {{ topic.name }} connects to other topics ›</a></p>
+		<ul class="study-list">
+			{% for study in topic_studies %}
+			<li class="study-card">
+				<h4>{% if study.url and study.url != "" %}<a href="{{ study.url }}" rel="noopener">{{ study.title }}</a>{% else %}{{ study.title }}{% endif %}</h4>
+				<p class="study-meta">{{ study.authors }}{% if study.year %} · {{ study.year }}{% endif %}{% if study.journal %} · {{ study.journal }}{% endif %}</p>
+				<p class="study-badges">
+					{% case study.finding %}
+					{% when "benefit" %}<span class="badge finding-benefit">Benefit</span>
+					{% when "mixed" %}<span class="badge finding-mixed">Mixed</span>
+					{% when "no-effect" %}<span class="badge finding-no-effect">No effect</span>
+					{% when "harm" %}<span class="badge finding-harm">Harm</span>
+					{% endcase %}
+					{% if study.status == "example" %}<span class="badge badge-draft">Sample</span>{% elsif study.status == "draft" %}<span class="badge badge-draft">Draft</span>{% endif %}
+					<span class="study-design">{{ study.study_type }}{% if study.sample_size and study.sample_size != "" %}, n = {{ study.sample_size }}{% endif %}</span>
+				</p>
+				{% if study.conclusion %}<p><strong>Conclusion:</strong> {{ study.conclusion }}</p>{% endif %}
+				{% if study.relevance %}<p><strong>Why it matters:</strong> {{ study.relevance }}</p>{% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+	{% endif %}
+{% endfor %}

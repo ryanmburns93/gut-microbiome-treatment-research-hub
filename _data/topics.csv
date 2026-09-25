@@ -1,0 +1,12 @@
+id,name,type,summary,entry
+fmt,Fecal microbiota transplantation (FMT),treatment,Transferring stool from a screened donor to restore a healthier gut microbial community.,fecal-microbiota-transplantation
+probiotics,Probiotics,treatment,Live microorganisms given to confer a health benefit.,
+prebiotics,Prebiotics,treatment,Substrates that are selectively used by host microorganisms.,
+dietary-fiber,Dietary fiber,treatment,Diet-based interventions that change what gut microbes have available to ferment.,
+rcdi,Recurrent C. difficile infection,condition,C. difficile infection that returns after treatment.,
+ibs,Irritable bowel syndrome (IBS),condition,A common disorder of gut-brain interaction with abdominal pain and altered bowel habits.,
+ulcerative-colitis,Ulcerative colitis,condition,A form of inflammatory bowel disease affecting the colon.,
+antibiotic-diarrhea,Antibiotic-associated diarrhea,condition,Diarrhea that develops during or after a course of antibiotics.,
+scfa,Short-chain fatty acids,mechanism,Metabolites produced when gut bacteria ferment fiber.,
+microbial-diversity,Microbial diversity,mechanism,The number and balance of different microbes in the gut.,what-is-the-gut-microbiome
+bile-acids,Bile acids,mechanism,Digestive molecules that gut microbes modify.,

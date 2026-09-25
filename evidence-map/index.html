@@ -1,0 +1,58 @@
+---
+layout: default
+title: Evidence Map
+description: An interactive map of gut microbiome treatments, conditions, and mechanisms, linked by the studies that connect them.
+scripts:
+  - /assets/js/vendor/cytoscape.min.js
+  - /assets/js/evidence-map.js
+---
+{% capture crumbs %}<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">›</span><span>Evidence Map</span></nav>{% endcapture %}
+{% include page-banner.html title="Evidence Map" lede="Explore how treatments, conditions, and mechanisms connect through the research. Select a topic or a connection to see the studies behind it." crumbs=crumbs %}
+
+{% assign example_studies = site.data.studies | where: "status", "example" %}
+<div class="container map-page">
+	{% if example_studies.size > 0 %}
+	<aside class="notice map-notice" role="note">
+		<p><strong>Sample data.</strong> This map currently shows {{ example_studies.size }} placeholder studies to demonstrate how it works. They are not real research findings.</p>
+	</aside>
+	{% endif %}
+	<p id="map-warnings" class="map-warnings" hidden></p>
+
+	<div class="map-toolbar">
+		<div class="map-search">
+			<label for="map-search">Find a topic</label>
+			<input type="search" id="map-search" list="map-topic-names" placeholder="e.g. FMT" autocomplete="off" />
+			<datalist id="map-topic-names"></datalist>
+		</div>
+		<fieldset class="map-types">
+			<legend>Show</legend>
+			<label class="type-toggle type-treatment"><input type="checkbox" value="treatment" checked /> <span class="type-key" aria-hidden="true"></span>Treatments</label>
+			<label class="type-toggle type-condition"><input type="checkbox" value="condition" checked /> <span class="type-key" aria-hidden="true"></span>Conditions</label>
+			<label class="type-toggle type-mechanism"><input type="checkbox" value="mechanism" checked /> <span class="type-key" aria-hidden="true"></span>Mechanisms</label>
+		</fieldset>
+		<div class="map-view" role="group" aria-label="View">
+			<button type="button" class="view-button" data-view="map" aria-pressed="true">Map</button>
+			<button type="button" class="view-button" data-view="list" aria-pressed="false">List</button>
+		</div>
+	</div>
+
+	<div class="map-layout">
+		<div class="map-canvas-wrap" id="map-view">
+			<div id="map-canvas" class="map-canvas" role="img" aria-label="Network graph of research topics. Use the List view for a text version."></div>
+			<div class="map-controls">
+				<button type="button" id="map-fit">Reset view</button>
+			</div>
+			<p class="map-hint">Drag to pan, scroll or pinch to zoom. Circle size reflects the number of studies; line thickness, the number of studies linking two topics.</p>
+		</div>
+		<div id="list-view" class="list-view" hidden></div>
+		<aside id="map-panel" class="map-panel" aria-live="polite"></aside>
+	</div>
+</div>
+
+<script type="application/json" id="map-data">
+{
+	"baseurl": {{ site.baseurl | jsonify }},
+	"topics": {{ site.data.topics | jsonify }},
+	"studies": {{ site.data.studies | jsonify }}
+}
+</script>

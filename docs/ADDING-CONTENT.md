@@ -29,6 +29,12 @@ page's topic counts automatically.
 
 The two entries in `_knowledge/` are examples. Rewrite or delete them.
 
+## Add studies to the Evidence Map
+
+See [EVIDENCE-MAP.md](EVIDENCE-MAP.md). Studies are curated in the Google
+Sheet and uploaded to `_data/` as CSV files. To show a topic's studies on a
+Knowledge Base entry, put the entry's file name in that topic's `entry` column.
+
 ## Add a Knowledge Base section
 
 Add an item to `_data/categories.yml` with an `id`, `name`, and
