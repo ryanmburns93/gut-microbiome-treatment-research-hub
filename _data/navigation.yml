@@ -1,0 +1,10 @@
+# Main menu, in order. Add a page by creating it (e.g. glossary/index.md)
+# and adding one entry here.
+- title: Home
+  url: /
+- title: Knowledge Base
+  url: /knowledge/
+- title: Resources & Links
+  url: /resources/
+- title: About
+  url: /about/

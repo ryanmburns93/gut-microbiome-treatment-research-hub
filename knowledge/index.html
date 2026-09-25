@@ -1,0 +1,35 @@
+---
+title: Knowledge Base
+lede: A curated library of gut microbiome treatment research, organized by topic. Search, or filter by section.
+scripts:
+  - /assets/js/knowledge-filter.js
+---
+<div class="kb-controls" role="search">
+	<label class="visually-hidden" for="kb-search">Search the knowledge base</label>
+	<input type="search" id="kb-search" placeholder="Search entries, e.g. probiotics, FMT, IBS…" autocomplete="off" />
+	<div class="kb-filters" role="group" aria-label="Filter by section">
+		<button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+		{% for category in site.data.categories %}
+		<button type="button" class="chip" data-filter="{{ category.id }}" aria-pressed="false">{{ category.name }}</button>
+		{% endfor %}
+	</div>
+</div>
+
+{% for category in site.data.categories %}
+{% assign entries = site.knowledge | where: "category", category.id | sort: "title" %}
+<section class="kb-section" id="{{ category.id }}" data-section="{{ category.id }}">
+	<h2>{{ category.name }}</h2>
+	<p class="section-description">{{ category.description }}</p>
+	{% if entries.size > 0 %}
+	<ul class="entry-list">
+		{% for entry in entries %}
+			{% include entry-card.html entry=entry %}
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p class="empty">No entries yet — coming soon.</p>
+	{% endif %}
+</section>
+{% endfor %}
+
+<p id="kb-no-results" class="empty" hidden>No entries match your search.</p>

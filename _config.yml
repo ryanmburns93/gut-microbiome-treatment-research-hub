@@ -1,0 +1,54 @@
+# Site settings. GitHub Pages builds this with Jekyll automatically on every
+# push to the publishing branch; there is nothing to build by hand.
+title: Gut Microbiome Treatment Research Hub
+short_title: Microbiome Research Hub
+description: >-
+  A curated, evidence-focused knowledge repository on gut microbiome
+  treatments: what they are, what the research shows, and where to learn more.
+author: Rainbow Data Labs
+lang: en
+
+# While the site is served from https://ryanmburns93.github.io/gut-microbiome-treatment-research-hub/
+# baseurl must be the repo path. Once the custom domain is connected
+# (see docs/DEPLOYMENT.md) set baseurl to "" and url to "https://<your-domain>".
+url: "https://ryanmburns93.github.io"
+baseurl: "/gut-microbiome-treatment-research-hub"
+
+# Contact form endpoint (Google Apps Script web app). Leave empty to show a
+# "not configured yet" message. See google-apps-script/SETUP.md.
+contact_endpoint: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Every Markdown file in _knowledge/ becomes a page at /knowledge/<file-name>/
+collections:
+  knowledge:
+    output: true
+    permalink: /knowledge/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: knowledge
+    values:
+      layout: entry
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+exclude:
+  - README.md
+  - docs/
+  - google-apps-script/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .jekyll-cache/

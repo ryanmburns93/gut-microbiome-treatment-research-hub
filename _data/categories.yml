@@ -1,0 +1,14 @@
+# Knowledge Base sections, in display order. An entry joins a section by
+# setting `category:` in its front matter to one of these ids.
+- id: foundations
+  name: Foundations
+  description: Core concepts — what the gut microbiome is, how it is measured, and why it matters.
+- id: treatments
+  name: Treatments & Interventions
+  description: Therapies that target the microbiome, from diet and probiotics to microbiota transplantation.
+- id: conditions
+  name: Conditions
+  description: Diseases and conditions where the microbiome is studied as a cause, marker, or treatment target.
+- id: research-methods
+  name: Research Methods
+  description: How microbiome studies are designed, analyzed, and critically appraised.

@@ -1,0 +1,23 @@
+---
+title: Resources & Links
+lede: Databases, organizations, and tools we rely on when researching gut microbiome treatments.
+---
+{% for group in site.data.resources %}
+<section class="resource-group" id="{{ group.id }}">
+	<h2>{{ group.name }}</h2>
+	{% if group.description %}<p class="section-description">{{ group.description }}</p>{% endif %}
+	<ul class="resource-list">
+		{% for link in group.links %}
+		<li>
+			<a href="{{ link.url }}" rel="noopener">{{ link.title }}</a>
+			{% if link.description %}<p>{{ link.description }}</p>{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endfor %}
+
+<aside class="callout" role="note">
+	Links to outside sites are provided for convenience and do not imply endorsement.
+	Know a resource that belongs here? <a href="{{ '/about/' | relative_url }}#contact">Let us know</a>.
+</aside>

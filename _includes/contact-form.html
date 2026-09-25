@@ -1,0 +1,19 @@
+<form id="contact-form" class="contact-form" method="post" action="#" data-endpoint="{{ site.contact_endpoint }}">
+	<div class="form-row">
+		<label for="contact-name">Name</label>
+		<input type="text" name="name" id="contact-name" autocomplete="name" required />
+	</div>
+	<div class="form-row">
+		<label for="contact-email">Email</label>
+		<input type="email" name="email" id="contact-email" autocomplete="email" required />
+	</div>
+	<div class="form-row">
+		<label for="contact-message">Message</label>
+		<textarea name="message" id="contact-message" rows="6" required></textarea>
+	</div>
+	<div class="contact-form-honeypot" aria-hidden="true">
+		<input type="text" name="company" id="contact-company" tabindex="-1" autocomplete="off" />
+	</div>
+	<p id="contact-form-status" class="contact-form-status" role="status"></p>
+	<button type="submit" class="button">Send message</button>
+</form>

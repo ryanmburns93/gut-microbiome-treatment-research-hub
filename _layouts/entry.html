@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% assign category = site.data.categories | where: "id", page.category | first %}
+<article class="container prose entry">
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a>
+		{% if category %}<span aria-hidden="true">/</span>
+		<a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a>{% endif %}
+	</nav>
+
+	<header class="page-header">
+		<h1>{{ page.title }}</h1>
+		{% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+		<ul class="entry-meta">
+			{% if page.status == "draft" %}<li><span class="badge badge-draft">Draft</span></li>{% endif %}
+			{% if page.evidence %}<li><span class="badge badge-evidence-{{ page.evidence }}">Evidence: {{ page.evidence | capitalize }}</span></li>{% endif %}
+			{% if page.last_reviewed %}<li>Last reviewed <time datetime="{{ page.last_reviewed | date: '%Y-%m-%d' }}">{{ page.last_reviewed | date: "%B %-d, %Y" }}</time></li>{% endif %}
+		</ul>
+		{% if page.tags.size > 0 %}
+		<ul class="tag-list">
+			{% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+		</ul>
+		{% endif %}
+	</header>
+
+	{{ content }}
+
+	{% if page.sources.size > 0 %}
+	<section class="sources">
+		<h2>Sources</h2>
+		<ol>
+			{% for source in page.sources %}
+			<li>
+				{% if source.url %}<a href="{{ source.url }}" rel="noopener">{{ source.title }}</a>{% else %}{{ source.title }}{% endif %}
+				{% if source.note %}<span class="source-note">— {{ source.note }}</span>{% endif %}
+			</li>
+			{% endfor %}
+		</ol>
+	</section>
+	{% endif %}
+
+	{% include disclaimer.html %}
+</article>

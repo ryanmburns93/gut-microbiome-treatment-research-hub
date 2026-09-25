@@ -1,0 +1,39 @@
+# Resources & Links page. Each group becomes a section; add links under
+# `links:` with a title, url, and optional one-line description.
+- id: literature
+  name: Research Literature
+  description: Where to find peer-reviewed studies and preprints.
+  links:
+    - title: PubMed
+      url: https://pubmed.ncbi.nlm.nih.gov/
+      description: The U.S. National Library of Medicine's index of biomedical literature.
+    - title: Europe PMC
+      url: https://europepmc.org/
+      description: Open-access life-science literature, including full text and preprints.
+    - title: Cochrane Library
+      url: https://www.cochranelibrary.com/
+      description: Systematic reviews of healthcare interventions.
+    - title: medRxiv
+      url: https://www.medrxiv.org/
+      description: Preprints in health sciences. Not yet peer reviewed — read with care.
+
+- id: clinical-trials
+  name: Clinical Trials
+  description: Registries for finding ongoing and completed trials.
+  links:
+    - title: ClinicalTrials.gov
+      url: https://clinicaltrials.gov/
+      description: Registry of clinical studies run around the world.
+    - title: WHO International Clinical Trials Registry Platform
+      url: https://trialsearch.who.int/
+      description: Searches trial registries from many countries at once.
+
+- id: organizations
+  name: Organizations & Programs
+  links:
+    - title: NIH Human Microbiome Project
+      url: https://hmpdacc.org/
+      description: Data and resources from the NIH Common Fund's Human Microbiome Project.
+    - title: International Scientific Association for Probiotics and Prebiotics (ISAPP)
+      url: https://isappscience.org/
+      description: Consensus statements and plain-language resources on probiotics, prebiotics, and related topics.

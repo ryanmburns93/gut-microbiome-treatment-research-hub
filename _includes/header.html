@@ -1,0 +1,25 @@
+<header class="site-header">
+	<div class="container header-inner">
+		<a class="brand" href="{{ '/' | relative_url }}">
+			<img src="{{ '/images/favicon.svg' | relative_url }}" alt="" width="28" height="28" />
+			<span>{{ site.short_title | default: site.title }}</span>
+		</a>
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+			<span class="visually-hidden">Menu</span>
+			<span class="nav-toggle-bar" aria-hidden="true"></span>
+		</button>
+		<nav id="site-nav" class="site-nav" aria-label="Main">
+			<ul>
+				{% for item in site.data.navigation %}
+				{% assign item_url = item.url | relative_url %}
+				{% if item.url == "/" %}
+					{% assign active = false %}{% if page.url == "/" %}{% assign active = true %}{% endif %}
+				{% else %}
+					{% assign active = false %}{% if page.url contains item.url %}{% assign active = true %}{% endif %}
+				{% endif %}
+				<li><a href="{{ item_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</header>
