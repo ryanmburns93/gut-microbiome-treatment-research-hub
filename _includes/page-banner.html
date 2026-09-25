@@ -1,0 +1,7 @@
+<div class="page-banner">
+	<div class="container">
+		{% if include.crumbs %}{{ include.crumbs }}{% endif %}
+		<h1>{{ include.title }}</h1>
+		{% if include.lede %}<p class="lede">{{ include.lede }}</p>{% endif %}
+	</div>
+</div>

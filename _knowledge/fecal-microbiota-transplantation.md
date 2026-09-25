@@ -6,6 +6,9 @@ tags: [FMT, microbiota transplantation, C. difficile]
 evidence: established
 status: draft
 last_reviewed: 2026-09-25
+key_points:
+  - Plain-language point one.
+  - Plain-language point two.
 sources:
   - title: PubMed search — fecal microbiota transplantation
     url: https://pubmed.ncbi.nlm.nih.gov/?term=fecal+microbiota+transplantation

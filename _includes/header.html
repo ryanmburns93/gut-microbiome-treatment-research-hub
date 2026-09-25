@@ -1,25 +1,41 @@
+<div class="utility-bar">
+	<div class="container utility-inner">
+		<span>An independent educational resource on gut microbiome treatment research</span>
+		<span class="utility-note">Not medical advice</span>
+	</div>
+</div>
 <header class="site-header">
 	<div class="container header-inner">
 		<a class="brand" href="{{ '/' | relative_url }}">
-			<img src="{{ '/images/favicon.svg' | relative_url }}" alt="" width="28" height="28" />
-			<span>{{ site.short_title | default: site.title }}</span>
+			<img src="{{ '/images/favicon.svg' | relative_url }}" alt="" width="44" height="44" />
+			<span class="brand-text">
+				<span class="brand-line1">Gut Microbiome</span>
+				<span class="brand-line2">Treatment Research Hub</span>
+			</span>
 		</a>
+		<form class="header-search" action="{{ '/knowledge/' | relative_url }}" method="get" role="search">
+			<label class="visually-hidden" for="header-q">Search the Knowledge Base</label>
+			<input type="search" id="header-q" name="q" placeholder="Search the Knowledge Base" />
+			<button type="submit">Search</button>
+		</form>
 		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-			<span class="visually-hidden">Menu</span>
 			<span class="nav-toggle-bar" aria-hidden="true"></span>
+			<span class="nav-toggle-label">Menu</span>
 		</button>
-		<nav id="site-nav" class="site-nav" aria-label="Main">
+	</div>
+	<nav id="site-nav" class="site-nav" aria-label="Main">
+		<div class="container">
 			<ul>
 				{% for item in site.data.navigation %}
-				{% assign item_url = item.url | relative_url %}
+				{% assign active = false %}
 				{% if item.url == "/" %}
-					{% assign active = false %}{% if page.url == "/" %}{% assign active = true %}{% endif %}
-				{% else %}
-					{% assign active = false %}{% if page.url contains item.url %}{% assign active = true %}{% endif %}
+					{% if page.url == "/" %}{% assign active = true %}{% endif %}
+				{% elsif page.url contains item.url %}
+					{% assign active = true %}
 				{% endif %}
-				<li><a href="{{ item_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+				<li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
 				{% endfor %}
 			</ul>
-		</nav>
-	</div>
+		</div>
+	</nav>
 </header>

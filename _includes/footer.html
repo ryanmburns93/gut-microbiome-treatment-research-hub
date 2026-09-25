@@ -1,14 +1,24 @@
 <footer class="site-footer">
-	<div class="container">
-		<p class="footer-disclaimer">
-			Content on this site is for educational and research purposes only and is not medical advice.
-			Talk with a qualified healthcare professional before starting, stopping, or changing any treatment.
-		</p>
-		<ul class="footer-links">
-			{% for item in site.data.navigation %}
-			<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-			{% endfor %}
-		</ul>
-		<p class="copyright">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+	<div class="container footer-grid">
+		<div>
+			<p class="footer-title">{{ site.title }}</p>
+			<p>{{ site.description }}</p>
+		</div>
+		<div>
+			<p class="footer-heading">Explore</p>
+			<ul class="footer-links">
+				{% for item in site.data.navigation %}
+				<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div>
+			<p class="footer-heading">Medical disclaimer</p>
+			<p>Content on this site is for educational and research purposes only and is not medical advice.
+			Talk with a qualified healthcare professional before starting, stopping, or changing any treatment.</p>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</div>
 	</div>
 </footer>

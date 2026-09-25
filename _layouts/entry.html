@@ -2,43 +2,61 @@
 layout: default
 ---
 {% assign category = site.data.categories | where: "id", page.category | first %}
-<article class="container prose entry">
-	<nav class="breadcrumb" aria-label="Breadcrumb">
-		<a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a>
-		{% if category %}<span aria-hidden="true">/</span>
-		<a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a>{% endif %}
-	</nav>
+{% capture crumbs %}<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">›</span><a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a>{% if category %}<span aria-hidden="true">›</span><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a>{% endif %}</nav>{% endcapture %}
+{% include page-banner.html title=page.title lede=page.summary crumbs=crumbs %}
 
-	<header class="page-header">
-		<h1>{{ page.title }}</h1>
-		{% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
-		<ul class="entry-meta">
-			{% if page.status == "draft" %}<li><span class="badge badge-draft">Draft</span></li>{% endif %}
-			{% if page.evidence %}<li><span class="badge badge-evidence-{{ page.evidence }}">Evidence: {{ page.evidence | capitalize }}</span></li>{% endif %}
-			{% if page.last_reviewed %}<li>Last reviewed <time datetime="{{ page.last_reviewed | date: '%Y-%m-%d' }}">{{ page.last_reviewed | date: "%B %-d, %Y" }}</time></li>{% endif %}
-		</ul>
-		{% if page.tags.size > 0 %}
-		<ul class="tag-list">
-			{% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
-		</ul>
+<div class="container entry-layout">
+	<article class="prose entry-body">
+		{% if page.key_points.size > 0 %}
+		<section class="at-a-glance" aria-labelledby="glance-heading">
+			<h2 id="glance-heading">At a glance</h2>
+			<ul>
+				{% for point in page.key_points %}<li>{{ point | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{% endfor %}
+			</ul>
+		</section>
 		{% endif %}
-	</header>
 
-	{{ content }}
+		{{ content }}
 
-	{% if page.sources.size > 0 %}
-	<section class="sources">
-		<h2>Sources</h2>
-		<ol>
-			{% for source in page.sources %}
-			<li>
-				{% if source.url %}<a href="{{ source.url }}" rel="noopener">{{ source.title }}</a>{% else %}{{ source.title }}{% endif %}
-				{% if source.note %}<span class="source-note">— {{ source.note }}</span>{% endif %}
-			</li>
-			{% endfor %}
-		</ol>
-	</section>
-	{% endif %}
+		{% if page.sources.size > 0 %}
+		<section class="sources" id="sources">
+			<h2>References</h2>
+			<ol>
+				{% for source in page.sources %}
+				<li>
+					{% if source.url %}<a href="{{ source.url }}" rel="noopener">{{ source.title }}</a>{% else %}{{ source.title }}{% endif %}
+					{% if source.note %}<span class="source-note">{{ source.note }}</span>{% endif %}
+				</li>
+				{% endfor %}
+			</ol>
+		</section>
+		{% endif %}
 
-	{% include disclaimer.html %}
-</article>
+		{% include disclaimer.html %}
+	</article>
+
+	<aside class="entry-sidebar" aria-label="Entry details">
+		<div class="sidebar-panel">
+			<h2>Entry details</h2>
+			<dl>
+				{% if category %}<dt>Section</dt><dd><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a></dd>{% endif %}
+				{% if page.evidence %}<dt>Evidence level</dt><dd><span class="badge badge-evidence-{{ page.evidence }}">{{ page.evidence | capitalize }}</span></dd>{% endif %}
+				{% if page.status == "draft" %}<dt>Status</dt><dd><span class="badge badge-draft">Draft</span></dd>{% endif %}
+				{% if page.last_reviewed %}<dt>Last reviewed</dt><dd><time datetime="{{ page.last_reviewed | date: '%Y-%m-%d' }}">{{ page.last_reviewed | date: "%B %-d, %Y" }}</time></dd>{% endif %}
+				{% if page.sources.size > 0 %}<dt>References</dt><dd><a href="#sources">{{ page.sources.size }} cited</a></dd>{% endif %}
+			</dl>
+			{% if page.tags.size > 0 %}
+			<h3>Topics</h3>
+			<ul class="tag-list">
+				{% for tag in page.tags %}<li>{{ tag }}</li>{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+		<div class="sidebar-panel sidebar-evidence">
+			<h2>About evidence levels</h2>
+			<p><strong>Established:</strong> consistent results from multiple controlled trials or systematic reviews.</p>
+			<p><strong>Emerging:</strong> promising results from some controlled studies; not yet conclusive.</p>
+			<p><strong>Preliminary:</strong> early, observational, or animal studies only.</p>
+		</div>
+	</aside>
+</div>

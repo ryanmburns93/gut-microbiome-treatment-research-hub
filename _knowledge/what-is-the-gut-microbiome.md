@@ -6,6 +6,9 @@ tags: [basics, bacteria, microbiota]
 evidence: established
 status: draft
 last_reviewed: 2026-09-25
+key_points:
+  - Plain-language point one.
+  - Plain-language point two.
 sources:
   - title: NIH Human Microbiome Project
     url: https://hmpdacc.org/
@@ -21,9 +24,3 @@ The *gut microbiota* is the community of microorganisms — mostly bacteria, but
 ## Why it matters for treatment research
 
 <!-- Summarize the key roles (digestion, immune signaling, colonization resistance, etc.) with citations. -->
-
-## Key takeaways
-
-- Point one.
-- Point two.
-- Point three.

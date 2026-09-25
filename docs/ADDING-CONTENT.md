@@ -16,6 +16,7 @@ minute, and it's live.
    | `category` | yes | An `id` from `_data/categories.yml` |
    | `summary` | recommended | Shown on cards, in search, and at the top of the entry |
    | `tags` | optional | Searchable, e.g. `[probiotics, IBS]` |
+   | `key_points` | recommended | Plain-language bullets shown first in an "At a glance" box, for non-specialist readers |
    | `evidence` | optional | `established`, `emerging`, or `preliminary` (shown as a colored badge) |
    | `status` | optional | `draft` shows a Draft badge. Remove it when the entry is ready |
    | `last_reviewed` | recommended | `YYYY-MM-DD`. Drives "Recently reviewed" on the home page |
@@ -61,9 +62,14 @@ group with its own `id`, `name`, and `links`.
 
 ## Change the look
 
-Colors, fonts, and spacing are variables at the top of `assets/css/main.css`.
-The dark-mode palette is in the `prefers-color-scheme: dark` block right
-below them.
+The site uses a clinical/institutional theme: navy and blue on white, Public Sans
+for headings and interface text, and Source Serif for article text (both
+from Google Fonts). Colors, fonts, and spacing are variables at the top of
+`assets/css/main.css`. The dark-mode palette is in the
+`prefers-color-scheme: dark` block right below them.
+
+The evidence-level definitions shown on every entry live in
+`_layouts/entry.html`. Adjust them to match your curation criteria.
 
 ## Internal links
 

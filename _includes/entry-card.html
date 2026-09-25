@@ -1,14 +1,12 @@
 {% assign entry = include.entry %}
 {% assign tags_text = entry.tags | join: " " %}
 {% capture search_text %}{{ entry.title }} {{ entry.summary }} {{ tags_text }}{% endcapture %}
-<li class="entry-card" data-category="{{ entry.category }}" data-search="{{ search_text | strip | downcase | escape }}">
-	<a href="{{ entry.url | relative_url }}">
-		<h3>{{ entry.title }}</h3>
-		{% if entry.summary %}<p>{{ entry.summary }}</p>{% endif %}
-		<ul class="card-meta">
-			{% if entry.status == "draft" %}<li><span class="badge badge-draft">Draft</span></li>{% endif %}
-			{% if entry.evidence %}<li><span class="badge badge-evidence-{{ entry.evidence }}">{{ entry.evidence | capitalize }}</span></li>{% endif %}
-			{% for tag in entry.tags limit: 4 %}<li class="tag">{{ tag }}</li>{% endfor %}
-		</ul>
-	</a>
+<li class="entry-row" data-category="{{ entry.category }}" data-search="{{ search_text | strip | downcase | escape }}">
+	<h3><a href="{{ entry.url | relative_url }}">{{ entry.title }}</a></h3>
+	{% if entry.summary %}<p>{{ entry.summary }}</p>{% endif %}
+	<ul class="row-meta">
+		{% if entry.evidence %}<li><span class="badge badge-evidence-{{ entry.evidence }}">Evidence: {{ entry.evidence | capitalize }}</span></li>{% endif %}
+		{% if entry.status == "draft" %}<li><span class="badge badge-draft">Draft</span></li>{% endif %}
+		{% if entry.last_reviewed %}<li>Reviewed {{ entry.last_reviewed | date: "%b %-d, %Y" }}</li>{% endif %}
+	</ul>
 </li>

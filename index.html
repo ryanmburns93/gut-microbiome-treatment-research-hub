@@ -3,59 +3,81 @@ layout: default
 title: Home
 ---
 <section class="hero">
-	<div class="container">
-		<p class="eyebrow">Curated research on gut microbiome therapies</p>
-		<h1>{{ site.title }}</h1>
-		<p class="lede">{{ site.description }}</p>
-		<div class="actions">
-			<a class="button" href="{{ '/knowledge/' | relative_url }}">Explore the Knowledge Base</a>
-			<a class="button button-secondary" href="{{ '/resources/' | relative_url }}">Resources &amp; Links</a>
+	<div class="container hero-grid">
+		<div class="hero-main">
+			<h1>Evidence-based information on gut microbiome treatments</h1>
+			<p class="lede">{{ site.description }}</p>
+			<form class="hero-search" action="{{ '/knowledge/' | relative_url }}" method="get" role="search">
+				<label for="hero-q">Search the Knowledge Base</label>
+				<div class="search-group">
+					<input type="search" id="hero-q" name="q" placeholder="e.g. probiotics, FMT, IBS" />
+					<button type="submit" class="button">Search</button>
+				</div>
+			</form>
 		</div>
+		<aside class="hero-panel" aria-label="Browse by section">
+			<h2>Browse by section</h2>
+			<ul>
+				{% for category in site.data.categories %}
+				{% assign count = site.knowledge | where: "category", category.id | size %}
+				<li><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}<span class="count">{{ count }}</span></a></li>
+				{% endfor %}
+			</ul>
+		</aside>
 	</div>
 </section>
 
-<section class="container section">
-	<h2 class="section-title">Browse by topic</h2>
-	<ul class="topic-grid">
-		{% for category in site.data.categories %}
-		{% assign count = site.knowledge | where: "category", category.id | size %}
-		<li>
-			<a class="topic-card" href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">
-				<h3>{{ category.name }}</h3>
+<section class="section">
+	<div class="container">
+		<h2 class="section-title">Research topics</h2>
+		<ul class="topic-grid">
+			{% for category in site.data.categories %}
+			<li class="topic-card">
+				<h3><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a></h3>
 				<p>{{ category.description }}</p>
-				<span class="topic-count">{{ count }} {% if count == 1 %}entry{% else %}entries{% endif %}</span>
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
 </section>
 
 {% assign recent = site.knowledge | sort: "last_reviewed" | reverse %}
 {% if recent.size > 0 %}
-<section class="container section">
-	<h2 class="section-title">Recently reviewed</h2>
-	<ul class="entry-list">
-		{% for entry in recent limit: 3 %}
-			{% include entry-card.html entry=entry %}
-		{% endfor %}
-	</ul>
-	<p><a href="{{ '/knowledge/' | relative_url }}">See all entries &rarr;</a></p>
+<section class="section section-alt">
+	<div class="container">
+		<div class="section-head">
+			<h2 class="section-title">Recently reviewed</h2>
+			<a href="{{ '/knowledge/' | relative_url }}">View all entries ›</a>
+		</div>
+		<ul class="entry-list">
+			{% for entry in recent limit: 4 %}
+				{% include entry-card.html entry=entry %}
+			{% endfor %}
+		</ul>
+	</div>
 </section>
 {% endif %}
 
-<section class="container section">
-	<div class="principles">
-		<div>
-			<h3>Curated, not crawled</h3>
-			<p>Every entry is written and reviewed by hand, with sources you can check yourself.</p>
-		</div>
-		<div>
-			<h3>Evidence first</h3>
-			<p>Entries flag how strong the evidence is, so established findings aren't confused with early signals.</p>
-		</div>
-		<div>
-			<h3>Kept current</h3>
-			<p>Each entry shows when it was last reviewed. Microbiome science moves fast; so do we.</p>
+<section class="section">
+	<div class="container">
+		<h2 class="section-title">Our standards</h2>
+		<div class="principles">
+			<div>
+				<h3>Curated by hand</h3>
+				<p>Every entry is written and reviewed individually, with references to the primary research.</p>
+			</div>
+			<div>
+				<h3>Graded evidence</h3>
+				<p>Each entry is labeled established, emerging, or preliminary, so early signals aren't mistaken for settled findings.</p>
+			</div>
+			<div>
+				<h3>Regularly reviewed</h3>
+				<p>Entries show the date they were last reviewed and are updated as new research is published.</p>
+			</div>
+			<div>
+				<h3>Written for everyone</h3>
+				<p>Plain-language summaries up front, with full detail and citations for researchers and clinicians.</p>
+			</div>
 		</div>
 	</div>
 </section>
