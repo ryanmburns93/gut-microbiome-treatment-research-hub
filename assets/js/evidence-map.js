@@ -49,7 +49,8 @@
 
 	(data.studies || []).forEach(function (row) {
 		var status = clean(row.status).toLowerCase();
-		if (status === 'hidden') return;
+		// Drafts stay off the public site until marked published.
+		if (status === 'hidden' || status === 'draft') return;
 
 		var study = {
 			id: clean(row.id),
@@ -147,7 +148,6 @@
 
 		var badges = el('p', { className: 'study-badges' }, [
 			findingBadge(study.finding),
-			study.status === 'draft' ? el('span', { className: 'badge badge-draft', text: 'Draft' }) : null,
 			study.status === 'example' ? el('span', { className: 'badge badge-draft', text: 'Sample' }) : null,
 			design ? el('span', { className: 'study-design', text: design }) : null
 		]);

@@ -48,6 +48,7 @@ exclude:
   - README.md
   - docs/
   - google-apps-script/
+  - scripts/
   - Gemfile
   - Gemfile.lock
   - vendor/

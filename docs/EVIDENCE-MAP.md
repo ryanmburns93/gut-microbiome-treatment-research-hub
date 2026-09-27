@@ -27,14 +27,55 @@ the fixed-choice columns and an Instructions tab. A copy of the same workbook
 is at [`curation/evidence-map-curation.xlsx`](curation/evidence-map-curation.xlsx),
 so you can re-import it to Google Sheets if needed.
 
-**To publish changes:**
+### Automatic sync
 
-1. In the Sheet, select the `studies` tab → **File → Download → Comma-separated values (.csv)**.
-   Do the same for the `topics` tab.
-2. Rename the downloads to `studies.csv` and `topics.csv`.
-3. On GitHub, open the `_data` folder → **Add file → Upload files**, drop both files in, and commit.
+The **Sync Evidence Map** GitHub Action
+(`.github/workflows/sync-evidence-map.yml`) runs every hour. It downloads both
+tabs, checks them, and commits any changes to `_data/`, which republishes the
+site. A tab is rejected, and the site keeps its current data, if:
 
-The map updates within a minute or two.
+- the header row doesn't match the column names below, or
+- two rows share an id.
+
+Rows without an id are skipped, so a half-typed row doesn't block the sync.
+
+**One-time setup:**
+
+1. In the Sheet: **File → Share → Publish to web**.
+2. Under **Link**, choose the `studies` tab and **Comma-separated values (.csv)**,
+   click **Publish**, and copy the link. Repeat for the `topics` tab.
+   Leave "Automatically republish when changes are made" on (under
+   *Published content and settings*).
+3. Paste the two links into `STUDIES_CSV_URL` and `TOPICS_CSV_URL` in
+   `.github/workflows/sync-evidence-map.yml` and commit.
+4. Test it: **Actions** tab → **Sync Evidence Map** → **Run workflow**.
+
+After that, edit the Sheet and the site catches up within about an hour.
+Google refreshes published links a few minutes after an edit. To update
+sooner, use **Run workflow**.
+
+Publishing makes the two tabs readable by anyone with those links, including
+rows marked `draft`. Keep private notes out of these tabs. They are not
+shown on the site, but the links are not secret.
+
+If a run fails, open it in the **Actions** tab. The error names the
+problem, such as a renamed column, a duplicate id, or a tab that isn't
+published. If it fails at "Commit changes" with a permission error, go to
+**Settings → Actions → General → Workflow permissions**, choose **Read and
+write permissions**, and save. GitHub emails you when a scheduled run fails.
+
+### Manual alternative
+
+If the sync isn't set up, or you'd rather not publish the Sheet, download each
+tab as CSV (**File → Download → Comma-separated values**), rename the files to
+`studies.csv` and `topics.csv`, and upload them to `_data/` on GitHub.
+
+## Extracting entries from PDFs
+
+[`curation/EXTRACTION-PROMPT.md`](curation/EXTRACTION-PROMPT.md) is a prompt to
+use with Claude and one research PDF at a time. It returns rows you can paste
+straight into the `studies` and `topics` tabs, plus verbatim quotes to check
+them against. Keep its topic list in sync with the Sheet.
 
 ## Columns
 
@@ -60,7 +101,7 @@ The map updates within a minute or two.
 | `finding` | `benefit`, `no-effect`, `mixed`, `harm`, or `n/a` |
 | `conclusion` | The study's main conclusion in 1–2 sentences |
 | `relevance` | Why it matters to the broader topic |
-| `status` | `published`, `draft` (shows a Draft badge), `hidden` (left off the site), or `example` |
+| `status` | `published` (shown), `draft` (not shown until you publish it), `hidden` (not shown), or `example` (shown with a Sample badge) |
 
 Every topic id used in `studies.csv` must exist in `topics.csv`. If one is
 missing or misspelled, the map shows a data-check warning naming it.
