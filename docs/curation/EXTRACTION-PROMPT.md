@@ -5,9 +5,10 @@ Use this to turn a research PDF into rows for the Evidence Map curation Sheet.
 **How to use it**
 
 1. Start a new chat with Claude and attach one PDF.
-2. Paste everything inside the box below. Before sending, update the
-   **CURRENT TOPICS** list if you've added topics to the Sheet since last time.
-   Optionally, fill in the line about why you read the paper.
+2. Paste everything inside the box below. Before sending, bring the
+   **CURRENT TOPICS** and **ALREADY IN THE SHEET** lists up to date with the
+   Sheet (the `topics` tab, and the `id` and `url` columns of the `studies`
+   tab). Optionally, fill in the line about why you read the paper.
 3. Check the rows against the **EVIDENCE CHECK** quotes, especially `finding`
    and `conclusion`.
 4. Copy the **STUDIES** block, click the first empty cell in column A of the
@@ -54,8 +55,25 @@ type-2-diabetes | Type 2 diabetes | condition
 bifidobacterium | Bifidobacterium | mechanism
 prevotella | Prevotella | mechanism
 sulfate-reducing-bacteria | Sulfate-reducing bacteria | mechanism
+mediterranean-diet | Mediterranean-style diet | treatment
+depression | Depression | condition
+bipolar-disorder | Bipolar disorder | condition
+schizophrenia | Schizophrenia | condition
+lactic-acid-bacteria | Lactic acid bacteria | mechanism
 
 Map synonyms to an existing id (e.g. "fecal transplant" or "stool transplant" -> fmt). Only propose a new topic when nothing above fits. New ids are lowercase words joined by hyphens, e.g. "small-intestinal-bacterial-overgrowth". Types: treatment (an intervention), condition (a disease or health state), mechanism (a biological process, molecule, or microbe that explains how or why).
+
+=== ALREADY IN THE SHEET ===
+
+If the attached paper's DOI or title matches one of these, stop and reply only: "Already in the Sheet: <id>". Also avoid reusing these ids for new rows.
+
+id | url
+su-2022-a, su-2022-b | https://doi.org/10.1038/s41598-022-05127-9
+jacka-2017 | https://doi.org/10.1186/s12916-017-0791-y
+mcguinness-2022 | https://doi.org/10.1038/s41380-022-01456-3
+rapoport-2022 | https://doi.org/10.20524/aog.2022.0695
+zhang-2025 | https://doi.org/10.3389/fpsyt.2025.1656969
+clancy-2021 | https://doi.org/10.3389/fnut.2021.653653
 
 === STUDY COLUMNS (in this exact order) ===
 
