@@ -1,8 +1,8 @@
 # Gut Microbiome Treatment Research Hub
 
-Source for the research hub website. It's hosted the same way as
+Source for the research hub website at **https://gutbrainbiome.com**. It's hosted the same way as
 rainbowdatalabs.com: free **GitHub Pages** hosting from this repo, a custom
-domain pointed at GitHub, and a **Google Apps Script → Google Sheet** backend
+domain (registered at Namecheap, DNS managed in Cloudflare) pointed at GitHub, and a **Google Apps Script → Google Sheet** backend
 for the contact form. The one difference is that GitHub Pages runs
 [Jekyll](https://jekyllrb.com/) on every push. You write knowledge entries as
 Markdown files, and GitHub turns them into pages. Nothing to install, no build
@@ -51,5 +51,5 @@ you want to preview anyway, with Ruby installed:
 ```sh
 bundle install
 bundle exec jekyll serve
-# open http://localhost:4000/gut-microbiome-treatment-research-hub/
+# open http://localhost:4000/
 ```
