@@ -8,11 +8,11 @@ description: >-
 author: Rainbow Data Labs
 lang: en
 
-# While the site is served from https://ryanmburns93.github.io/gut-microbiome-treatment-research-hub/
-# baseurl must be the repo path. Once the custom domain is connected
-# (see docs/DEPLOYMENT.md) set baseurl to "" and url to "https://<your-domain>".
-url: "https://ryanmburns93.github.io"
-baseurl: "/gut-microbiome-treatment-research-hub"
+# Served at the custom domain (see CNAME and docs/DEPLOYMENT.md). If the
+# domain is ever removed, set url to "https://ryanmburns93.github.io" and
+# baseurl to "/gut-microbiome-treatment-research-hub".
+url: "https://gutbrainbiome.com"
+baseurl: ""
 
 # Contact form endpoint (Google Apps Script web app). Leave empty to show a
 # "not configured yet" message. See google-apps-script/SETUP.md.
