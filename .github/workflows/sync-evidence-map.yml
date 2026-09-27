@@ -1,0 +1,54 @@
+# Pulls the Evidence Map curation Google Sheet into _data/ and commits any
+# changes, which republishes the site. Runs hourly, or on demand from the
+# Actions tab ("Sync Evidence Map" -> "Run workflow").
+# Setup and troubleshooting: docs/EVIDENCE-MAP.md
+name: Sync Evidence Map
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync-evidence-map
+  cancel-in-progress: false
+
+env:
+  # "Publish to web" CSV links for the Sheet's studies and topics tabs.
+  STUDIES_CSV_URL: ""
+  TOPICS_CSV_URL: ""
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and check the Sheet
+        run: python3 scripts/sync_evidence_map.py
+
+      - name: Commit changes
+        id: commit
+        run: |
+          if git diff --quiet -- _data/studies.csv _data/topics.csv; then
+            echo "No changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/studies.csv _data/topics.csv
+          git commit -m "Sync Evidence Map from the curation Sheet"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Make sure GitHub Pages rebuilds after a push made by this workflow.
+      - name: Request a Pages build
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::Couldn't request a Pages build; it may still start on its own."

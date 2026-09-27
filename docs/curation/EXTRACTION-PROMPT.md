@@ -13,7 +13,8 @@ Use this to turn a research PDF into rows for the Evidence Map curation Sheet.
 4. Copy the **STUDIES** block, click the first empty cell in column A of the
    `studies` tab, and paste. The tab-separated values fill the columns in order.
    Do the same for **NEW TOPICS** on the `topics` tab, if any were proposed.
-5. Rows come in with status `draft`. Change it to `published` once you've reviewed them.
+5. Rows come in with status `draft`, which keeps them off the site. Change it to
+   `published` once you've reviewed them.
 
 One PDF per chat keeps the extraction focused and the topic ids consistent.
 
