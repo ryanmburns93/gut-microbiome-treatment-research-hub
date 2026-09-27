@@ -19,7 +19,7 @@ concurrency:
 
 env:
   # "Publish to web" CSV links for the Sheet's studies and topics tabs.
-  STUDIES_CSV_URL: ""
+  STUDIES_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS825yB_GSBdlpE4xUfLEoI3tgyCDBfIFu8zxHJAq-kZB6wEZvRl1pcH8pPD3zEUqhMiLxPGC3kkAJ-/pub?gid=1011304567&single=true&output=csv"
   TOPICS_CSV_URL: ""
 
 jobs:
