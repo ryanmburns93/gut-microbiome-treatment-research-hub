@@ -36,6 +36,13 @@ so you can re-import it to Google Sheets if needed.
 
 The map updates within a minute or two.
 
+## Extracting entries from PDFs
+
+[`curation/EXTRACTION-PROMPT.md`](curation/EXTRACTION-PROMPT.md) is a prompt to
+use with Claude and one research PDF at a time. It returns rows you can paste
+straight into the `studies` and `topics` tabs, plus verbatim quotes to check
+them against. Keep its topic list in sync with the Sheet.
+
 ## Columns
 
 **topics**
