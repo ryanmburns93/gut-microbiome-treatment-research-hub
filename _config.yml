@@ -16,7 +16,7 @@ baseurl: ""
 
 # Contact form endpoint (Google Apps Script web app). Leave empty to show a
 # "not configured yet" message. See google-apps-script/SETUP.md.
-contact_endpoint: ""
+contact_endpoint: "https://script.google.com/macros/s/AKfycbwInOH4miUDO7VgeK8jsr7hgmiXykSZJMrQHFpx-2BePMs6VW6WyHZjhtV2mIRUpBbq/exec"
 
 markdown: kramdown
 kramdown:
