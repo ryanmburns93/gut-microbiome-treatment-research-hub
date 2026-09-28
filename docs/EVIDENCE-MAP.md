@@ -75,7 +75,12 @@ tab as CSV (**File → Download → Comma-separated values**), rename the files 
 [`curation/EXTRACTION-PROMPT.md`](curation/EXTRACTION-PROMPT.md) is a prompt to
 use with Claude and one research PDF at a time. It returns rows you can paste
 straight into the `studies` and `topics` tabs, plus verbatim quotes to check
-them against. Keep its topic list in sync with the Sheet.
+them against. Keep its topic list and its list of studies already in the Sheet
+up to date.
+
+Each row counts as one study on the map, so a paper normally gets one row.
+The prompt splits a paper only when its groups got different treatments or
+conditions (for example, diet alone vs. diet plus FMT).
 
 ## Columns
 
