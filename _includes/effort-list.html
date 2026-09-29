@@ -1,0 +1,20 @@
+{% comment %} Ongoing efforts from _data/efforts.yml. Pass limit= to show only the first few. {% endcomment %}
+{% assign efforts = site.data.efforts %}
+{% assign max = include.limit | default: efforts.size %}
+{% if efforts.size > 0 %}
+<ul class="effort-grid">
+	{% for effort in efforts limit: max %}
+	<li class="effort-card">
+		<p class="effort-meta">
+			{% if effort.kind %}<span>{{ effort.kind }}</span>{% endif %}
+			{% if effort.status %}<span class="badge status-{{ effort.status | slugify }}">{{ effort.status }}</span>{% endif %}
+		</p>
+		<h3>{% if effort.url %}<a href="{{ effort.url | relative_url }}"{% if effort.url contains '://' %} rel="noopener"{% endif %}>{{ effort.title }}</a>{% else %}{{ effort.title }}{% endif %}</h3>
+		{% if effort.summary %}<p>{{ effort.summary }}</p>{% endif %}
+		{% if effort.updated %}<p class="effort-updated">Updated {{ effort.updated | date: "%b %-d, %Y" }}</p>{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p class="empty">No efforts listed yet.</p>
+{% endif %}

@@ -1,0 +1,12 @@
+# Community page link groups. Same shape as _data/resources.yml: each group
+# has an id, name, optional description, and links with a title, url, and
+# optional one-line description. Add `added: YYYY-MM-DD` to a link to show
+# a "New" badge for 60 days.
+- id: groups
+  name: Communities & support
+  description: Patient groups, forums, and support networks we've found helpful.
+  links: []
+- id: emerging
+  name: Emerging resources
+  description: New tools, programs, and publications worth watching. Newest first.
+  links: []

@@ -1,0 +1,56 @@
+---
+title: Community
+lede: The people, efforts, and new resources pushing gut-brain research forward, and a way to connect with us.
+wide: true
+scripts:
+  - /assets/js/contact-form.js
+---
+{% assign now = site.time | date: "%s" | plus: 0 %}
+<div class="community-layout">
+	<div class="community-main">
+		<section class="community-section" id="efforts">
+			<h2>Ongoing efforts</h2>
+			<p class="section-description">Research, trials, and projects in progress, including our own.</p>
+			{% include effort-list.html %}
+		</section>
+
+		{% for group in site.data.community %}
+		<section class="community-section" id="{{ group.id }}">
+			<h2>{{ group.name }}</h2>
+			{% if group.description %}<p class="section-description">{{ group.description }}</p>{% endif %}
+			{% if group.links.size > 0 %}
+			<ul class="resource-list">
+				{% for link in group.links %}
+				{% assign is_new = false %}
+				{% if link.added %}
+					{% assign age = link.added | date: "%s" | plus: 0 | minus: now | abs %}
+					{% if age < 5184000 %}{% assign is_new = true %}{% endif %}
+				{% endif %}
+				<li>
+					<a href="{{ link.url | relative_url }}" rel="noopener">{{ link.title }}</a>
+					{% if is_new %}<span class="badge badge-new">New</span>{% endif %}
+					{% if link.description %}<p>{{ link.description }}</p>{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+			{% else %}
+			<p class="empty">Nothing listed yet. Know one that belongs here? <a href="#connect">Tell us</a>.</p>
+			{% endif %}
+		</section>
+		{% endfor %}
+
+		<p>Looking for research databases and trial registries? See <a href="{{ '/resources/' | relative_url }}">Resources</a>.</p>
+	</div>
+
+	<aside class="community-aside" id="connect" aria-labelledby="connect-heading">
+		<div class="sidebar-panel connect-panel">
+			<h2 id="connect-heading">Connect with us</h2>
+			<p>Living with something similar? Running a study, a support group, or a project we should know about? We'd love to hear from you.</p>
+			{% include contact-form.html %}
+		</div>
+	</aside>
+</div>
+
+<aside class="notice" role="note">
+	<p>Listings are shared for information and do not imply endorsement. Talk with a qualified clinician before joining a trial or starting a treatment.</p>
+</aside>

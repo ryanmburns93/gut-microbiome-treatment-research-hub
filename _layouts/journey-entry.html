@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% capture crumbs %}<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">›</span><a href="{{ '/story/' | relative_url }}">Our Story</a></nav>{% endcapture %}
+{% include page-banner.html title=page.title lede=page.summary crumbs=crumbs %}
+
+{% assign updates = site.journey | sort: "date" %}
+{% for update in updates %}
+	{% if update.url == page.url %}
+		{% assign prev_index = forloop.index0 | minus: 1 %}
+		{% assign next_index = forloop.index0 | plus: 1 %}
+	{% endif %}
+{% endfor %}
+
+<div class="container page-body prose">
+	<p class="timeline-meta">
+		<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+		{% if page.phase %}<span class="badge badge-phase">{{ page.phase }}</span>{% endif %}
+		{% if page.status == "draft" %}<span class="badge badge-draft">Draft</span>{% endif %}
+	</p>
+
+	{{ content }}
+
+	<nav class="journey-nav" aria-label="More updates">
+		{% if prev_index >= 0 %}{% assign prev = updates[prev_index] %}<a href="{{ prev.url | relative_url }}">‹ Earlier: {{ prev.title }}</a>{% endif %}
+		{% if next_index < updates.size %}{% assign next = updates[next_index] %}<a class="journey-next" href="{{ next.url | relative_url }}">Later: {{ next.title }} ›</a>{% endif %}
+	</nav>
+	<p><a href="{{ '/story/' | relative_url }}">Back to Our Story</a></p>
+
+	<aside class="notice" role="note">
+		<p><strong>One person's experience.</strong> This is a personal account, not medical advice. Talk with a qualified clinician about any treatment decision.</p>
+	</aside>
+</div>

@@ -1,0 +1,17 @@
+# "What we've tried" table on Our Story. One item per treatment, newest
+# first. Every field except name is optional.
+#   name:     what was tried
+#   topic:    an Evidence Map topic id from _data/topics.csv (adds a
+#             "See the research" link), e.g. probiotics, fmt, dietary-fiber
+#   started:  free text, e.g. "Mar 2025"
+#   ended:    leave out if still ongoing
+#   outcome:  short label: Helped, Some benefit, No change, Made it worse,
+#             Ongoing, Too early to tell
+#   notes:    one or two sentences; Markdown links are fine
+#
+# The item below is a placeholder. Replace it with real entries.
+- name: Example treatment (replace me)
+  topic: probiotics
+  started: Month Year
+  outcome: Too early to tell
+  notes: What you tried, why, and what you noticed.
