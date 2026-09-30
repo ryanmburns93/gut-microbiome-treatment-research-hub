@@ -1,0 +1,14 @@
+# "Records & reports" list on Our Story, oldest first. Put the files in
+# files/story/ and reference them as /files/story/<name>.pdf.
+#
+# EVERYTHING HERE IS PUBLIC. Before adding a file, redact: full names,
+# dates of birth, medical record and insurance numbers, addresses, phone
+# numbers, and anything your partner hasn't agreed to share.
+#
+#   title:    what the document is
+#   date:     YYYY-MM or YYYY-MM-DD (free text is fine, e.g. "Spring 2024")
+#   kind:     Report | Lab results | Clinical notes | Timeline | Summary | Other
+#   summary:  one or two sentences on what it shows and why it matters
+#   file:     /files/story/<name>.pdf (optional; leave out to list without a link)
+#   url:      an outside link instead of a file (optional)
+[]

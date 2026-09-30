@@ -57,6 +57,7 @@ defaults:
 
 exclude:
   - README.md
+  - files/story/README.md
   - docs/
   - google-apps-script/
   - scripts/

@@ -1,6 +1,6 @@
 ---
 title: Our Story
-lede: One person's experience with a gut-brain condition. What happened, what we've tried, and what we've learned along the way.
+lede: One person's experience with bipolar II disorder and the gut-brain connection. What happened, what we've tried, and what we've learned along the way.
 ---
 
 <!--
@@ -15,9 +15,11 @@ lede: One person's experience with a gut-brain condition. What happened, what we
 Write a short introduction here: who this story is about, why you started this site, and what you hope readers take from it.
 {: .placeholder}
 
-## The condition
+## The condition: bipolar II disorder
 
-Describe the diagnosis (or the search for one) in plain language: what the condition is, how it shows up day to day, and how it connects the gut and the brain. Link to the matching [Knowledge Base]({{ '/knowledge/' | relative_url }}) entries or [Evidence Map]({{ '/evidence-map/' | relative_url }}) topics where they exist.
+Bipolar II disorder is a mood disorder marked by episodes of major depression and at least one episode of hypomania: a period of elevated or irritable mood and increased energy that is milder than the full mania seen in bipolar I. Depressive episodes are often longer and more frequent than hypomanic ones, and the condition is commonly misdiagnosed as depression at first.
+
+Describe how it shows up day to day, how and when the diagnosis came, and why you started looking at the gut-brain connection. Link to the matching [Knowledge Base]({{ '/knowledge/' | relative_url }}) entries or [Evidence Map]({{ '/evidence-map/' | relative_url }}) topics where they exist.
 {: .placeholder}
 
 ## How it started
@@ -28,6 +30,14 @@ Tell the beginning of the story: the first symptoms, the early appointments, and
 ## What we've tried
 
 {% include treatment-log.html %}
+
+## The presentation
+
+{% include story-presentation.html %}
+
+## Records & reports
+
+{% include story-documents.html %}
 
 ## The journey so far
 

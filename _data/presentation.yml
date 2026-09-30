@@ -1,0 +1,12 @@
+# "The presentation" section on Our Story. Leave a field empty to hide it.
+#   video_embed: the embed URL, not the page URL. For YouTube (upload as
+#     Unlisted if you prefer) use https://www.youtube-nocookie.com/embed/<VIDEO_ID>.
+#     For Google Drive use https://drive.google.com/file/d/<FILE_ID>/preview
+#     (set sharing to "Anyone with the link").
+#   slides_pdf: /files/story/<name>.pdf, or an outside link to the slides
+title: ""
+event: ""
+date: ""
+summary: ""
+video_embed: ""
+slides_pdf: ""

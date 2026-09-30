@@ -1,0 +1,23 @@
+{% comment %} The presentation, from _data/presentation.yml. Empty or missing fields are hidden. {% endcomment %}
+{% assign pres = site.data.presentation %}
+{% assign p_title = pres.title | default: "" %}
+{% assign p_event = pres.event | default: "" %}
+{% assign p_date = pres.date | default: "" | append: "" %}
+{% assign p_summary = pres.summary | default: "" %}
+{% assign p_video = pres.video_embed | default: "" %}
+{% assign p_slides = pres.slides_pdf | default: "" %}
+{% if p_video.size > 0 or p_slides.size > 0 %}
+<div class="presentation">
+	{% if p_title.size > 0 %}<h3>{{ p_title }}</h3>{% endif %}
+	{% if p_event.size > 0 or p_date.size > 0 %}<p class="timeline-meta">{{ p_event }}{% if p_event.size > 0 and p_date.size > 0 %} · {% endif %}{{ p_date }}</p>{% endif %}
+	{% if p_summary.size > 0 %}<p>{{ p_summary }}</p>{% endif %}
+	{% if p_video.size > 0 %}
+	<div class="video-frame">
+		<iframe src="{{ p_video }}" title="{{ p_title | default: 'Presentation recording' }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+	</div>
+	{% endif %}
+	{% if p_slides.size > 0 %}<p><a class="button" href="{{ p_slides | relative_url }}" rel="noopener">View the slides (PDF)</a></p>{% endif %}
+</div>
+{% else %}
+<p class="empty">The recording and slides of our presentation will be added here.</p>
+{% endif %}

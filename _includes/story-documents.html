@@ -1,0 +1,16 @@
+{% comment %} Records & reports from _data/story-documents.yml. {% endcomment %}
+{% assign docs = site.data.story-documents %}
+{% if docs.size > 0 %}
+<ul class="resource-list doc-list">
+	{% for doc in docs %}
+	{% assign href = doc.file | default: doc.url %}
+	<li>
+		<p class="effort-meta"><span>{% if doc.kind %}{{ doc.kind }}{% endif %}{% if doc.kind and doc.date %} · {% endif %}{{ doc.date }}</span></p>
+		{% if href %}<a href="{{ href | relative_url }}" rel="noopener">{{ doc.title }}</a>{% else %}<strong>{{ doc.title }}</strong>{% endif %}
+		{% if doc.summary %}<p>{{ doc.summary }}</p>{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p class="empty">Records and reports will be added here.</p>
+{% endif %}
