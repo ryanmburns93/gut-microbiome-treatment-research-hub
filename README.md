@@ -1,4 +1,4 @@
-# Gut Microbiome Treatment Research Hub
+# Gut Brain Biome - Patient Resources, Emerging Treatments & Research Hub
 
 Source for the research hub website at **https://gutbrainbiome.com**. It's hosted the same way as
 rainbowdatalabs.com: free **GitHub Pages** hosting from this repo, a custom

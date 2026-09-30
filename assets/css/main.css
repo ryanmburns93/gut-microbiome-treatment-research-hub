@@ -196,8 +196,8 @@ label { font-weight: 600; }
 }
 .brand:hover { color: var(--navy); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-.brand-line1 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
-.brand-line2 { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+.brand-line1 { margin-top: 0.15rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.brand-line2 { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
 
 @media (prefers-color-scheme: dark) {
 	.brand-line2 { color: var(--text); }
@@ -245,8 +245,8 @@ label { font-weight: 600; }
 
 @media (max-width: 30rem) {
 	.brand img { width: 36px; height: 36px; }
-	.brand-line1 { font-size: 0.7rem; }
-	.brand-line2 { font-size: 1.05rem; }
+	.brand-line1 { font-size: 0.62rem; letter-spacing: 0.04em; }
+	.brand-line2 { font-size: 1.15rem; }
 }
 
 /* Home */

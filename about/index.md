@@ -8,7 +8,7 @@ scripts:
 ## Our mission
 
 <!-- Replace with the project's mission statement. -->
-The Gut Microbiome Treatment Research Hub started with one person's gut-brain condition and a search for better answers. It brings together three things:
+Gut Brain Biome started with one person's gut-brain condition and a search for better answers. It brings together three things:
 
 - **The research.** Peer-reviewed studies on therapies that target the gut microbiome, summarized clearly and linked to primary sources, in the [Knowledge Base]({{ '/knowledge/' | relative_url }}) and [Evidence Map]({{ '/evidence-map/' | relative_url }}).
 - **Our story.** A personal record of the condition, the treatments tried, and the journey so far, in [Our Story]({{ '/story/' | relative_url }}).
