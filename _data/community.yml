@@ -5,8 +5,26 @@
 - id: groups
   name: Communities & support
   description: Patient groups, forums, and support networks we've found helpful.
-  links: []
+  links:
+    - title: Microbiome in Mind
+      url: https://www.microbiomeinmind.com.au/
+      description: Jane Dudley's site about treating her bipolar I disorder with fecal microbiota transplantation, and the story that started ours.
+      added: 2026-10-04
+    - title: eMoods Bipolar Mood Tracker
+      url: https://emoodtracker.com/
+      description: Free app for tracking daily mood, sleep, and symptoms in bipolar disorder, depression, and anxiety. Easy to export for your care team.
+      added: 2026-10-04
 - id: emerging
   name: Emerging resources
   description: New tools, programs, and publications worth watching. Newest first.
-  links: []
+  links:
+    - title: "Gut Instinct (ABC News, July 2025)"
+      url: https://www.abc.net.au/news/2025-07-28/gut-instinct-jane-dudley/105583270
+      description: Australian news feature on Jane Dudley's fecal microbiota transplant for bipolar I disorder.
+      added: 2026-10-04
+    - title: "The Gut Mood Solution, by Professor Gordon Parker"
+      description: Book by the founder of Australia's Black Dog Institute that includes Jane Dudley's case. Not yet in every library; you can request it.
+      added: 2026-10-04
+    - title: "The Psychobiotic Revolution, by Scott C. Anderson, John F. Cryan and Ted Dinan"
+      description: An accessible introduction to the gut-brain axis and psychobiotics.
+      added: 2026-10-04

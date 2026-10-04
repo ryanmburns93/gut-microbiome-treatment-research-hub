@@ -27,7 +27,7 @@ scripts:
 					{% if age < 5184000 %}{% assign is_new = true %}{% endif %}
 				{% endif %}
 				<li>
-					<a href="{{ link.url | relative_url }}" rel="noopener">{{ link.title }}</a>
+					{% if link.url %}<a href="{{ link.url | relative_url }}" rel="noopener">{{ link.title }}</a>{% else %}<strong>{{ link.title }}</strong>{% endif %}
 					{% if is_new %}<span class="badge badge-new">New</span>{% endif %}
 					{% if link.description %}<p>{{ link.description }}</p>{% endif %}
 				</li>
