@@ -5,13 +5,26 @@
 #             "See the research" link), e.g. probiotics, fmt, dietary-fiber
 #   started:  free text, e.g. "Mar 2025"
 #   ended:    leave out if still ongoing
-#   outcome:  short label: Helped, Some benefit, No change, Made it worse,
-#             Ongoing, Too early to tell
+#   outcome:  short label: Helped, Some benefit, Mixed, No change,
+#             Made it worse, Ongoing, Too early to tell
 #   notes:    one or two sentences; Markdown links are fine
-#
-# The item below is a placeholder. Replace it with real entries.
-- name: Example treatment (replace me)
-  topic: probiotics
-  started: Month Year
+- name: FMT capsules, new round
+  topic: fmt
+  started: Aug 2026
   outcome: Too early to tell
-  notes: What you tried, why, and what you noticed.
+  notes: Restarted with fresh screened donor stool after depression returned in August, alongside more fiber and fermented foods to help it take hold.
+- name: FMT capsules, first rounds
+  topic: fmt
+  started: Feb 2026
+  ended: Apr 2026
+  outcome: Mixed
+  notes: Eight doses from two screened donors (Feb 4 to Mar 6), then another round in April. Depression lifted for about four months, but elevated mood rose and sleep fell. See [the data](#what-the-data-shows).
+- name: Talk therapy
+  started: Before 2026
+  outcome: Ongoing
+  notes: Regular sessions throughout, logged in eMoods.
+- name: Atypical antipsychotics and mood stabilizers
+  topic: psychotropic-medications
+  started: 2020
+  outcome: Some benefit
+  notes: Tried most available options one at a time from 2020 to 2025 without lasting gains. Stopped after the April 2026 FMT; one antipsychotic restarted as a precaution when sleep dropped below five hours.

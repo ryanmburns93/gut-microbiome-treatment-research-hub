@@ -14,7 +14,7 @@ layout: default
 
 <div class="container page-body prose">
 	<p class="timeline-meta">
-		<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+		<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% if page.month_only %}{{ page.date | date: "%B %Y" }}{% else %}{{ page.date | date: "%B %-d, %Y" }}{% endif %}</time>
 		{% if page.phase %}<span class="badge badge-phase">{{ page.phase }}</span>{% endif %}
 		{% if page.status == "draft" %}<span class="badge badge-draft">Draft</span>{% endif %}
 	</p>

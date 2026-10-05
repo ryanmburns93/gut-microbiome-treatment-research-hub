@@ -6,6 +6,7 @@
 {% assign p_summary = pres.summary | default: "" %}
 {% assign p_video = pres.video_embed | default: "" %}
 {% assign p_slides = pres.slides_pdf | default: "" %}
+{% assign p_transcript = pres.transcript_url | default: "" %}
 {% if p_video.size > 0 or p_slides.size > 0 %}
 <div class="presentation">
 	{% if p_title.size > 0 %}<h3>{{ p_title }}</h3>{% endif %}
@@ -16,7 +17,11 @@
 		<iframe src="{{ p_video }}" title="{{ p_title | default: 'Presentation recording' }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
 	</div>
 	{% endif %}
-	{% if p_slides.size > 0 %}<p><a class="button" href="{{ p_slides | relative_url }}" rel="noopener">View the slides (PDF)</a></p>{% endif %}
+	{% if p_video.size == 0 %}<p class="empty">The recording is coming soon. In the meantime, read the transcript.</p>{% endif %}
+	<p class="button-row">
+		{% if p_slides.size > 0 %}<a class="button" href="{{ p_slides | relative_url }}" rel="noopener">View the slides (PDF)</a>{% endif %}
+		{% if p_transcript.size > 0 %}<a class="button button-secondary" href="{{ p_transcript | relative_url }}">Read the transcript</a>{% endif %}
+	</p>
 </div>
 {% else %}
 <p class="empty">The recording and slides of our presentation will be added here.</p>

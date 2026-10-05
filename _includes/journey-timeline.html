@@ -6,7 +6,7 @@
 	{% for update in updates limit: max %}
 	<li class="timeline-item">
 		<p class="timeline-meta">
-			<time datetime="{{ update.date | date: '%Y-%m-%d' }}">{{ update.date | date: "%B %-d, %Y" }}</time>
+			<time datetime="{{ update.date | date: '%Y-%m-%d' }}">{% if update.month_only %}{{ update.date | date: "%B %Y" }}{% else %}{{ update.date | date: "%B %-d, %Y" }}{% endif %}</time>
 			{% if update.phase %}<span class="badge badge-phase">{{ update.phase }}</span>{% endif %}
 			{% if update.status == "draft" %}<span class="badge badge-draft">Draft</span>{% endif %}
 		</p>

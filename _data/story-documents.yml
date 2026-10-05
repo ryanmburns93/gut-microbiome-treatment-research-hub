@@ -3,12 +3,28 @@
 #
 # EVERYTHING HERE IS PUBLIC. Before adding a file, redact: full names,
 # dates of birth, medical record and insurance numbers, addresses, phone
-# numbers, and anything your partner hasn't agreed to share.
+# numbers, and anything Monica hasn't agreed to share. The original lab
+# reports are summarized on the page rather than published.
 #
-#   title:    what the document is
-#   date:     YYYY-MM or YYYY-MM-DD (free text is fine, e.g. "Spring 2024")
-#   kind:     Report | Lab results | Clinical notes | Timeline | Summary | Other
-#   summary:  one or two sentences on what it shows and why it matters
-#   file:     /files/story/<name>.pdf (optional; leave out to list without a link)
-#   url:      an outside link instead of a file (optional)
-[]
+#   title / date / kind / summary / file (optional) / url (optional)
+- title: Baseline gut microbiome test (Thorne)
+  date: Jan 2026
+  kind: Lab results
+  summary: Home stool test before FMT. Summarized under "Her microbiome, before and after"; the original report isn't published.
+- title: Daily mood and sleep log (eMoods)
+  date: Jan 1 to Aug 14, 2026
+  kind: Timeline
+  summary: Self-reported ratings and hours slept, shown in the chart above with averages by period.
+- title: FMT dosing log
+  date: Feb to Mar 2026
+  kind: Clinical notes
+  summary: Eight capsule doses from two screened donors, marked on the chart. The April round wasn't logged.
+- title: Follow-up gut microbiome test (Jona)
+  date: Apr 28, 2026
+  kind: Lab results
+  summary: Home stool test after the April round. Summarized above; the original report isn't published.
+- title: "Presentation slides: Psychobiotics & The Microbiomes That Make Us"
+  date: Aug 20, 2026
+  kind: Summary
+  summary: Slides from the Nerd Nite Fort Collins talk, with sources.
+  file: /files/story/psychobiotics-nerd-nite-2026-08-20.pdf
