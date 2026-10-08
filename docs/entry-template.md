@@ -1,8 +1,7 @@
 ---
-# Copy this file into _knowledge/ and rename it — the file name becomes the
-# URL, e.g. _knowledge/probiotics-for-ibs.md -> /knowledge/probiotics-for-ibs/
+# Copy this file into _reading/ and rename it — the file name becomes the
+# URL, e.g. _reading/probiotics-for-ibs.md -> /reading/probiotics-for-ibs/
 title: Entry title
-category: treatments          # one of the ids in _data/categories.yml
 summary: One or two sentences shown on cards and at the top of the entry.
 tags: [tag one, tag two]
 evidence: emerging            # established | emerging | preliminary (optional)

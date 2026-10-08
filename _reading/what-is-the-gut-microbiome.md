@@ -1,6 +1,6 @@
 ---
+redirect_from: /knowledge/what-is-the-gut-microbiome/
 title: What is the gut microbiome?
-category: foundations
 summary: The community of bacteria, fungi, viruses, and other microbes living in the digestive tract, and why researchers study it.
 tags: [basics, bacteria, microbiota]
 evidence: established
@@ -15,7 +15,7 @@ sources:
     note: Program overview and reference data.
 ---
 
-> **Example entry.** This page shows the format for Knowledge Base entries. Replace its content, or delete it once real entries are in place.
+> **Example entry.** This page shows the format for Reading articles. Replace its content, or delete it once real entries are in place.
 
 ## Overview
 

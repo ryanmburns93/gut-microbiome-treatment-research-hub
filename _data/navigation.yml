@@ -1,18 +1,15 @@
 # Main menu, in order. Add a page by creating it (e.g. glossary/index.md)
-# and adding one entry here. The site has three parts: the research
-# (Knowledge Base, Evidence Map), Our Story, and Community (Community,
-# Resources).
+# and adding one entry here. The site has three parts: Research, Our Story,
+# and Community (Community, Resources & Reading).
 - title: Home
   url: /
-- title: Knowledge Base
-  url: /knowledge/
-- title: Evidence Map
-  url: /evidence-map/
+- title: Research
+  url: /research/
 - title: Our Story
   url: /story/
 - title: Community
   url: /community/
-- title: Resources
+- title: Resources & Reading
   url: /resources/
 - title: About
   url: /about/

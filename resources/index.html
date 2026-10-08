@@ -1,7 +1,24 @@
 ---
-title: Resources
-lede: Databases, organizations, and tools we rely on when researching gut microbiome treatments.
+title: Resources & Reading
+lede: Background articles to start with, plus the databases, organizations, and tools we rely on. For the studies themselves, see Research.
 ---
+{% assign articles = site.reading | sort: "title" %}
+{% if articles.size > 0 %}
+<section class="resource-group" id="reading">
+	<h2>Reading</h2>
+	<p class="section-description">Plain-language background articles we've written. They're an introduction, not a substitute for the <a href="{{ '/research/' | relative_url }}">research</a>.</p>
+	<ul class="resource-list reading-list">
+		{% for a in articles %}
+		<li>
+			<a href="{{ a.url | relative_url }}">{{ a.title }}</a>
+			{% if a.status == "draft" %}<span class="badge badge-draft">Draft</span>{% endif %}
+			{% if a.summary %}<p>{{ a.summary }}</p>{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endif %}
+
 {% for group in site.data.resources %}
 <section class="resource-group" id="{{ group.id }}">
 	<h2>{{ group.name }}</h2>

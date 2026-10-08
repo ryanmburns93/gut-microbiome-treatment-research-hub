@@ -1,0 +1,84 @@
+---
+title: Research
+lede: Peer-reviewed studies on gut microbiome treatments, summarized in plain language. Select a study to read its conclusion and why it matters, or filter by treatment, condition, topic, or study type.
+wide: true
+redirect_from:
+  - /knowledge/
+  - /evidence-map/
+scripts:
+  - /assets/js/research.js
+---
+{% comment %}
+  Studies come from _data/studies.csv (synced hourly from the curation
+  Sheet; see docs/EVIDENCE-MAP.md). Topic names come from _data/topics.csv.
+  Rows with status "draft" or "hidden" are left out. The list works without
+  JavaScript; assets/js/research.js adds search, filters, and counts.
+{% endcomment %}
+{% assign visible = "" | split: "" %}
+{% for s in site.data.studies %}
+	{% unless s.status == "draft" or s.status == "hidden" %}{% assign visible = visible | push: s %}{% endunless %}
+{% endfor %}
+{% assign studies = visible | sort: "title" | sort: "year" | reverse %}
+<script id="topic-names" type="application/json">{
+{%- for t in site.data.topics -%}{{ t.id | jsonify }}:{{ t.name | jsonify }}{% unless forloop.last %},{% endunless %}{%- endfor -%}
+}</script>
+
+<div class="research-layout">
+	<aside class="research-sidebar" aria-label="Filter studies">
+		<button type="button" class="research-filter-toggle" aria-expanded="false" aria-controls="research-filters" hidden>Filters</button>
+		<div id="research-filters" class="research-filters">
+			<div class="research-search" role="search">
+				<label for="research-q">Search studies</label>
+				<input type="search" id="research-q" placeholder="Keyword, author, journal" autocomplete="off" />
+			</div>
+			<div id="research-facets"></div>
+			<button type="button" id="research-clear" class="link-button" hidden>Clear all filters</button>
+		</div>
+	</aside>
+
+	<div class="research-results">
+		<p id="research-status" class="research-status" aria-live="polite">{{ studies.size }} studies</p>
+		<ul class="study-index" id="study-index">
+			{% for s in studies %}
+			{% capture search_text %}{{ s.title }} {{ s.authors }} {{ s.journal }} {{ s.year }} {{ s.study_type }} {{ s.conclusion }}{% endcapture %}
+			<li class="study-item" id="{{ s.id }}"
+				data-treatment="{{ s.treatments | remove: ' ' }}"
+				data-condition="{{ s.conditions | remove: ' ' }}"
+				data-topic="{{ s.other_topics | remove: ' ' }}"
+				data-type="{{ s.study_type | escape }}"
+				data-search="{{ search_text | strip | downcase | escape }}">
+				<details>
+					<summary>
+						<span class="study-title">{{ s.title }}</span>
+						<span class="study-summary-meta">
+							<span class="study-year">{{ s.year }}</span>
+							<span class="study-type-badge">{{ s.study_type }}</span>
+							{% if s.status == "example" %}<span class="badge badge-draft">Sample</span>{% endif %}
+						</span>
+					</summary>
+					<div class="study-details">
+						<dl class="study-facts">
+							{% if s.authors %}<dt>Authors</dt><dd>{{ s.authors }}</dd>{% endif %}
+							{% if s.journal %}<dt>Journal</dt><dd>{{ s.journal }}{% if s.year %} ({{ s.year }}){% endif %}</dd>{% endif %}
+							<dt>Study type</dt><dd>{{ s.study_type }}{% if s.sample_size %}, {{ s.sample_size }} participants{% endif %}</dd>
+							{% if s.finding and s.finding != "n/a" %}<dt>Finding</dt><dd><span class="badge finding-{{ s.finding | slugify }}">{{ s.finding | capitalize }}</span></dd>{% endif %}
+						</dl>
+						{% if s.conclusion %}<h3>Conclusion</h3><p>{{ s.conclusion }}</p>{% endif %}
+						{% if s.relevance %}<h3>Why it matters</h3><p>{{ s.relevance }}</p>{% endif %}
+						{% capture tag_ids %}{{ s.treatments }};{{ s.conditions }};{{ s.other_topics }}{% endcapture %}
+						{% assign tag_list = tag_ids | remove: " " | split: ";" %}
+						{% if tag_list.size > 0 %}
+						<ul class="study-tags" aria-label="Topics">
+							{% for tid in tag_list %}{% if tid != "" %}{% assign t = site.data.topics | where: "id", tid | first %}<li>{% if t %}{{ t.name }}{% else %}{{ tid | replace: "-", " " }}{% endif %}</li>{% endif %}{% endfor %}
+						</ul>
+						{% endif %}
+						{% if s.url %}<p class="study-link"><a class="button" href="{{ s.url }}" rel="noopener">Read the study <span class="visually-hidden">(opens the publisher's page)</span></a></p>{% endif %}
+					</div>
+				</details>
+			</li>
+			{% endfor %}
+		</ul>
+		<p id="research-empty" class="empty" hidden>No studies match these filters. Try removing one, or <button type="button" class="link-button" data-clear>clear all filters</button>.</p>
+		{% include disclaimer.html %}
+	</div>
+</div>

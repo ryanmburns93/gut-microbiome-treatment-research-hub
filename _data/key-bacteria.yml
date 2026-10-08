@@ -3,7 +3,7 @@
 # compare each one's own reference: Thorne's percentile versus other adults
 # (below 20th = below typical, above 80th = above typical) and Jona's
 # normal range. Generated from the raw exports; edit by hand if needed.
-#   role: helpful | watch      topic: Evidence Map topic id (optional)
+#   role: helpful | watch      topic: topic id from _data/topics.csv; links to Research filtered by it (optional)
 - name: Faecalibacterium
   role: helpful
   topic: faecalibacterium

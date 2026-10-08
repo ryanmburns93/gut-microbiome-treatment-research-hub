@@ -1,6 +1,6 @@
 ---
+redirect_from: /knowledge/fecal-microbiota-transplantation/
 title: Fecal microbiota transplantation (FMT)
-category: treatments
 summary: Transferring stool from a screened donor to a patient to restore a healthier gut microbial community.
 tags: [FMT, microbiota transplantation, C. difficile]
 evidence: established
