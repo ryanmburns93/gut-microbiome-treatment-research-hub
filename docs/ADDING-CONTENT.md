@@ -8,7 +8,7 @@ The site has three parts:
 | Part | Pages | Where the content lives |
 |------|-------|-------------------------|
 | **Research** | Knowledge Base, Evidence Map | `_knowledge/`, `_data/topics.csv`, `_data/studies.csv` |
-| **Our Story** | `/story/` | `story/index.md`, `_data/treatment-log.yml` |
+| **Our Story** | `/story/` | `story/index.md`, `_data/mood.csv`, `_data/fmt-doses.yml` |
 | **Community** | `/community/`, Resources | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
 
 ## Write the story page
@@ -21,13 +21,6 @@ under it. Add, remove, or rename `##` sections freely.
 This page is public and personal. Share only what the person it's about is
 comfortable with, and consider leaving out full names, locations, and
 clinician or clinic names.
-
-## Log a treatment
-
-Add an item to `_data/treatment-log.yml` (instructions at the top of the
-file). Set `topic:` to an Evidence Map topic id from `_data/topics.csv` to add
-a "See the research" link from your experience to the studies. Replace the
-example item.
 
 ## Add an ongoing effort
 
