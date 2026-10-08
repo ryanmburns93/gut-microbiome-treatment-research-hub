@@ -8,7 +8,7 @@ The site has three parts:
 | Part | Pages | Where the content lives |
 |------|-------|-------------------------|
 | **Research** | Knowledge Base, Evidence Map | `_knowledge/`, `_data/topics.csv`, `_data/studies.csv` |
-| **Our Story** | `/story/` and its dated updates | `story/index.md`, `_journey/`, `_data/treatment-log.yml` |
+| **Our Story** | `/story/` | `story/index.md`, `_data/treatment-log.yml` |
 | **Community** | `/community/`, Resources | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
 
 ## Write the story page
@@ -21,20 +21,6 @@ under it. Add, remove, or rename `##` sections freely.
 This page is public and personal. Share only what the person it's about is
 comfortable with, and consider leaving out full names, locations, and
 clinician or clinic names.
-
-## Add a journey update
-
-1. Copy `_journey/starting-this-journal.md` and rename it. The file name
-   becomes the URL, so `_journey/first-gi-appointment.md` becomes
-   `/story/first-gi-appointment/`.
-2. Set `title`, `date` (`YYYY-MM-DD`), an optional `phase` label (e.g.
-   Diagnosis, Treatment, Setback, Milestone), and a one-line `summary`.
-   `status: draft` shows a Draft badge; remove it when the update is ready.
-3. Write the update in Markdown below the front matter.
-
-Updates appear on Our Story (newest first), with Earlier/Later links between
-them, and the latest three appear on the home page. The starter update is a
-placeholder: rewrite or delete it.
 
 ## Log a treatment
 

@@ -6,8 +6,7 @@ scripts:
 ---
 
 <!--
-  Written in Markdown. Dated updates live in _journey/ and appear in the
-  timeline below. The chart reads _data/mood.csv, _data/fmt-doses.yml and
+  Written in Markdown. The chart reads _data/mood.csv, _data/fmt-doses.yml and
   _data/mood-summary.yml. See docs/ADDING-CONTENT.md.
 -->
 

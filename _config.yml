@@ -33,11 +33,6 @@ collections:
   knowledge:
     output: true
     permalink: /knowledge/:name/
-  # Every Markdown file in _journey/ becomes a dated update on Our Story,
-  # at /story/<file-name>/
-  journey:
-    output: true
-    permalink: /story/:name/
 
 defaults:
   - scope:
@@ -45,11 +40,6 @@ defaults:
       type: knowledge
     values:
       layout: entry
-  - scope:
-      path: ""
-      type: journey
-    values:
-      layout: journey-entry
   - scope:
       path: ""
     values:

@@ -97,21 +97,12 @@ title: Home
 {% endif %}
 
 <section class="section section-alt">
-	<div class="container home-split">
-		<div>
-			<div class="section-head">
-				<h2 class="section-title title-story">Latest from our story</h2>
-				<a href="{{ '/story/' | relative_url }}">Full story ›</a>
-			</div>
-			{% include journey-timeline.html limit=3 %}
+	<div class="container">
+		<div class="section-head">
+			<h2 class="section-title title-community">Ongoing efforts</h2>
+			<a href="{{ '/community/' | relative_url }}">Community ›</a>
 		</div>
-		<div>
-			<div class="section-head">
-				<h2 class="section-title title-community">Ongoing efforts</h2>
-				<a href="{{ '/community/' | relative_url }}">Community ›</a>
-			</div>
-			{% include effort-list.html limit=3 %}
-		</div>
+		{% include effort-list.html limit=3 %}
 	</div>
 </section>
 
