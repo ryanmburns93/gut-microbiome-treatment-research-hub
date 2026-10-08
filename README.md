@@ -21,7 +21,7 @@ efforts).
 | Knowledge Base (searchable index) | `/knowledge/` | `knowledge/index.html` |
 | Knowledge entries | `/knowledge/<name>/` | `_knowledge/<name>.md` |
 | Evidence Map (interactive graph) | `/evidence-map/` | `evidence-map/index.html`, data in `_data/topics.csv` + `_data/studies.csv` |
-| Our Story | `/story/` | `story/index.md`, treatments in `_data/treatment-log.yml` |
+| Our Story | `/story/` | `story/index.md`, chart data in `_data/mood.csv` and `_data/fmt-doses.yml` |
 | Community | `/community/` | `community/index.html`, data in `_data/efforts.yml` + `_data/community.yml` |
 | Resources | `/resources/` | `resources/index.html`, links in `_data/resources.yml` |
 | About + contact form | `/about/` | `about/index.md` |
@@ -33,7 +33,6 @@ _config.yml              Site title, URL, contact form endpoint
 _data/navigation.yml     Main menu (add new pages here)
 _data/categories.yml     Knowledge Base sections
 _data/resources.yml      Resources page content
-_data/treatment-log.yml  "What we've tried" table on Our Story
 _data/efforts.yml        Ongoing efforts (Community page and home page)
 _data/community.yml      Community groups and emerging resources
 _data/topics.csv         Evidence Map topics (exported from the curation Sheet)

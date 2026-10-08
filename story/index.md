@@ -38,10 +38,6 @@ I couldn't be Monica's donor: with type 1 diabetes, an autoimmune condition, the
 	<p><strong>This is not a how-to.</strong> FMT outside a clinical trial or a clinician's care carries real risks, including infection and transferring conditions from a donor. Donor screening matters enormously. Please talk with a qualified clinician before considering it, and don't stop psychiatric medication without medical supervision.</p>
 </div>
 
-## What we've tried
-
-{% include treatment-log.html %}
-
 ## What the data shows
 
 {% include mood-chart.html %}
