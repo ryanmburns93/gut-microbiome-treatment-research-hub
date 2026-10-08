@@ -85,10 +85,6 @@ Thorne withdrew its test shortly after Monica's results, and each test cost abou
 
 {% include story-documents.html %}
 
-## The journey so far
-
-{% include journey-timeline.html %}
-
 ## What we've learned
 
 - **The gut-brain connection is real, and it's personal.** The biggest changes in Monica's mood came after changes to her gut, but so did a hypomania-like stretch. Watch for both directions.
