@@ -1,0 +1,85 @@
+# Key gut bacteria before FMT (Thorne, January 2026) and after the April
+# round (Jona, April 28, 2026). The two labs measure differently, so we
+# compare each one's own reference: Thorne's percentile versus other adults
+# (below 20th = below typical, above 80th = above typical) and Jona's
+# normal range. Generated from the raw exports; edit by hand if needed.
+#   role: helpful | watch      topic: Evidence Map topic id (optional)
+- name: Faecalibacterium
+  role: helpful
+  topic: faecalibacterium
+  why: "A major butyrate producer with anti-inflammatory effects, often found at lower levels in people with depression."
+  before_status: Below typical
+  before_percentile: 3.4
+  after_status: Below typical
+  after_abundance: "1.83%"
+  after_range: "2.47-7.98%"
+- name: Bifidobacterium
+  role: helpful
+  topic: bifidobacterium
+  why: "A common probiotic genus, studied in “psychobiotic” trials for mood."
+  before_status: Below typical
+  before_percentile: 3.2
+  after_status: Above typical
+  after_abundance: "8.86%"
+  after_range: "0.31-4.85%"
+- name: Coprococcus
+  role: helpful
+  topic: scfa
+  why: "A butyrate producer; lower levels have been linked with depression in population studies."
+  before_status: Below typical
+  before_percentile: 5.2
+  after_status: Above typical
+  after_abundance: "1.85%"
+  after_range: "0.25-1.52%"
+- name: Roseburia
+  role: helpful
+  topic: scfa
+  why: "A butyrate producer that ferments dietary fiber."
+  before_status: Below typical
+  before_percentile: 2.5
+  after_status: Typical
+  after_abundance: "3.18%"
+  after_range: "1.20-5.50%"
+- name: Eubacterium
+  role: helpful
+  topic: scfa
+  why: "A butyrate-producing genus that tends to decline on high-fat, low-fiber diets."
+  before_status: Below typical
+  before_percentile: 5.6
+  after_status: Typical
+  after_abundance: "0.38%"
+  after_range: "0.28-1.35%"
+- name: Anaerostipes
+  role: helpful
+  topic: scfa
+  why: "Turns lactate and acetate from other microbes into butyrate."
+  before_status: Below typical
+  before_percentile: 18.1
+  after_status: Typical
+  after_abundance: "0.12%"
+  after_range: "0.05-0.33%"
+- name: Enterococcus
+  role: watch
+  why: "Normally present in small amounts; overgrowth can cause infections."
+  before_status: Above typical
+  before_percentile: 92.8
+  after_status: Typical
+  after_abundance: "0.01%"
+  after_range: "0.01-0.26%"
+- name: Escherichia
+  role: watch
+  why: "Includes E. coli. Most strains are harmless, but some cause disease."
+  before_status: Typical
+  before_percentile: 68.8
+  after_status: Typical
+  after_abundance: "0.16%"
+  after_range: "0.10-1.56%"
+- name: Bilophila
+  role: watch
+  topic: sulfate-reducing-bacteria
+  why: "Thrives on high-fat diets and is linked with inflammation. Jona flagged it for follow-up."
+  before_status: Typical
+  before_percentile: 72.6
+  after_status: Above typical
+  after_abundance: "2.01%"
+  after_range: "0.08-0.52%"

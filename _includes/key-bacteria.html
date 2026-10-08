@@ -1,0 +1,35 @@
+{% comment %} Key bacteria before and after FMT, from _data/key-bacteria.yml. {% endcomment %}
+{% assign groups = "helpful|Helpful bacteria that were low before FMT;watch|Bacteria to keep in check" | split: ";" %}
+{% for group in groups %}
+{% assign g = group | split: "|" %}
+{% assign items = site.data.key-bacteria | where: "role", g[0] %}
+<div class="table-wrap">
+	<table class="data-table bacteria-table">
+		<caption>{{ g[1] }}</caption>
+		<thead>
+			<tr><th scope="col">Bacteria</th><th scope="col">Before (Jan)</th><th scope="col">After (Apr 28)</th><th scope="col">Change</th></tr>
+		</thead>
+		<tbody>
+			{% for b in items %}
+			{% capture change %}{% if b.before_status == b.after_status %}{% if b.after_status == "Typical" %}Stayed in range{% else %}Still {{ b.after_status | replace: " typical", "" | downcase }} range{% endif %}{% elsif b.after_status == "Typical" %}Moved into range{% elsif b.after_status == "Above typical" %}Now above range{% else %}Now below range{% endif %}{% endcapture %}
+			{% assign pct = b.before_percentile | round %}
+			{% assign last2 = pct | modulo: 100 %}{% assign last1 = pct | modulo: 10 %}
+			{% if last2 >= 11 and last2 <= 13 %}{% assign suffix = "th" %}{% elsif last1 == 1 %}{% assign suffix = "st" %}{% elsif last1 == 2 %}{% assign suffix = "nd" %}{% elsif last1 == 3 %}{% assign suffix = "rd" %}{% else %}{% assign suffix = "th" %}{% endif %}
+			{% assign good = false %}
+			{% if g[0] == "helpful" and b.after_status != "Below typical" %}{% assign good = true %}{% endif %}
+			{% if g[0] == "watch" and b.after_status != "Above typical" %}{% assign good = true %}{% endif %}
+			<tr>
+				<th scope="row">
+					<em>{{ b.name }}</em>
+					<span class="bacteria-why">{{ b.why }}{% if b.topic %} <a href="{{ '/evidence-map/' | relative_url }}#topic={{ b.topic }}">Research</a>{% endif %}</span>
+				</th>
+				<td><span class="level level-{{ b.before_status | slugify }}">{{ b.before_status }}</span><span class="level-detail">{{ pct }}{{ suffix }} percentile</span></td>
+				<td><span class="level level-{{ b.after_status | slugify }}">{{ b.after_status }}</span><span class="level-detail">{{ b.after_abundance }} (range {{ b.after_range | replace: "-", "–" }})</span></td>
+				<td class="change {% if good %}change-good{% else %}change-watch{% endif %}"><span aria-hidden="true">{% if good %}✓{% else %}!{% endif %}</span> {{ change | strip }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endfor %}
+<p class="table-note">Before: Thorne's percentile versus other adults (below the 20th counts as below typical, above the 80th as above). After: Jona's measured share and normal range. The two labs measure differently, so compare each row's status, not the raw numbers.</p>

@@ -16,9 +16,9 @@
   kind: Timeline
   summary: Self-reported ratings and hours slept, shown in the chart above with averages by period.
 - title: FMT dosing log
-  date: Feb to Mar 2026
+  date: Feb to Aug 2026
   kind: Clinical notes
-  summary: Eight capsule doses from two screened donors, marked on the chart. The April round wasn't logged.
+  summary: Thirteen capsule doses from February 4 to August 19, marked on the chart.
 - title: Follow-up gut microbiome test (Jona)
   date: Apr 28, 2026
   kind: Lab results

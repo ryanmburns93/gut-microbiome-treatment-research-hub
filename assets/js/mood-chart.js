@@ -28,7 +28,9 @@
 		});
 	});
 	var t0 = days[0].t, t1 = days[days.length - 1].t;
-	var doseTimes = doses.map(function (d) { return parseDate(d.date); });
+	// Doses after the last day of data (e.g. Aug 19) fall off the chart.
+	var doseTimes = doses.map(function (d) { return parseDate(d.date); })
+		.filter(function (t) { return t >= t0 && t <= t1; });
 
 	var panels = [
 		{

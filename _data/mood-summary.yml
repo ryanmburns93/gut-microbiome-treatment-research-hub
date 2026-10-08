@@ -5,16 +5,16 @@
   depressed: 3.6
   elevated: 2.5
   sleep: 14.8
-- period: "First FMT course (Feb 4 – Mar 6)"
-  days: 31
-  depressed: 3.1
-  elevated: 2.6
-  sleep: 11.0
-- period: "March (from Mar 7)"
+- period: "First FMT course (Feb 4 – 28)"
   days: 25
+  depressed: 3.2
+  elevated: 2.6
+  sleep: 11.8
+- period: "March"
+  days: 31
   depressed: 2.5
-  elevated: 3.2
-  sleep: 8.5
+  elevated: 3.1
+  sleep: 8.3
 - period: "April"
   days: 30
   depressed: 1.5
