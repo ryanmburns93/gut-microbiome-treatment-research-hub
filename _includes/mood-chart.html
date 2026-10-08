@@ -1,0 +1,33 @@
+{% comment %}
+  Mood and sleep chart for Our Story. Data: _data/mood.csv (daily eMoods
+  export), _data/fmt-doses.yml (dose ticks), _data/mood-summary.yml (table).
+  Drawn by assets/js/mood-chart.js; the table below is the no-JS view.
+{% endcomment %}
+<figure class="mood-figure">
+	<div class="chart-legend" aria-hidden="true">
+		<span><i class="key series-depressed"></i>Depressed mood</span>
+		<span><i class="key series-elevated"></i>Elevated mood</span>
+		<span><i class="key series-sleep"></i>Sleep</span>
+		<span><i class="key-band"></i>First FMT course</span>
+		<span><i class="key-dose"></i>FMT dose</span>
+	</div>
+	<div id="mood-chart" class="mood-chart"></div>
+	<script id="mood-data" type="application/json">{{ site.data.mood | jsonify }}</script>
+	<script id="dose-data" type="application/json">{{ site.data.fmt-doses | jsonify }}</script>
+	<script id="period-data" type="application/json">[{"start":"2026-02-04","end":"2026-03-06"}]</script>
+	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; hover or tap for daily values. A second FMT round in April isn't marked because we didn't log its dates.</figcaption>
+</figure>
+
+<div class="table-wrap">
+	<table class="data-table">
+		<caption>Averages by period</caption>
+		<thead>
+			<tr><th scope="col">Period</th><th scope="col">Days</th><th scope="col">Depressed mood</th><th scope="col">Elevated mood</th><th scope="col">Sleep (hrs)</th></tr>
+		</thead>
+		<tbody>
+			{% for row in site.data.mood-summary %}
+			<tr><th scope="row">{{ row.period }}</th><td>{{ row.days }}</td><td>{{ row.depressed }}</td><td>{{ row.elevated }}</td><td>{{ row.sleep }}</td></tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

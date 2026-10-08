@@ -1,0 +1,30 @@
+# "Records & reports" list on Our Story, oldest first. Put the files in
+# files/story/ and reference them as /files/story/<name>.pdf.
+#
+# EVERYTHING HERE IS PUBLIC. Before adding a file, redact: full names,
+# dates of birth, medical record and insurance numbers, addresses, phone
+# numbers, and anything Monica hasn't agreed to share. The original lab
+# reports are summarized on the page rather than published.
+#
+#   title / date / kind / summary / file (optional) / url (optional)
+- title: Baseline gut microbiome test (Thorne)
+  date: Jan 2026
+  kind: Lab results
+  summary: Home stool test before FMT. Summarized under "Her microbiome, before and after"; the original report isn't published.
+- title: Daily mood and sleep log (eMoods)
+  date: Jan 1 to Aug 14, 2026
+  kind: Timeline
+  summary: Self-reported ratings and hours slept, shown in the chart above with averages by period.
+- title: FMT dosing log
+  date: Feb to Mar 2026
+  kind: Clinical notes
+  summary: Eight capsule doses from two screened donors, marked on the chart. The April round wasn't logged.
+- title: Follow-up gut microbiome test (Jona)
+  date: Apr 28, 2026
+  kind: Lab results
+  summary: Home stool test after the April round. Summarized above; the original report isn't published.
+- title: "Presentation slides: Psychobiotics & The Microbiomes That Make Us"
+  date: Aug 20, 2026
+  kind: Summary
+  summary: Slides from the Nerd Nite Fort Collins talk, with sources.
+  file: /files/story/psychobiotics-nerd-nite-2026-08-20.pdf

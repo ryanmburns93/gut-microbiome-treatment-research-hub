@@ -3,6 +3,61 @@
 Every change below can be made directly in GitHub's web editor. Commit, wait a
 minute, and it's live.
 
+The site has three parts:
+
+| Part | Pages | Where the content lives |
+|------|-------|-------------------------|
+| **Research** | Knowledge Base, Evidence Map | `_knowledge/`, `_data/topics.csv`, `_data/studies.csv` |
+| **Our Story** | `/story/` and its dated updates | `story/index.md`, `_journey/`, `_data/treatment-log.yml` |
+| **Community** | `/community/`, Resources | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
+
+## Write the story page
+
+Edit `story/index.md`. Each section has a placeholder paragraph followed by a
+`{: .placeholder}` line, which shows it in a dashed "To write" box. Replace
+the paragraph with your own words and delete the `{: .placeholder}` line
+under it. Add, remove, or rename `##` sections freely.
+
+This page is public and personal. Share only what the person it's about is
+comfortable with, and consider leaving out full names, locations, and
+clinician or clinic names.
+
+## Add a journey update
+
+1. Copy `_journey/starting-this-journal.md` and rename it. The file name
+   becomes the URL, so `_journey/first-gi-appointment.md` becomes
+   `/story/first-gi-appointment/`.
+2. Set `title`, `date` (`YYYY-MM-DD`), an optional `phase` label (e.g.
+   Diagnosis, Treatment, Setback, Milestone), and a one-line `summary`.
+   `status: draft` shows a Draft badge; remove it when the update is ready.
+3. Write the update in Markdown below the front matter.
+
+Updates appear on Our Story (newest first), with Earlier/Later links between
+them, and the latest three appear on the home page. The starter update is a
+placeholder: rewrite or delete it.
+
+## Log a treatment
+
+Add an item to `_data/treatment-log.yml` (instructions at the top of the
+file). Set `topic:` to an Evidence Map topic id from `_data/topics.csv` to add
+a "See the research" link from your experience to the studies. Replace the
+example item.
+
+## Add an ongoing effort
+
+Add an item to `_data/efforts.yml` with a `title`, `kind` (Our project,
+Clinical trial, Research study, Community initiative), `status` (Active,
+Recruiting, Planned, Completed), `summary`, optional `url`, and `updated`
+date. The first three also appear on the home page, so keep the most current
+at the top.
+
+## Add a community group or emerging resource
+
+Add a link under `groups` or `emerging` in `_data/community.yml`, with a
+`title`, `url`, and optional `description`. Add `added: YYYY-MM-DD` to show a
+"New" badge for 60 days. Reference databases and registries belong in
+`_data/resources.yml` instead.
+
 ## Add a knowledge entry
 
 1. Copy [`entry-template.md`](entry-template.md) into `_knowledge/` and rename

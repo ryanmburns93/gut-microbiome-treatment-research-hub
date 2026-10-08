@@ -1,0 +1,42 @@
+# Generated from _data/mood.csv (eMoods export). Averages per period.
+# Ratings: 1 none, 2 mild, 3 moderate, 4 severe. Sleep in hours.
+- period: "Before FMT (Jan 1 – Feb 3)"
+  days: 34
+  depressed: 3.6
+  elevated: 2.5
+  sleep: 14.8
+- period: "First FMT course (Feb 4 – Mar 6)"
+  days: 31
+  depressed: 3.1
+  elevated: 2.6
+  sleep: 11.0
+- period: "March (from Mar 7)"
+  days: 25
+  depressed: 2.5
+  elevated: 3.2
+  sleep: 8.5
+- period: "April"
+  days: 30
+  depressed: 1.5
+  elevated: 3.8
+  sleep: 5.3
+- period: "May"
+  days: 31
+  depressed: 1.6
+  elevated: 3.7
+  sleep: 5.8
+- period: "June"
+  days: 30
+  depressed: 1.5
+  elevated: 3.7
+  sleep: 4.9
+- period: "July"
+  days: 31
+  depressed: 1.9
+  elevated: 3.4
+  sleep: 5.9
+- period: "August 1–14"
+  days: 14
+  depressed: 3.3
+  elevated: 2.4
+  sleep: 11.2

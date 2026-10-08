@@ -1,6 +1,6 @@
 ---
 title: About
-lede: Why this hub exists, how entries are curated, and how to get in touch.
+lede: Why this site exists, how it is organized, and how to get in touch.
 scripts:
   - /assets/js/contact-form.js
 ---
@@ -8,9 +8,13 @@ scripts:
 ## Our mission
 
 <!-- Replace with the project's mission statement. -->
-The Gut Microbiome Treatment Research Hub brings together research on therapies that target the gut microbiome, summarized clearly and linked to primary sources.
+Gut Brain Biome started with one person's gut-brain condition and a search for better answers. It brings together three things:
 
-## How entries are curated
+- **The research.** Peer-reviewed studies on therapies that target the gut microbiome, summarized clearly and linked to primary sources, in the [Knowledge Base]({{ '/knowledge/' | relative_url }}) and [Evidence Map]({{ '/evidence-map/' | relative_url }}).
+- **Our story.** A personal record of the condition, the treatments tried, and the journey so far, in [Our Story]({{ '/story/' | relative_url }}).
+- **The community.** Support networks, emerging resources, and ongoing efforts toward discovery, in [Community]({{ '/community/' | relative_url }}).
+
+## How research entries are curated
 
 - **Sources first.** Every entry cites the studies and reviews it draws on.
 - **Evidence levels.** Entries are tagged *established*, *emerging*, or *preliminary* to show how strong the evidence is.

@@ -5,7 +5,7 @@ title: Home
 <section class="hero">
 	<div class="container hero-grid">
 		<div class="hero-main">
-			<h1>Evidence-based information on gut microbiome treatments</h1>
+			<h1>Following the science of the gut-brain connection, together</h1>
 			<p class="lede">{{ site.description }}</p>
 			<form class="hero-search" action="{{ '/knowledge/' | relative_url }}" method="get" role="search">
 				<label for="hero-q">Search the Knowledge Base</label>
@@ -28,6 +28,32 @@ title: Home
 </section>
 
 <section class="section">
+	<div class="container">
+		<h2 class="section-title">Three ways in</h2>
+		<ul class="pillar-grid">
+			<li class="pillar pillar-research">
+				<p class="pillar-kicker">The evidence</p>
+				<h3><a href="{{ '/knowledge/' | relative_url }}">Research</a></h3>
+				<p>Peer-reviewed studies on microbiome treatments, summarized in plain language, graded by strength of evidence, and mapped by how they connect.</p>
+				<p class="pillar-links"><a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a> · <a href="{{ '/evidence-map/' | relative_url }}">Evidence Map</a></p>
+			</li>
+			<li class="pillar pillar-story">
+				<p class="pillar-kicker">The journey</p>
+				<h3><a href="{{ '/story/' | relative_url }}">Our Story</a></h3>
+				<p>One person's experience with bipolar II disorder: the diagnosis, the treatments tried, and what we've learned along the way.</p>
+				<p class="pillar-links"><a href="{{ '/story/' | relative_url }}">Read our story</a></p>
+			</li>
+			<li class="pillar pillar-community">
+				<p class="pillar-kicker">The way forward</p>
+				<h3><a href="{{ '/community/' | relative_url }}">Community</a></h3>
+				<p>Support networks, emerging resources, and ongoing efforts toward discovery, plus a way to connect with us.</p>
+				<p class="pillar-links"><a href="{{ '/community/' | relative_url }}">Community</a> · <a href="{{ '/resources/' | relative_url }}">Resources</a></p>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="section section-alt">
 	<div class="container">
 		<h2 class="section-title">Research topics</h2>
 		<ul class="topic-grid">
@@ -55,7 +81,7 @@ title: Home
 
 {% assign recent = site.knowledge | sort: "last_reviewed" | reverse %}
 {% if recent.size > 0 %}
-<section class="section section-alt">
+<section class="section">
 	<div class="container">
 		<div class="section-head">
 			<h2 class="section-title">Recently reviewed</h2>
@@ -70,9 +96,28 @@ title: Home
 </section>
 {% endif %}
 
+<section class="section section-alt">
+	<div class="container home-split">
+		<div>
+			<div class="section-head">
+				<h2 class="section-title title-story">Latest from our story</h2>
+				<a href="{{ '/story/' | relative_url }}">Full story ›</a>
+			</div>
+			{% include journey-timeline.html limit=3 %}
+		</div>
+		<div>
+			<div class="section-head">
+				<h2 class="section-title title-community">Ongoing efforts</h2>
+				<a href="{{ '/community/' | relative_url }}">Community ›</a>
+			</div>
+			{% include effort-list.html limit=3 %}
+		</div>
+	</div>
+</section>
+
 <section class="section">
 	<div class="container">
-		<h2 class="section-title">Our standards</h2>
+		<h2 class="section-title">Our research standards</h2>
 		<div class="principles">
 			<div>
 				<h3>Curated by hand</h3>

@@ -1,0 +1,14 @@
+# "The presentation" section on Our Story. Leave a field empty to hide it.
+#   video_embed: the embed URL, not the page URL. For YouTube (upload as
+#     Unlisted if you prefer) use https://www.youtube-nocookie.com/embed/<VIDEO_ID>.
+#     For Google Drive use https://drive.google.com/file/d/<FILE_ID>/preview
+#     (set sharing to "Anyone with the link").
+#   slides_pdf: /files/story/<name>.pdf, or an outside link to the slides
+#   transcript_url: link to the transcript page
+title: "Psychobiotics & The Microbiomes That Make Us"
+event: "Nerd Nite Fort Collins"
+date: "August 20, 2026"
+summary: "Ryan’s 36-minute talk on the gut-brain axis, the science of the gut microbiome, and Monica's case study, followed by audience Q&A."
+video_embed: "https://www.youtube-nocookie.com/embed/OnjtmJtZCWg"
+slides_pdf: "/files/story/psychobiotics-nerd-nite-2026-08-20.pdf"
+transcript_url: "/story/presentation/"

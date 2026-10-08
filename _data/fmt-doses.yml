@@ -1,0 +1,10 @@
+# FMT capsule doses, from our dosing log. Shown as ticks on the Our Story
+# mood chart. The April round was not logged; add its dates here when known.
+- { date: 2026-02-04, capsules: 25, donor: 1 }
+- { date: 2026-02-05, capsules: 15, donor: 1 }
+- { date: 2026-02-10, capsules: 15, donor: 1 }
+- { date: 2026-02-16, capsules: 15, donor: 1 }
+- { date: 2026-02-21, capsules: 15, donor: 1 }
+- { date: 2026-02-24, capsules: 15, donor: 2 }
+- { date: 2026-02-28, capsules: 15, donor: 2 }
+- { date: 2026-03-06, capsules: 15, donor: 2 }

@@ -1,10 +1,11 @@
 # Site settings. GitHub Pages builds this with Jekyll automatically on every
 # push to the publishing branch; there is nothing to build by hand.
-title: Gut Microbiome Treatment Research Hub
-short_title: Microbiome Research Hub
+title: Gut Brain Biome - Patient Resources, Emerging Treatments & Research Hub
+short_title: Gut Brain Biome
 description: >-
-  A curated, evidence-focused knowledge repository on gut microbiome
-  treatments: what they are, what the research shows, and where to learn more.
+  Gut microbiome treatment research, one family's journey with it, and a
+  community working toward better answers: what the evidence shows, what
+  we've lived, and where discovery is heading.
 author: Rainbow Data Labs
 lang: en
 
@@ -32,6 +33,11 @@ collections:
   knowledge:
     output: true
     permalink: /knowledge/:name/
+  # Every Markdown file in _journey/ becomes a dated update on Our Story,
+  # at /story/<file-name>/
+  journey:
+    output: true
+    permalink: /story/:name/
 
 defaults:
   - scope:
@@ -41,11 +47,17 @@ defaults:
       layout: entry
   - scope:
       path: ""
+      type: journey
+    values:
+      layout: journey-entry
+  - scope:
+      path: ""
     values:
       layout: page
 
 exclude:
   - README.md
+  - files/story/README.md
   - docs/
   - google-apps-script/
   - scripts/
