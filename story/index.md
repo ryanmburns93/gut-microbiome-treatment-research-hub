@@ -49,25 +49,31 @@ I couldn't be Monica's donor: with type 1 diabetes, an autoimmune condition, the
 
 **Before FMT,** Monica's depression was severe most days and she was in bed up to 20 hours a day.
 
-**During and after the first course** (eight doses, February 4 to March 6), depressed mood eased through March. After a second round in April, Monica stopped all of her bipolar medications. From April through July her depressed mood was mostly "none". For those months, I had my wife back.
+**During and after the first course** (seven doses, February 4 to 28), depressed mood eased through March. After further doses on March 25 and April 22, Monica stopped all of her bipolar medications. From April through July her depressed mood was mostly "none". For those months, I had my wife back.
 
 **It wasn't only good news.** Elevated mood also rose and stayed high, and her sleep fell to about five hours a night, sometimes less. On April 12 she logged psychotic symptoms. In bipolar disorder that pattern can be hypomania, so as a precaution we restarted one of her antipsychotic medications.
 
-**In August, depression came back.** By August 9 her depressed mood was severe again and she was sleeping 11 to 20 hours a day. We think her gut slipped back toward dysbiosis: we didn't keep to the high-fiber diet that helps transplanted microbes take hold, and atypical antipsychotics may themselves disrupt the gut microbiome. Around August 20 she started a new round with fresh stool. The data here ends August 14.
+**In August, depression came back.** As her mood started to slip, Monica took the stool we had left from April (July 26, August 5 and August 11), but by August 9 her depressed mood was severe again and she was sleeping 11 to 20 hours a day. Stool stored since April may not have survived. We also think her gut slipped back toward dysbiosis: we didn't keep to the high-fiber diet that helps transplanted microbes take hold, and atypical antipsychotics may themselves disrupt the gut microbiome. On August 19 she started a new round with fresh stool. The data here ends August 14.
 
 This is one person's self-reported data, with medication changes, diet, and life happening at the same time. It shows what happened to Monica, not what FMT does in general.
 
 ## Her microbiome, before and after
 
 <figure class="story-figure">
-	<img src="{{ '/images/story/microbiome-composition.png' | relative_url }}" alt="Stacked bar chart of gut bacteria by phylum. Typical healthy adults are about 70 percent Firmicutes. Monica before FMT was about 22 percent Firmicutes and 66 percent Bacteroidetes. Monica after the April FMT was about 48 percent Firmicutes and 35 percent Bacteroidetes, closer to the healthy-adult pattern." width="1460" height="880" loading="lazy" />
-	<figcaption>Share of the major bacterial groups (phyla) in Monica's gut before FMT and after the April round, next to typical profiles by age group. Reference bars are approximate.</figcaption>
+	<img src="{{ '/images/story/microbiome-composition.png' | relative_url }}" alt="Stacked bar chart of gut bacteria by phylum. A typical healthy adult is about 72 percent Firmicutes and 20 percent Bacteroidetes. Monica before FMT was 22 percent Firmicutes, 66 percent Bacteroidetes, 8 percent Actinobacteria and 3 percent Proteobacteria. After the April round she was 48 percent Firmicutes, 35 percent Bacteroidetes, 12 percent Actinobacteria and 2 percent Proteobacteria, closer to the healthy-adult pattern." width="1460" height="880" loading="lazy" />
+	<figcaption>Share of the major bacterial groups (phyla) in Monica's gut before FMT (Thorne) and after the April round (Jona), next to typical profiles by age group. Reference profiles from Scott C. Anderson, John F. Cryan and Ted Dinan, <cite>The Psychobiotic Revolution: Mood, Food, and the New Science of the Gut-Brain Connection</cite>.</figcaption>
 </figure>
 
 Monica took two home stool tests from different companies, so the scores aren't directly comparable, but the direction is clear:
 
 - **Before FMT** (Thorne, January 2026): high scores for inflammation and gut-brain imbalance, a microbiome very unlike healthy adults' (97% beta-diversity dissimilarity), and very low levels of butyrate producers often linked with mood, including *Faecalibacterium prausnitzii*, *Coprococcus*, and *Roseburia*. The pathogen screen was normal.
 - **After the April round** (Jona, April 28, 2026): above-average diversity (4.12, normal range 2.80 to 3.99), a Firmicutes-to-Bacteroidetes ratio of 1.37, and "excellent" ratings for most gut, metabolic, and inflammation categories. Brain health rated "fair", and two potential pathogens (*Bilophila wadsworthia* and *Bacteroides fragilis*) were flagged for follow-up.
+
+### Which key bacteria moved into range
+
+Most of the helpful, butyrate-producing bacteria that were low before FMT were in range or above it after the April round. *Faecalibacterium*, one of the most studied for mood, improved but was still below range. *Bilophila*, which thrives on high-fat diets, rose above range.
+
+{% include key-bacteria.html %}
 
 Thorne withdrew its test shortly after Monica's results, and each test cost about $400. We publish summaries here, not the original reports.
 

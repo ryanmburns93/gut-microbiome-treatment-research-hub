@@ -1,10 +1,16 @@
-# FMT capsule doses, from our dosing log. Shown as ticks on the Our Story
-# mood chart. The April round was not logged; add its dates here when known.
-- { date: 2026-02-04, capsules: 25, donor: 1 }
-- { date: 2026-02-05, capsules: 15, donor: 1 }
-- { date: 2026-02-10, capsules: 15, donor: 1 }
-- { date: 2026-02-16, capsules: 15, donor: 1 }
-- { date: 2026-02-21, capsules: 15, donor: 1 }
-- { date: 2026-02-24, capsules: 15, donor: 2 }
-- { date: 2026-02-28, capsules: 15, donor: 2 }
-- { date: 2026-03-06, capsules: 15, donor: 2 }
+# FMT capsule doses, from the FMT Visualizations notebook. Shown as ticks on
+# the Our Story mood chart. Capsule counts and donors are known only for the
+# first course (25 capsules on Feb 4, then 15; donor 2 from Feb 24).
+- { date: 2026-02-04, round: First course }
+- { date: 2026-02-05, round: First course }
+- { date: 2026-02-10, round: First course }
+- { date: 2026-02-16, round: First course }
+- { date: 2026-02-21, round: First course }
+- { date: 2026-02-24, round: First course }
+- { date: 2026-02-28, round: First course }
+- { date: 2026-03-25, round: Spring }
+- { date: 2026-04-22, round: Spring }
+- { date: 2026-07-26, round: Summer (April stool) }
+- { date: 2026-08-05, round: Summer (April stool) }
+- { date: 2026-08-11, round: Summer (April stool) }
+- { date: 2026-08-19, round: New stool }
