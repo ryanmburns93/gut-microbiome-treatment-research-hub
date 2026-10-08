@@ -858,3 +858,10 @@ label { font-weight: 600; }
 	.bacteria-table td:nth-of-type(1)::before, .bacteria-table td:nth-of-type(2)::before { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
 	.bacteria-table .change { grid-column: 1 / -1; white-space: normal; }
 }
+
+.chart-dot.series-sleep { fill: var(--series-sleep); fill-opacity: 0.35; }
+.key-dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; opacity: 0.6; }
+.key-dot.series-sleep { background: var(--series-sleep); }
+@media (prefers-color-scheme: dark) {
+	.chart-dot.series-sleep { fill-opacity: 0.6; }
+}

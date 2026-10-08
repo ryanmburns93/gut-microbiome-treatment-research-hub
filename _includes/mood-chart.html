@@ -7,7 +7,8 @@
 	<div class="chart-legend" aria-hidden="true">
 		<span><i class="key series-depressed"></i>Depressed mood</span>
 		<span><i class="key series-elevated"></i>Elevated mood</span>
-		<span><i class="key series-sleep"></i>Sleep</span>
+		<span><i class="key series-sleep"></i>Sleep (7-day average)</span>
+		<span><i class="key-dot series-sleep"></i>Hours slept each night</span>
 		<span><i class="key-band"></i>First FMT course</span>
 		<span><i class="key-dose"></i>FMT dose</span>
 	</div>
@@ -15,7 +16,7 @@
 	<script id="mood-data" type="application/json">{{ site.data.mood | jsonify }}</script>
 	<script id="dose-data" type="application/json">{{ site.data.fmt-doses | jsonify }}</script>
 	<script id="period-data" type="application/json">[{"start":"2026-02-04","end":"2026-02-28"}]</script>
-	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; hover or tap for daily values. Ticks mark FMT doses: seven in February, then March 25, April 22, July 26, August 5 and August 11. A new round began August 19, after this data ends.</figcaption>
+	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; dots show the hours slept each night, up to 21. Hover or tap for daily values. Ticks mark FMT doses: seven in February, then March 25, April 22, July 26, August 5 and August 11. A new round began August 19, after this data ends.</figcaption>
 </figure>
 
 <div class="table-wrap">

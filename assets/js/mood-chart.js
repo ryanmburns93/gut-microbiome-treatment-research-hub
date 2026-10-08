@@ -42,8 +42,10 @@
 			]
 		},
 		{
-			id: 'sleep', title: 'Hours of sleep, 7-day average', min: 0, max: 20, height: 150,
-			ticks: [[0, '0'], [5, '5'], [10, '10'], [15, '15'], [20, '20 hrs']],
+			id: 'sleep', title: 'Hours of sleep per night', min: 0, max: 24, height: 170,
+			ticks: [[0, '0'], [6, '6'], [12, '12'], [18, '18'], [24, '24 hrs']],
+			// Daily values as faint dots behind the average, so long nights in bed stay visible.
+			dots: { key: 'sleep', cls: 'series-sleep', color: '#00809a' },
 			series: [{ key: 'sleepAvg', label: 'Sleep', cls: 'series-sleep', color: '#00809a' }]
 		}
 	];
@@ -93,6 +95,12 @@
 			doseTimes.forEach(function (t) {
 				el('line', { x1: x(t), x2: x(t), y1: bottom - 6, y2: bottom, class: 'chart-dose', stroke: '#a33b00', 'stroke-width': 2 }, svg);
 			});
+
+			if (p.dots) {
+				days.forEach(function (r) {
+					el('circle', { cx: x(r.t), cy: y(r[p.dots.key]), r: 2.5, class: 'chart-dot ' + p.dots.cls, fill: p.dots.color, 'fill-opacity': 0.35 }, svg);
+				});
+			}
 
 			p.series.forEach(function (s) {
 				var d = days.map(function (r, i) { return (i ? 'L' : 'M') + x(r.t).toFixed(1) + ' ' + y(r[s.key]).toFixed(1); }).join('');
