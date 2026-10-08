@@ -1,7 +1,9 @@
 /* Our Story mood chart: two small multiples (mood scores, hours of sleep)
    sharing one time axis, with FMT doses marked and a shared hover readout.
    Data comes from <script type="application/json"> blocks written by
-   _includes/mood-chart.html. Plain SVG, no libraries. */
+   _includes/mood-chart.html. Plain SVG, no libraries. Marks also carry
+   light-mode colors as attributes so the chart still reads if main.css is
+   missing or stale; the CSS overrides them, including for dark mode. */
 (function () {
 	var root = document.getElementById('mood-chart');
 	if (!root) return;
@@ -33,14 +35,14 @@
 			id: 'mood', title: 'Mood ratings, 7-day average', min: 1, max: 4, height: 200,
 			ticks: [[1, 'None'], [2, 'Mild'], [3, 'Moderate'], [4, 'Severe']],
 			series: [
-				{ key: 'depressedAvg', label: 'Depressed mood', cls: 'series-depressed' },
-				{ key: 'elevatedAvg', label: 'Elevated mood', cls: 'series-elevated' }
+				{ key: 'depressedAvg', label: 'Depressed mood', cls: 'series-depressed', color: '#005ea2' },
+				{ key: 'elevatedAvg', label: 'Elevated mood', cls: 'series-elevated', color: '#c05600' }
 			]
 		},
 		{
 			id: 'sleep', title: 'Hours of sleep, 7-day average', min: 0, max: 20, height: 150,
 			ticks: [[0, '0'], [5, '5'], [10, '10'], [15, '15'], [20, '20 hrs']],
-			series: [{ key: 'sleepAvg', label: 'Sleep', cls: 'series-sleep' }]
+			series: [{ key: 'sleepAvg', label: 'Sleep', cls: 'series-sleep', color: '#00809a' }]
 		}
 	];
 
@@ -77,24 +79,24 @@
 			// Treatment periods as soft bands behind everything.
 			periods.forEach(function (pr) {
 				var a = x(Math.max(t0, parseDate(pr.start))), b = x(Math.min(t1, parseDate(pr.end) + DAY));
-				if (b > a) bands.push(el('rect', { x: a, y: top, width: b - a, height: p.height, class: 'chart-band' }, svg));
+				if (b > a) bands.push(el('rect', { x: a, y: top, width: b - a, height: p.height, class: 'chart-band', fill: 'rgba(163, 59, 0, 0.08)' }, svg));
 			});
 
 			p.ticks.forEach(function (tk) {
-				el('line', { x1: m.left, x2: m.left + plotW, y1: y(tk[0]), y2: y(tk[0]), class: 'chart-grid' }, svg);
+				el('line', { x1: m.left, x2: m.left + plotW, y1: y(tk[0]), y2: y(tk[0]), class: 'chart-grid', stroke: '#e4e8ec' }, svg);
 				var lbl = el('text', { x: m.left - 8, y: y(tk[0]) + 4, class: 'chart-tick', 'text-anchor': 'end' }, svg);
 				lbl.textContent = tk[1];
 			});
 
 			doseTimes.forEach(function (t) {
-				el('line', { x1: x(t), x2: x(t), y1: bottom - 6, y2: bottom, class: 'chart-dose' }, svg);
+				el('line', { x1: x(t), x2: x(t), y1: bottom - 6, y2: bottom, class: 'chart-dose', stroke: '#a33b00', 'stroke-width': 2 }, svg);
 			});
 
 			p.series.forEach(function (s) {
 				var d = days.map(function (r, i) { return (i ? 'L' : 'M') + x(r.t).toFixed(1) + ' ' + y(r[s.key]).toFixed(1); }).join('');
-				el('path', { d: d, class: 'chart-line ' + s.cls }, svg);
+				el('path', { d: d, class: 'chart-line ' + s.cls, fill: 'none', stroke: s.color, 'stroke-width': 2 }, svg);
 				var last = days[days.length - 1];
-				el('circle', { cx: x(last.t), cy: y(last[s.key]), r: 4, class: 'chart-end ' + s.cls }, svg);
+				el('circle', { cx: x(last.t), cy: y(last[s.key]), r: 4, class: 'chart-end ' + s.cls, fill: s.color }, svg);
 				if (!narrow) {
 					var lab = el('text', { x: x(last.t) + 10, y: y(last[s.key]) + 4, class: 'chart-label' }, svg);
 					lab.textContent = s.label;
@@ -112,11 +114,11 @@
 		}
 
 		// Hover: crosshair across both panels plus one readout.
-		var cross = el('line', { y1: panels[0].top, y2: panels[1].bottom, class: 'chart-cross', visibility: 'hidden' }, svg);
+		var cross = el('line', { y1: panels[0].top, y2: panels[1].bottom, class: 'chart-cross', stroke: '#a9aeb1', visibility: 'hidden' }, svg);
 		var dots = [];
 		panels.forEach(function (p) {
 			p.series.forEach(function (s) {
-				dots.push({ p: p, s: s, c: el('circle', { r: 4, class: 'chart-end ' + s.cls, visibility: 'hidden' }, svg) });
+				dots.push({ p: p, s: s, c: el('circle', { r: 4, class: 'chart-end ' + s.cls, fill: s.color, visibility: 'hidden' }, svg) });
 			});
 		});
 		var tip = document.createElement('div');
@@ -124,7 +126,7 @@
 		tip.hidden = true;
 		root.appendChild(tip);
 
-		var hit = el('rect', { x: m.left, y: panels[0].top, width: plotW, height: panels[1].bottom - panels[0].top, class: 'chart-hit' }, svg);
+		var hit = el('rect', { x: m.left, y: panels[0].top, width: plotW, height: panels[1].bottom - panels[0].top, class: 'chart-hit', fill: 'transparent' }, svg);
 		function show(clientX) {
 			var box = svg.getBoundingClientRect();
 			var px = (clientX - box.left) * (width / box.width);
