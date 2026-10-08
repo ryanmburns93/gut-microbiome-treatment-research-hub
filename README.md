@@ -22,7 +22,6 @@ efforts).
 | Knowledge entries | `/knowledge/<name>/` | `_knowledge/<name>.md` |
 | Evidence Map (interactive graph) | `/evidence-map/` | `evidence-map/index.html`, data in `_data/topics.csv` + `_data/studies.csv` |
 | Our Story | `/story/` | `story/index.md`, treatments in `_data/treatment-log.yml` |
-| Journey updates | `/story/<name>/` | `_journey/<name>.md` |
 | Community | `/community/` | `community/index.html`, data in `_data/efforts.yml` + `_data/community.yml` |
 | Resources | `/resources/` | `resources/index.html`, links in `_data/resources.yml` |
 | About + contact form | `/about/` | `about/index.md` |
@@ -40,7 +39,6 @@ _data/community.yml      Community groups and emerging resources
 _data/topics.csv         Evidence Map topics (exported from the curation Sheet)
 _data/studies.csv        Evidence Map studies (exported from the curation Sheet)
 _knowledge/              One Markdown file per knowledge entry
-_journey/                One Markdown file per Our Story update
 _layouts/, _includes/    Page templates (header, footer, entry layout, cards)
 assets/css/main.css      All styles (colors are variables at the top)
 assets/js/               Menu toggle, Knowledge Base search, Evidence Map, contact form

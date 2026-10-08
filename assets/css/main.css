@@ -682,14 +682,7 @@ label { font-weight: 600; }
 .pillar p { color: var(--text-muted); }
 .pillar .pillar-links { margin: auto 0 0; padding-top: 0.5rem; font-weight: 600; color: var(--text-muted); }
 
-.title-story { border-bottom-color: var(--story) !important; }
 .title-community { border-bottom-color: var(--community) !important; }
-
-.home-split { display: grid; gap: 2.5rem; }
-@media (min-width: 60rem) {
-	.home-split { grid-template-columns: 1fr 1fr; gap: 4rem; }
-}
-.home-split .effort-grid { grid-template-columns: 1fr; }
 
 .placeholder {
 	padding: 0.75rem 1rem;
@@ -701,23 +694,11 @@ label { font-weight: 600; }
 
 /* Our Story */
 
-.timeline { list-style: none; margin: 0; padding: 0 0 0 1.25rem !important; border-left: 3px solid var(--story); }
-.timeline-item { position: relative; margin: 0 0 1.5rem; }
-.timeline-item::before {
-	content: ""; position: absolute; left: -1.25rem; top: 0.45rem;
-	width: 0.85rem; height: 0.85rem; margin-left: -0.55rem;
-	border-radius: 50%; background: var(--bg); border: 3px solid var(--story);
-}
-.timeline-item h3 { margin: 0 0 0.25rem; }
-.timeline-item h3 a { text-decoration: none; }
-.timeline-item h3 a:hover { text-decoration: underline; }
-.timeline-item p { margin: 0; color: var(--text-muted); }
 .timeline-meta {
 	display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
 	margin: 0 0 0.25rem; font-family: var(--font-sans) !important;
 	font-size: 0.9rem !important; color: var(--text-muted);
 }
-.badge-phase { color: var(--story); background: var(--story-soft); }
 
 .table-wrap { overflow-x: auto; max-width: 100% !important; }
 .treatment-log { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
@@ -729,9 +710,6 @@ label { font-weight: 600; }
 .outcome-some-benefit, .outcome-ongoing, .outcome-too-early-to-tell { color: var(--emerging); background: var(--emerging-bg); }
 .outcome-no-change { color: var(--draft); background: var(--draft-bg); }
 .outcome-made-it-worse { color: var(--error); background: var(--draft-bg); }
-
-.journey-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 2.5rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-weight: 600; }
-.journey-next { margin-left: auto; }
 
 /* Community */
 
