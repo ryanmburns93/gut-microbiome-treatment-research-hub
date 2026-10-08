@@ -16,7 +16,7 @@ scripts:
 	<figcaption>Monica and Ryan</figcaption>
 </figure>
 
-## Why this story is shared
+## About this story
 
 This page is written by Ryan, Monica's husband, a data scientist with type 1 diabetes. He is not a doctor, and nothing here is medical advice. After five years of trying nearly every medication for Monica's bipolar II disorder, the couple tried something different: fecal microbiota transplantation (FMT). They share the whole record, including the parts that didn't go to plan, because the story that gave them hope was someone else's willingness to share theirs. Monica has agreed to everything on this page.
 
@@ -52,7 +52,7 @@ Ryan couldn't be Monica's donor: with type 1 diabetes, an autoimmune condition, 
 
 **Before FMT,** Monica's depression was severe most days and she was in bed up to 20 hours a day.
 
-**During and after the first course** (seven doses, February 4 to 28), depressed mood eased through March. After further doses on March 25 and April 22, Monica stopped all of her bipolar medications. From April through July her depressed mood was mostly "none". For those months, in Ryan's words, he had his wife back.
+**During and after the first course** (seven doses, February 4 to 28), depressed mood eased through March. After further doses on March 25 and April 22, Monica stopped all of her bipolar medications. From April through July her depressed mood was mostly "none". For those months, Ryan had his wife back.
 
 **It wasn't only good news.** Elevated mood also rose and stayed high, and her sleep fell to about five hours a night, sometimes less. On April 12 she logged psychotic symptoms. In bipolar disorder that pattern can be hypomania, so as a precaution she restarted one of her antipsychotic medications.
 
@@ -88,7 +88,7 @@ Thorne withdrew its test shortly after Monica's results, and each test cost abou
 
 {% include story-documents.html %}
 
-## What they've learned
+## Lessons Learned
 
 - **The gut-brain connection is real, and it's personal.** The biggest changes in Monica's mood came after changes to her gut, but so did a hypomania-like stretch. Watch for both directions.
 - **Track everything.** Daily mood and sleep logs turned a blur of good and bad weeks into something they could see, share with her care team, and learn from.
