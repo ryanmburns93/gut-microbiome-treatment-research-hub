@@ -21,7 +21,7 @@
 			<tr>
 				<th scope="row">
 					<em>{{ b.name }}</em>
-					<span class="bacteria-why">{{ b.why }}{% if b.topic %} <a href="{{ '/evidence-map/' | relative_url }}#topic={{ b.topic }}">Research</a>{% endif %}</span>
+					<span class="bacteria-why">{{ b.why }}{% if b.topic %} <a href="{{ '/research/' | relative_url }}?topic={{ b.topic }}">Research</a>{% endif %}</span>
 				</th>
 				<td><span class="level level-{{ b.before_status | slugify }}">{{ b.before_status }}</span><span class="level-detail">{{ pct }}{{ suffix }} percentile</span></td>
 				<td><span class="level level-{{ b.after_status | slugify }}">{{ b.after_status }}</span><span class="level-detail">{{ b.after_abundance }} (range {{ b.after_range | replace: "-", "–" }})</span></td>

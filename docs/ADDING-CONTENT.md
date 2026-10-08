@@ -7,9 +7,9 @@ The site has three parts:
 
 | Part | Pages | Where the content lives |
 |------|-------|-------------------------|
-| **Research** | Knowledge Base, Evidence Map | `_knowledge/`, `_data/topics.csv`, `_data/studies.csv` |
+| **Research** | Research | `_data/studies.csv`, `_data/topics.csv` (synced from the curation Sheet) |
 | **Our Story** | `/story/` | `story/index.md`, `_data/mood.csv`, `_data/fmt-doses.yml` |
-| **Community** | `/community/`, Resources | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
+| **Community** | `/community/`, Resources & Reading | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
 
 ## Write the story page
 
@@ -37,43 +37,33 @@ Add a link under `groups` or `emerging` in `_data/community.yml`, with a
 "New" badge for 60 days. Reference databases and registries belong in
 `_data/resources.yml` instead.
 
-## Add a knowledge entry
+## Add a Reading article
 
-1. Copy [`entry-template.md`](entry-template.md) into `_knowledge/` and rename
-   it. The file name becomes the URL, so `_knowledge/probiotics-for-ibs.md`
-   becomes `/knowledge/probiotics-for-ibs/`. Use lowercase words and hyphens.
+1. Copy [`entry-template.md`](entry-template.md) into `_reading/` and rename
+   it. The file name becomes the URL, so `_reading/probiotics-for-ibs.md`
+   becomes `/reading/probiotics-for-ibs/`. Use lowercase words and hyphens.
 2. Fill in the front matter (the block between the `---` lines):
 
    | Field | Required | Notes |
    |-------|----------|-------|
    | `title` | yes | |
-   | `category` | yes | An `id` from `_data/categories.yml` |
-   | `summary` | recommended | Shown on cards, in search, and at the top of the entry |
-   | `tags` | optional | Searchable, e.g. `[probiotics, IBS]` |
-   | `key_points` | recommended | Plain-language bullets shown first in an "At a glance" box, for non-specialist readers |
+   | `summary` | recommended | Shown in the Reading list and at the top of the article |
+   | `tags` | optional | Shown in the article's sidebar |
+   | `key_points` | recommended | Plain-language bullets shown first in an "At a glance" box |
    | `evidence` | optional | `established`, `emerging`, or `preliminary` (shown as a colored badge) |
-   | `status` | optional | `draft` shows a Draft badge. Remove it when the entry is ready |
-   | `last_reviewed` | recommended | `YYYY-MM-DD`. Drives "Recently reviewed" on the home page |
+   | `status` | optional | `draft` shows a Draft badge. Remove it when the article is ready |
+   | `last_reviewed` | recommended | `YYYY-MM-DD` |
    | `sources` | recommended | List of `title` / `url` / optional `note`, rendered as a numbered list |
 
 3. Write the body in Markdown below the front matter.
 
-The entry appears on the Knowledge Base page, in search, and in the home
-page's topic counts automatically.
+The article appears under **Reading** at the top of Resources & Reading.
+The two articles in `_reading/` are outlines: rewrite or delete them.
 
-The two entries in `_knowledge/` are examples. Rewrite or delete them.
-
-## Add studies to the Evidence Map
+## Add studies to Research
 
 See [EVIDENCE-MAP.md](EVIDENCE-MAP.md). Studies are curated in the Google
-Sheet and uploaded to `_data/` as CSV files. To show a topic's studies on a
-Knowledge Base entry, put the entry's file name in that topic's `entry` column.
-
-## Add a Knowledge Base section
-
-Add an item to `_data/categories.yml` with an `id`, `name`, and
-`description`. It appears as a filter chip, a section, and a home page topic
-card.
+Sheet and sync to `_data/` every hour; Research updates on its own.
 
 ## Add a resource link
 
@@ -116,5 +106,5 @@ The evidence-level definitions shown on every entry live in
 Inside Markdown, link with Liquid so links keep working if the domain changes:
 
 ```markdown
-[FMT]({{ '/knowledge/fecal-microbiota-transplantation/' | relative_url }})
+[FMT]({{ '/reading/fecal-microbiota-transplantation/' | relative_url }})
 ```

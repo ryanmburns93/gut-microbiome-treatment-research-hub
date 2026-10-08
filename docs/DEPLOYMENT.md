@@ -109,4 +109,4 @@ records automatically, and it doesn't affect the website.
   when using the custom domain.
 - **Build failed.** Repo → **Actions** tab → the failed "pages build and
   deployment" run shows the file and line. The usual cause is a front-matter
-  typo in a `_knowledge/*.md` file.
+  typo in a `_reading/*.md` file.

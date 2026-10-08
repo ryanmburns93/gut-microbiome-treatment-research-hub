@@ -1,8 +1,7 @@
 ---
 layout: default
 ---
-{% assign category = site.data.categories | where: "id", page.category | first %}
-{% capture crumbs %}<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">›</span><a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a>{% if category %}<span aria-hidden="true">›</span><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a>{% endif %}</nav>{% endcapture %}
+{% capture crumbs %}<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">›</span><a href="{{ '/resources/' | relative_url }}#reading">Resources &amp; Reading</a></nav>{% endcapture %}
 {% include page-banner.html title=page.title lede=page.summary crumbs=crumbs %}
 
 <div class="container entry-layout">
@@ -18,7 +17,7 @@ layout: default
 
 		{{ content }}
 
-		{% include entry-studies.html %}
+		<p class="entry-research-link">Looking for the studies? Browse and filter them on <a href="{{ '/research/' | relative_url }}">Research</a>.</p>
 
 		{% if page.sources.size > 0 %}
 		<section class="sources" id="sources">
@@ -37,11 +36,10 @@ layout: default
 		{% include disclaimer.html %}
 	</article>
 
-	<aside class="entry-sidebar" aria-label="Entry details">
+	<aside class="entry-sidebar" aria-label="Article details">
 		<div class="sidebar-panel">
-			<h2>Entry details</h2>
+			<h2>Article details</h2>
 			<dl>
-				{% if category %}<dt>Section</dt><dd><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a></dd>{% endif %}
 				{% if page.evidence %}<dt>Evidence level</dt><dd><span class="badge badge-evidence-{{ page.evidence }}">{{ page.evidence | capitalize }}</span></dd>{% endif %}
 				{% if page.status == "draft" %}<dt>Status</dt><dd><span class="badge badge-draft">Draft</span></dd>{% endif %}
 				{% if page.last_reviewed %}<dt>Last reviewed</dt><dd><time datetime="{{ page.last_reviewed | date: '%Y-%m-%d' }}">{{ page.last_reviewed | date: "%B %-d, %Y" }}</time></dd>{% endif %}

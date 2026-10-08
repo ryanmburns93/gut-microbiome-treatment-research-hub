@@ -27,17 +27,19 @@ kramdown:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
-# Every Markdown file in _knowledge/ becomes a page at /knowledge/<file-name>/
+# Every Markdown file in _reading/ becomes an article at /reading/<file-name>/,
+# listed under Reading on the Resources & Reading page.
 collections:
-  knowledge:
+  reading:
     output: true
-    permalink: /knowledge/:name/
+    permalink: /reading/:name/
 
 defaults:
   - scope:
       path: ""
-      type: knowledge
+      type: reading
     values:
       layout: entry
   - scope:

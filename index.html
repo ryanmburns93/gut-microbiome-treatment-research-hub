@@ -7,20 +7,20 @@ title: Home
 		<div class="hero-main">
 			<h1>Following the science of the gut-brain connection, together</h1>
 			<p class="lede">{{ site.description }}</p>
-			<form class="hero-search" action="{{ '/knowledge/' | relative_url }}" method="get" role="search">
-				<label for="hero-q">Search the Knowledge Base</label>
+			<form class="hero-search" action="{{ '/research/' | relative_url }}" method="get" role="search">
+				<label for="hero-q">Search the research</label>
 				<div class="search-group">
-					<input type="search" id="hero-q" name="q" placeholder="e.g. probiotics, FMT, IBS" />
+					<input type="search" id="hero-q" name="q" placeholder="e.g. probiotics, FMT, depression" />
 					<button type="submit" class="button">Search</button>
 				</div>
 			</form>
 		</div>
-		<aside class="hero-panel" aria-label="Browse by section">
-			<h2>Browse by section</h2>
+		{% assign by_type = site.data.studies | where: "status", "published" | group_by: "study_type" | sort: "name" %}
+		<aside class="hero-panel" aria-label="Browse research by study type">
+			<h2>Browse research by study type</h2>
 			<ul>
-				{% for category in site.data.categories %}
-				{% assign count = site.knowledge | where: "category", category.id | size %}
-				<li><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}<span class="count">{{ count }}</span></a></li>
+				{% for g in by_type %}
+				<li><a href="{{ '/research/' | relative_url }}?type={{ g.name | uri_escape }}">{{ g.name }}<span class="count">{{ g.size }}</span></a></li>
 				{% endfor %}
 			</ul>
 		</aside>
@@ -33,9 +33,9 @@ title: Home
 		<ul class="pillar-grid">
 			<li class="pillar pillar-research">
 				<p class="pillar-kicker">The evidence</p>
-				<h3><a href="{{ '/knowledge/' | relative_url }}">Research</a></h3>
-				<p>Peer-reviewed studies on microbiome treatments, summarized in plain language, graded by strength of evidence, and mapped by how they connect.</p>
-				<p class="pillar-links"><a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a> · <a href="{{ '/evidence-map/' | relative_url }}">Evidence Map</a></p>
+				<h3><a href="{{ '/research/' | relative_url }}">Research</a></h3>
+				<p>Peer-reviewed studies on microbiome treatments, summarized in plain language and easy to filter by treatment, condition, topic, or study type.</p>
+				<p class="pillar-links"><a href="{{ '/research/' | relative_url }}">Browse the research</a></p>
 			</li>
 			<li class="pillar pillar-story">
 				<p class="pillar-kicker">The journey</p>
@@ -47,56 +47,31 @@ title: Home
 				<p class="pillar-kicker">The way forward</p>
 				<h3><a href="{{ '/community/' | relative_url }}">Community</a></h3>
 				<p>Support networks, emerging resources, and ongoing efforts toward discovery, plus a way to connect with us.</p>
-				<p class="pillar-links"><a href="{{ '/community/' | relative_url }}">Community</a> · <a href="{{ '/resources/' | relative_url }}">Resources</a></p>
+				<p class="pillar-links"><a href="{{ '/community/' | relative_url }}">Community</a> · <a href="{{ '/resources/' | relative_url }}">Resources &amp; Reading</a></p>
 			</li>
 		</ul>
 	</div>
 </section>
 
+{% assign latest = site.data.studies | where: "status", "published" | sort: "year" | reverse %}
 <section class="section section-alt">
-	<div class="container">
-		<h2 class="section-title">Research topics</h2>
-		<ul class="topic-grid">
-			{% for category in site.data.categories %}
-			<li class="topic-card">
-				<h3><a href="{{ '/knowledge/' | relative_url }}#{{ category.id }}">{{ category.name }}</a></h3>
-				<p>{{ category.description }}</p>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-
-<section class="section section-flush">
-	<div class="container">
-		<div class="map-callout">
-			<div>
-				<h2>Explore the Evidence Map</h2>
-				<p>See how treatments, conditions, and mechanisms connect through the research, and open the studies behind each connection.</p>
-			</div>
-			<a class="button" href="{{ '/evidence-map/' | relative_url }}">Open the Evidence Map</a>
-		</div>
-	</div>
-</section>
-
-{% assign recent = site.knowledge | sort: "last_reviewed" | reverse %}
-{% if recent.size > 0 %}
-<section class="section">
 	<div class="container">
 		<div class="section-head">
-			<h2 class="section-title">Recently reviewed</h2>
-			<a href="{{ '/knowledge/' | relative_url }}">View all entries ›</a>
+			<h2 class="section-title">Latest research</h2>
+			<a href="{{ '/research/' | relative_url }}">All {{ latest.size }} studies ›</a>
 		</div>
-		<ul class="entry-list">
-			{% for entry in recent limit: 4 %}
-				{% include entry-card.html entry=entry %}
+		<ul class="latest-studies">
+			{% for st in latest limit: 5 %}
+			<li>
+				<a href="{{ '/research/' | relative_url }}#{{ st.id }}">{{ st.title }}</a>
+				<span class="study-summary-meta"><span class="study-year">{{ st.year }}</span><span class="study-type-badge">{{ st.study_type }}</span></span>
+			</li>
 			{% endfor %}
 		</ul>
 	</div>
 </section>
-{% endif %}
 
-<section class="section section-alt">
+<section class="section">
 	<div class="container">
 		<div class="section-head">
 			<h2 class="section-title title-community">Ongoing efforts</h2>
@@ -106,25 +81,25 @@ title: Home
 	</div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
 	<div class="container">
 		<h2 class="section-title">Our research standards</h2>
 		<div class="principles">
 			<div>
 				<h3>Curated by hand</h3>
-				<p>Every entry is written and reviewed individually, with references to the primary research.</p>
+				<p>Every study is read and summarized individually, and always linked to the original paper.</p>
 			</div>
 			<div>
-				<h3>Graded evidence</h3>
-				<p>Each entry is labeled established, emerging, or preliminary, so early signals aren't mistaken for settled findings.</p>
+				<h3>Honest about limits</h3>
+				<p>Each summary says why the study matters and where it falls short, such as small samples, animal models, or industry ties.</p>
 			</div>
 			<div>
-				<h3>Regularly reviewed</h3>
-				<p>Entries show the date they were last reviewed and are updated as new research is published.</p>
+				<h3>Clear about study type</h3>
+				<p>Reviews, trials, and animal studies are labeled, so early signals aren't mistaken for settled findings.</p>
 			</div>
 			<div>
 				<h3>Written for everyone</h3>
-				<p>Plain-language summaries up front, with full detail and citations for researchers and clinicians.</p>
+				<p>Plain-language conclusions up front, with authors, journal, and a link to the source for researchers and clinicians.</p>
 			</div>
 		</div>
 	</div>

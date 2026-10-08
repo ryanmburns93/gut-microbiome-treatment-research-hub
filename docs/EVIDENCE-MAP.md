@@ -1,23 +1,21 @@
-# Evidence Map
+# Research data
 
-The Evidence Map (`/evidence-map/`) is an interactive graph of research
-topics. It is built entirely from two spreadsheets:
+The Research page (`/research/`) lists every study from the curation Sheet,
+newest first. It is built from two spreadsheets:
 
 | File | One row per | Drives |
 |------|-------------|--------|
-| `_data/topics.csv` | topic (treatment, condition, or mechanism) | the circles on the map |
-| `_data/studies.csv` | article or study | the lines between circles, and every study list |
+| `_data/studies.csv` | article or study | the list on Research |
+| `_data/topics.csv` | topic (treatment, condition, or mechanism) | the names shown in filters and tags |
 
-Each topic is a node. Every pair of topics that appear in the same study is
-connected, and line thickness shows how many studies connect them. Visitors
-can:
+Each study shows its title, year, and study type; selecting it reveals the
+authors, journal, sample size, finding, conclusion, why it matters, its
+topics, and a link to the source. The sidebar filters by **Treatment**
+(`treatments` column), **Condition** (`conditions`), **Topic**
+(`other_topics`), and **Study type** (`study_type`), plus a keyword search.
 
-- select a topic to see its summary and studies
-- select a line to see the studies that connect two topics
-- search, filter by topic type, or switch to a text-only List view
-
-A topic linked to a Knowledge Base entry (the `entry` column) also adds a
-"Studies in the Evidence Map" section to that entry.
+The Sheet and these files were originally built for an interactive "Evidence
+Map", which is why the Sheet, workflow, and script keep that name.
 
 ## Curating in Google Sheets
 
@@ -91,8 +89,8 @@ conditions (for example, diet alone vs. diet plus FMT).
 | `id` | Short, lowercase, hyphenated, e.g. `fmt`, `dietary-fiber`. Don't rename an id after studies use it. |
 | `name` | Display name |
 | `type` | `treatment`, `condition`, or `mechanism` |
-| `summary` | One sentence shown when the topic is selected |
-| `entry` | Optional Knowledge Base file name without `.md`, e.g. `fecal-microbiota-transplantation` |
+| `summary` | One-sentence description (not currently shown on the site) |
+| `entry` | No longer used by the site; safe to leave or clear |
 
 **studies**
 
@@ -108,22 +106,23 @@ conditions (for example, diet alone vs. diet plus FMT).
 | `relevance` | Why it matters to the broader topic |
 | `status` | `published` (shown), `draft` (not shown until you publish it), `hidden` (not shown), or `example` (shown with a Sample badge) |
 
-Every topic id used in `studies.csv` must exist in `topics.csv`. If one is
-missing or misspelled, the map shows a data-check warning naming it.
+Every topic id used in `studies.csv` should exist in `topics.csv`. If one is
+missing or misspelled, the sync logs a warning naming it, and the site shows
+the id itself (with hyphens as spaces) instead of a proper name.
 
 ## Sample data
 
-The eight `example` rows are placeholders, not real studies. While any exist,
-the map shows a "Sample data" notice. Delete them once you've added real
-studies.
+Rows with status `example` are placeholders, not real studies. They are
+listed with a "Sample" badge; delete them once you've added real studies.
 
 ## Technical notes
 
-- The graph is drawn with [Cytoscape.js](https://js.cytoscape.org/) (MIT
-  license), stored in `assets/js/vendor/`, so the site doesn't depend on an
-  outside host.
-- Page: `evidence-map/index.html`. Behavior: `assets/js/evidence-map.js`.
-  Styles: the "Evidence Map" section of `assets/css/main.css`. Topic-type
-  colors are the `--map-*` variables at the top of that file.
-- Link to a topic or connection with `/evidence-map/#topic=<id>` or
-  `/evidence-map/#link=<id1>__<id2>` (ids in alphabetical order).
+- Page: `research/index.html` (works without JavaScript). Search, filters,
+  and counts: `assets/js/research.js`. Styles: the "Research" section of
+  `assets/css/main.css`.
+- Filters within a group match any selected option; groups combine. The
+  current filters are kept in the address, so you can link to a view:
+  `/research/?treatment=fmt`, `/research/?topic=scfa&type=Review`,
+  `/research/?q=depression`. Link to one study (opened) with
+  `/research/#<study-id>`.
+- The old `/evidence-map/` and `/knowledge/` addresses redirect to Research.
