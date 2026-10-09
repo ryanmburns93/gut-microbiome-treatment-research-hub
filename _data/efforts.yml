@@ -1,27 +1,22 @@
-# "Ongoing efforts" on the Community page and the home page. One item per
-# effort; the home page shows the first three, so keep the most current
-# at the top.
+# "Ongoing efforts" on the Connect page. One item per effort; keep the most
+# current at the top.
 #   title:    name of the effort
 #   kind:     Our project | Clinical trial | Research study | Community initiative
-#   status:   Active | Recruiting | Planned | Completed
 #   summary:  one or two sentences
 #   url:      optional link (internal links start with /)
 #   updated:  YYYY-MM-DD, shown as "Updated <date>"
 - title: Research curation
   kind: Our project
-  status: Active
   summary: Reading and summarizing peer-reviewed studies on gut microbiome treatments, one batch at a time, so anyone can browse and filter them.
   url: /research/
   updated: 2026-10-08
 - title: Monica's FMT journey
   kind: Our project
-  status: Active
   summary: A new round of FMT after an August relapse, with daily mood and sleep tracking and a higher-fiber diet to help it take hold. Updates on Our Story.
   url: /story/
   updated: 2026-10-05
 - title: Recruiting microbiome clinical trials
   kind: Clinical trial
-  status: Recruiting
   summary: A live ClinicalTrials.gov search for studies involving the gut microbiome that are currently enrolling participants.
   url: https://clinicaltrials.gov/search?term=gut%20microbiome&aggFilters=status:rec
   updated: 2026-09-29

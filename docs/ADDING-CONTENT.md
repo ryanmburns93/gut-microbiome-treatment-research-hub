@@ -9,7 +9,7 @@ The site has three parts:
 |------|-------|-------------------------|
 | **Research** | Research | `_data/studies.csv`, `_data/topics.csv` (synced from the curation Sheet) |
 | **Our Story** | `/story/` | `story/index.md`, `_data/mood.csv`, `_data/fmt-doses.yml` |
-| **Community** | `/community/`, Resources & Reading | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
+| **Connect** | `/connect/`, Resources | `_data/efforts.yml`, `_data/community.yml`, `_data/resources.yml` |
 
 ## Write the story page
 
@@ -25,16 +25,15 @@ clinician or clinic names.
 ## Add an ongoing effort
 
 Add an item to `_data/efforts.yml` with a `title`, `kind` (Our project,
-Clinical trial, Research study, Community initiative), `status` (Active,
-Recruiting, Planned, Completed), `summary`, optional `url`, and `updated`
-date. The first three also appear on the home page, so keep the most current
-at the top.
+Clinical trial, Research study, Community initiative), `summary`, optional
+`url`, and `updated` date. They appear on the Connect page in order, so keep
+the most current at the top.
 
-## Add a community group or emerging resource
+## Add a community group or engaging resource
 
-Add a link under `groups` or `emerging` in `_data/community.yml`, with a
-`title`, `url`, and optional `description`. Add `added: YYYY-MM-DD` to show a
-"New" badge for 60 days. Reference databases and registries belong in
+Add a link under `groups` or `engaging` in `_data/community.yml`, with a
+`title`, `url`, and optional `description`. Links show in the order listed.
+Reference databases and registries belong in
 `_data/resources.yml` instead.
 
 ## Add a Reading article

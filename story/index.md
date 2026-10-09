@@ -16,11 +16,13 @@ scripts:
 	<figcaption>Monica and Ryan</figcaption>
 </figure>
 
-This hub is maintained by Ryan, Monica's husband, a data scientist with type 1 diabetes. He is not a doctor, and nothing here is medical advice. After five years of trying nearly every medication for Monica's bipolar II disorder, the couple tried something different: fecal microbiota transplantation (FMT). They share the whole record, including the parts that didn't go to plan, because the story that gave them hope was someone else's willingness to share theirs. Monica has agreed to everything on this page.
+This hub is maintained by Ryan, Monica's husband, a data scientist with type 1 diabetes. He is not a doctor, and nothing here is medical advice.
+
+After five years of trying nearly every medication for Monica's bipolar II disorder, she expressed concern that her life was passing her by and she was too sick to live it. Ryan had seen the story of Jane Dudley's miraculous treatment of her own bipolar disorder, which seemed like a cure. Having engaged with the open-source spirit of the #WeAreNotWaiting movement in the type 1 diabetes community, they ultimately took the leap to try fecal microbiota transplantation (FMT). The results allowed Monica to experience life in a way she hadn't in half a decade. Knowing they wouldn't have started down this path without the bravery of Jane's public sharing, Monica has agreed to share everything on this page, including the parts that didn't go to plan, to spread awareness and to consolidate the emerging research on FMT and other treatments targeting the gut-brain axis.
 
 ## Meet Monica
 
-Monica is a local artist, cat lover, Duke basketball fan, glitter scientist, color queen, and rainbow enthusiast. She lives in Colorado with her husband, Ryan, and their two cats.
+Monica is a local artist, cat lover, Duke basketball fan, glitter scientist, color queen, and rainbow enthusiast. She lives in Colorado with her husband, Ryan, and their two cats, Smudge and Angel.
 
 </div>
 
@@ -30,15 +32,17 @@ Bipolar II disorder is a mood disorder marked by episodes of major depression an
 
 ## How it started
 
-Looking back, the first piece may have been in 2019, when Monica had three rounds of antibiotics for a recurring lung infection. In May 2020 she lost her hotel-industry job to COVID. That July she and Ryan left Washington, D.C. for Colorado on short notice, a decision that in hindsight had some hypomania in it, and in September 2020 she was diagnosed with bipolar II disorder.
+The main pattern that aligned Monica's experience with Jane's was antibiotic use in the period before her bipolar diagnosis. In 2019, Monica had three rounds of antibiotics for a recurring lung infection. In May 2020 she lost her hotel-industry job to COVID. For the first few years afterward, that stressful event was seen as the catalyst for her diagnosis, before the relevance of the antibiotics was recognized. That July she and Ryan moved from Washington, D.C. to Colorado on a whim, a decision that in hindsight was fueled by hypomania, and in September 2020 she was diagnosed with bipolar II disorder.
 
 From 2020 to 2025 Monica tried most of the available medications, mainly atypical antipsychotics and mood stabilizers, one at a time and without lasting gains. Life went on around them: Monica and Ryan formed a civil union in April 2021 and married in May 2022. In May 2023 she was diagnosed with type 2 diabetes, a known risk with some of these medications and with bipolar disorder itself. By December 2025 they were running out of options.
 
 ## Finding another path
 
-In 2023 or 2024 Ryan came across Jane Dudley, an Australian woman who treated her bipolar I disorder with FMT in 2016 and shares her story at [Microbiome in Mind](https://www.microbiomeinmind.com.au/). By late 2025, with little left to try, they decided to try it too.
+Jane Dudley, an Australian woman who treated her bipolar I disorder with FMT in 2016, shared her story in an [ABC News segment](https://www.abc.net.au/news/2025-07-28/gut-instinct-jane-dudley/105583270), documents her journey on her website, [Microbiome in Mind](https://www.microbiomeinmind.com.au/), and worked with Professor Gordon Parker, who published *A Gut Mood Solution* in 2025. With few options left, Ryan began skeptically researching FMT in 2026, and what he found was a growing body of research, now compiled on this hub for others to consider.
 
-Ryan couldn't be Monica's donor: with type 1 diabetes, an autoimmune condition, there's a real risk of passing on what lives in his gut. In February 2026 they found an online provider of screened donor stool, delivered freeze-dried as capsules. Before starting, Monica took a home microbiome test as a baseline, and she logged her mood and sleep every day in the [eMoods app](https://emoodtracker.com/).
+They tried a ketogenic diet and saw some symptom relief within 48 hours. At that point Monica gave the green light to invest in FMT, and she took a stool sample for shotgun whole metagenomic sequencing, a snapshot of her gut before starting treatment. Accurate data on her symptoms and downstream metrics was clearly going to be critical to trialing any extreme treatment, so at the start of 2026 Monica began recording her daily mood and sleep in the [eMoods app](https://emoodtracker.com/), along with exercise and sleep tracking on wearables like Fitbit and Oura.
+
+One challenge they faced that Jane had not was that they couldn't safely source stool donations from within their home. Type 1 diabetes is an autoimmune condition, and 70 to 80% of the immune system lives in the gut, so Ryan couldn't be a donor without risking inducing type 1 diabetes in Monica. *It is these safety concerns that continue, necessarily, to dominate conversations about FMT, and any provider or facilitator must follow an extremely strict screening regimen to reduce the risk of disease transmission when considering providing FMT material.* In February 2026 they found a provider of screened donor stool, delivered freeze-dried as capsules.
 
 <div class="callout" role="note">
 	<p><strong>This is not a how-to.</strong> FMT outside a clinical trial or a clinician's care carries real risks, including infection and transferring conditions from a donor. Donor screening matters enormously. Please talk with a qualified clinician before considering it, and don't stop psychiatric medication without medical supervision.</p>
@@ -92,7 +96,7 @@ Thorne withdrew its test shortly after Monica's results, and each test cost abou
 - **Track everything.** Daily mood and sleep logs turned a blur of good and bad weeks into something they could see, share with her care team, and learn from.
 - **Engraftment takes work.** Diet matters after FMT. More fiber and fermented foods, less sugar and animal fat. They're still learning what that means in recipes.
 - **Medication and the microbiome interact.** They wonder whether restarting an atypical antipsychotic played a part in the August relapse. That's a question, not a finding.
-- **You're not alone.** Find people who've been there in [Community]({{ '/community/' | relative_url }}).
+- **You're not alone.** Find people who've been there on our [Connect]({{ '/connect/' | relative_url }}) page.
 
 <aside class="notice" role="note">
 	<p><strong>One person's experience.</strong> This is a personal account, not medical advice. What helped (or didn't) here may not apply to anyone else. Talk with a qualified clinician about any treatment decision.</p>

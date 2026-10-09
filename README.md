@@ -12,18 +12,17 @@ step, no servers.
 
 The site is organized in three equal parts: **Research** (every study, with
 filters), **Our Story** (a personal record of the condition and
-journey), and **Community** (networking, emerging resources, and ongoing
-efforts).
+journey), and **Connect** (who we are, networking, engaging resources, ongoing
+efforts, and contact).
 
 | Page | URL | Source |
 |------|-----|--------|
 | Landing page | `/` | `index.html` |
 | Research (studies with filters) | `/research/` | `research/index.html`, data in `_data/studies.csv` + `_data/topics.csv` |
 | Our Story | `/story/` | `story/index.md`, chart data in `_data/mood.csv` and `_data/fmt-doses.yml` |
-| Community | `/community/` | `community/index.html`, data in `_data/efforts.yml` + `_data/community.yml` |
+| Connect (about, community, contact form) | `/connect/` | `connect/index.html`, data in `_data/efforts.yml` + `_data/community.yml` |
 | Resources & Reading | `/resources/` | `resources/index.html`, articles in `_reading/`, links in `_data/resources.yml` |
 | Reading articles | `/reading/<name>/` | `_reading/<name>.md` |
-| About + contact form | `/about/` | `about/index.md` |
 
 ## Where things live
 
@@ -31,8 +30,8 @@ efforts).
 _config.yml              Site title, URL, contact form endpoint
 _data/navigation.yml     Main menu (add new pages here)
 _data/resources.yml      Link lists on Resources & Reading
-_data/efforts.yml        Ongoing efforts (Community page and home page)
-_data/community.yml      Community groups and emerging resources
+_data/efforts.yml        Ongoing efforts (Connect page)
+_data/community.yml      Connect page groups and engaging resources
 _data/topics.csv         Topic names for Research filters (synced from the curation Sheet)
 _data/studies.csv        Studies listed on Research (synced from the curation Sheet)
 _reading/                One Markdown file per Reading article

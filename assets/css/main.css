@@ -277,6 +277,9 @@ label { font-weight: 600; }
 	padding: 0.65rem 0; font-weight: 600; text-decoration: none;
 }
 .hero-panel a:hover { text-decoration: underline; }
+.hero-disclaimer { border-top-color: #e5a000; }
+.hero-disclaimer p { margin: 0 0 0.75rem; }
+.hero-disclaimer p:last-child { margin-bottom: 0; }
 
 .count {
 	flex: none; align-self: center;
@@ -522,7 +525,7 @@ label { font-weight: 600; }
 	font-size: 0.9rem !important; color: var(--text-muted);
 }
 
-.table-wrap { overflow-x: auto; max-width: 100% !important; }
+.table-wrap { overflow-x: auto; max-width: 100% !important; margin-bottom: 1.75rem; }
 
 /* Community */
 
@@ -550,10 +553,6 @@ label { font-weight: 600; }
 .effort-card p { margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
 .effort-meta { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-size: 0.8rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 .effort-updated { margin: 0 !important; font-size: 0.85rem !important; }
-.status-active, .status-recruiting { color: var(--community); background: var(--community-soft); }
-.status-planned { color: var(--emerging); background: var(--emerging-bg); }
-.status-completed { color: var(--draft); background: var(--draft-bg); }
-.badge-new { margin-left: 0.4rem; color: var(--community); background: var(--community-soft); }
 
 .video-frame { position: relative; aspect-ratio: 16 / 9; margin: 1rem 0; background: var(--navy-deep); }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
