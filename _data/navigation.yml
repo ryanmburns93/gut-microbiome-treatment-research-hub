@@ -1,15 +1,12 @@
 # Main menu, in order. Add a page by creating it (e.g. glossary/index.md)
-# and adding one entry here. The site has three parts: Research, Our Story,
-# and Community (Community, Resources & Reading).
+# and adding one entry here.
 - title: Home
   url: /
-- title: Research
-  url: /research/
 - title: Our Story
   url: /story/
-- title: Community
-  url: /community/
-- title: Resources & Reading
+- title: Research
+  url: /research/
+- title: Resources
   url: /resources/
-- title: About
-  url: /about/
+- title: Connect
+  url: /connect/

@@ -1,7 +1,6 @@
-# Community page link groups. Same shape as _data/resources.yml: each group
+# Connect page link groups. Same shape as _data/resources.yml: each group
 # has an id, name, optional description, and links with a title, url, and
-# optional one-line description. Add `added: YYYY-MM-DD` to a link to show
-# a "New" badge for 60 days.
+# optional one-line description. Links are shown in the order listed.
 - id: groups
   name: Communities & support
   description: Patient groups, forums, and support networks we've found helpful.
@@ -9,22 +8,19 @@
     - title: Microbiome in Mind
       url: https://www.microbiomeinmind.com.au/
       description: Jane Dudley's site about treating her bipolar I disorder with fecal microbiota transplantation, and the story that started ours.
-      added: 2026-10-04
     - title: eMoods Bipolar Mood Tracker
       url: https://emoodtracker.com/
       description: Free app for tracking daily mood, sleep, and symptoms in bipolar disorder, depression, and anxiety. Easy to export for your care team.
-      added: 2026-10-04
-- id: emerging
-  name: Emerging resources
-  description: New tools, programs, and publications worth watching. Newest first.
+- id: engaging
+  name: Engaging Resources
+  description: Books and stories that shaped our journey. Some book links may be affiliate links; see our <a href="#disclosure">disclosure</a>.
   links:
+    - title: "A Gut Mood Solution: A Groundbreaking Strategy for Managing Bipolar Disorders"
+      url: https://www.barnesandnoble.com/w/a-gut-mood-solution-gordon-parker/1147057689
+      description: by Professor Gordon Parker, Founder of the Black Dog Institute
+    - title: "The Psychobiotic Revolution: Mood, Food, and the New Science of the Gut-Brain Connection"
+      url: https://www.barnesandnoble.com/w/the-psychobiotic-revolution-scott-c-anderson/1125489906
+      description: by Scott C. Anderson
     - title: "Gut Instinct (ABC News, July 2025)"
       url: https://www.abc.net.au/news/2025-07-28/gut-instinct-jane-dudley/105583270
       description: Australian news feature on Jane Dudley's fecal microbiota transplant for bipolar I disorder.
-      added: 2026-10-04
-    - title: "The Gut Mood Solution, by Professor Gordon Parker"
-      description: Book by the founder of Australia's Black Dog Institute that includes Jane Dudley's case. Not yet in every library; you can request it.
-      added: 2026-10-04
-    - title: "The Psychobiotic Revolution, by Scott C. Anderson, John F. Cryan and Ted Dinan"
-      description: An accessible introduction to the gut-brain axis and psychobiotics.
-      added: 2026-10-04
