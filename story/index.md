@@ -16,9 +16,7 @@ scripts:
 	<figcaption>Monica and Ryan</figcaption>
 </figure>
 
-## About this story
-
-This page is written by Ryan, Monica's husband, a data scientist with type 1 diabetes. He is not a doctor, and nothing here is medical advice. After five years of trying nearly every medication for Monica's bipolar II disorder, the couple tried something different: fecal microbiota transplantation (FMT). They share the whole record, including the parts that didn't go to plan, because the story that gave them hope was someone else's willingness to share theirs. Monica has agreed to everything on this page.
+This hub is maintained by Ryan, Monica's husband, a data scientist with type 1 diabetes. He is not a doctor, and nothing here is medical advice. After five years of trying nearly every medication for Monica's bipolar II disorder, the couple tried something different: fecal microbiota transplantation (FMT). They share the whole record, including the parts that didn't go to plan, because the story that gave them hope was someone else's willingness to share theirs. Monica has agreed to everything on this page.
 
 ## Meet Monica
 
