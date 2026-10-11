@@ -96,6 +96,16 @@ Original task list:
 
 ### Phase 2: media and documents (a few days, mostly content work)
 
+**Done October 11, 2026:** #4 (mood chart) and #9 (audio description).
+- Our Story has a "Show daily data" section below the averages table: one
+  table per month with each day's ratings, sleep, and FMT doses, built from
+  `_data/mood.csv` and `_data/fmt-doses.yml`, so it updates with the data.
+- The transcript has a "Slide:" note at the point each slide appeared,
+  describing its text, photos, and charts (including the chart trends).
+
+**Still open:** #3 (captions, in YouTube Studio) and #2 (tagged PDF).
+
+
 8. **Captions (#3).** In YouTube Studio, open the auto-generated captions,
    correct them (the transcript page already has the corrected text), and
    publish them as the video's main English track.
@@ -159,7 +169,7 @@ Automated tools catch roughly 30–40% of issues. Do one manual pass:
 
 ## Done when
 
-- [ ] All P1 items fixed (#1 done; #2–#4 are in Phase 2)
+- [ ] All P1 items fixed (#1 and #4 done; #2 PDF and #3 captions remain)
 - [ ] All P2 items fixed or listed as known exceptions in the statement
 - [ ] The CI accessibility check passes on every page
 - [ ] The manual keyboard and screen reader pass is done and its findings fixed

@@ -70,7 +70,7 @@
 		var total = panels.reduce(function (s, p) { return s + p.height + m.top + m.bottom; }, 0) + AXIS_H;
 
 		var svg = el('svg', { viewBox: '0 0 ' + width + ' ' + total, width: width, height: total, role: 'img',
-			'aria-label': 'Line charts of Monica\'s daily mood ratings and hours of sleep from January to August 2026, with FMT doses marked. A table of monthly averages follows.' }, root);
+			'aria-label': 'Line charts of Monica\'s daily mood ratings and hours of sleep from January to August 2026, with FMT doses marked. Tables of period averages and daily values follow.' }, root);
 
 		var y0 = 0, bands = [];
 		panels.forEach(function (p) {

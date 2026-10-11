@@ -16,7 +16,7 @@
 	<script id="mood-data" type="application/json">{{ site.data.mood | jsonify }}</script>
 	<script id="dose-data" type="application/json">{{ site.data.fmt-doses | jsonify }}</script>
 	<script id="period-data" type="application/json">[{"start":"2026-02-04","end":"2026-02-28"}]</script>
-	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; dots show the hours slept each night, up to 21. Hover or tap for daily values. Ticks mark FMT doses: seven in February, then March 25, April 22, July 26, August 5 and August 11. A new round began August 19, after this data ends.</figcaption>
+	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; dots show the hours slept each night, up to 21. Hover or tap for daily values, or open the daily data table below the averages. Ticks mark FMT doses: seven in February, then March 25, April 22, July 26, August 5 and August 11. A new round began August 19, after this data ends.</figcaption>
 </figure>
 
 <div class="table-wrap">
@@ -32,3 +32,29 @@
 		</tbody>
 	</table>
 </div>
+
+{% comment %}
+  Every day's values as tables, one per month, so keyboard and screen reader
+  users (and anyone zoomed in) can read what the chart's hover readout shows.
+{% endcomment %}
+{% assign dose_dates = site.data.fmt-doses | map: "date" | join: "," %}
+{% assign mood_months = site.data.mood | group_by_exp: "row", "row.date | slice: 0, 7" %}
+<details class="daily-data">
+	<summary>Show daily data ({{ site.data.mood.size }} days)</summary>
+	<p>Ratings are from 1 (none) to 4 (severe). Sleep is hours slept that night.</p>
+	{% for month in mood_months %}
+	<div class="table-wrap">
+		<table class="data-table">
+			<caption>{{ month.items.first.date | date: "%B %Y" }}</caption>
+			<thead>
+				<tr><th scope="col">Date</th><th scope="col">Depressed mood</th><th scope="col">Elevated mood</th><th scope="col">Sleep (hrs)</th><th scope="col">FMT dose</th></tr>
+			</thead>
+			<tbody>
+				{% for row in month.items %}
+				<tr><th scope="row">{{ row.date | date: "%b %-d" }}</th><td>{{ row.depressed }}</td><td>{{ row.elevated }}</td><td>{{ row.sleep }}</td><td>{% if dose_dates contains row.date %}Dose{% endif %}</td></tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endfor %}
+</details>

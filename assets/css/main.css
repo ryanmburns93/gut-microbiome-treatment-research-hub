@@ -624,6 +624,9 @@ label { font-weight: 600; }
 .story-figure { margin: 1.5rem 0; }
 .story-figure img { border: 1px solid var(--border); background: #fff; }
 
+.daily-data { margin: 0 0 1.75rem; }
+.daily-data summary { font-weight: 700; cursor: pointer; color: var(--link); padding: 0.4rem 0; }
+.daily-data > p { margin: 0.5rem 0 1rem; color: var(--text-muted); font-size: 0.92rem; }
 .data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
 .data-table caption { text-align: left; font-weight: 700; padding-bottom: 0.4rem; }
 .data-table th, .data-table td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); text-align: right; }
@@ -632,6 +635,8 @@ label { font-weight: 600; }
 
 .transcript p { font-size: 1.05rem; }
 .transcript .ts { display: inline-block; min-width: 2.8rem; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
+.transcript .slide-note { margin: 1.25rem 0; padding: 0.6rem 0.9rem; border-left: 4px solid var(--border-strong); background: var(--bg-alt); font-family: var(--font-sans); font-size: 0.95rem; }
+.slide-label { font-weight: 700; }
 .prose .callout { margin: 1.5rem 0; padding: 1rem 1.25rem; border-left: 6px solid var(--story); background: var(--story-soft); }
 .prose .callout p { font-family: var(--font-sans); font-size: 1rem; margin: 0; }
 .button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
