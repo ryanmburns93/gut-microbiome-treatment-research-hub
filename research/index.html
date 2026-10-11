@@ -37,11 +37,12 @@ scripts:
 	</aside>
 
 	<div class="research-results">
+		<h2 class="visually-hidden">Studies</h2>
 		<p id="research-status" class="research-status" aria-live="polite">{{ studies.size }} studies</p>
 		<ul class="study-index" id="study-index">
 			{% for s in studies %}
 			{% capture search_text %}{{ s.title }} {{ s.authors }} {{ s.journal }} {{ s.year }} {{ s.study_type }} {{ s.conclusion }}{% endcapture %}
-			<li class="study-item" id="{{ s.id }}"
+			<li class="study-item" id="{{ s.id }}" tabindex="-1"
 				data-treatment="{{ s.treatments | remove: ' ' }}"
 				data-condition="{{ s.conditions | remove: ' ' }}"
 				data-topic="{{ s.other_topics | remove: ' ' }}"

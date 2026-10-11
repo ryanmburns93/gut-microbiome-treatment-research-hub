@@ -1,15 +1,18 @@
 <form id="contact-form" class="contact-form" method="post" action="#" data-endpoint="{{ site.contact_endpoint }}">
 	<div class="form-row">
-		<label for="contact-name">Name</label>
-		<input type="text" name="name" id="contact-name" autocomplete="name" required />
+		<label for="contact-name">Name <span class="required">(required)</span></label>
+		<input type="text" name="name" id="contact-name" autocomplete="name" required aria-describedby="contact-name-error" />
+		<p class="field-error" id="contact-name-error" hidden></p>
 	</div>
 	<div class="form-row">
-		<label for="contact-email">Email</label>
-		<input type="email" name="email" id="contact-email" autocomplete="email" required />
+		<label for="contact-email">Email <span class="required">(required)</span></label>
+		<input type="email" name="email" id="contact-email" autocomplete="email" required aria-describedby="contact-email-error" />
+		<p class="field-error" id="contact-email-error" hidden></p>
 	</div>
 	<div class="form-row">
-		<label for="contact-message">Message</label>
-		<textarea name="message" id="contact-message" rows="6" required></textarea>
+		<label for="contact-message">Message <span class="required">(required)</span></label>
+		<textarea name="message" id="contact-message" rows="6" required aria-describedby="contact-message-error"></textarea>
+		<p class="field-error" id="contact-message-error" hidden></p>
 	</div>
 	<div class="contact-form-honeypot" aria-hidden="true">
 		<input type="text" name="company" id="contact-company" tabindex="-1" autocomplete="off" />

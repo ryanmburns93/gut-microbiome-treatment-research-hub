@@ -55,7 +55,24 @@ risk for real users. **P3** = improvement beyond the minimum.
 
 ## Plan
 
-### Phase 1: quick code fixes (about a day)
+### Phase 1: quick code fixes (done October 11, 2026)
+
+Fixed issues #1, #5, #6, #7, #8, #10, #11 and #13. After the changes, axe
+reports no violations on any page in light or dark mode. Notes on how each
+fix ended up:
+
+- Faded filters: no opacity; names with no matches use `--text-muted`.
+- Headings: a visually hidden `h2` "Studies" fixes the skipped level. The
+  inner `h3`s stay, since closed `<details>` hide them from screen readers.
+- Target size: the checkbox now sits inside its label, so each row (at least
+  28px tall) is a single click target.
+- Hash focus: each study `<li>` has `tabindex="-1"`. Browsers move focus to
+  a `#fragment` target themselves and reset focus set on anything else.
+- Contact form: the browser's validation bubbles are replaced with an error
+  under each field, linked by `aria-describedby` and marked `aria-invalid`.
+  Focus moves to the first problem.
+
+Original task list:
 
 1. **Faded filters (#1).** Remove the opacity and use `--text-muted` for the
    label instead, adding a visually hidden "(no matches)" if needed. Keep text
@@ -142,7 +159,7 @@ Automated tools catch roughly 30–40% of issues. Do one manual pass:
 
 ## Done when
 
-- [ ] All P1 items fixed
+- [ ] All P1 items fixed (#1 done; #2–#4 are in Phase 2)
 - [ ] All P2 items fixed or listed as known exceptions in the statement
 - [ ] The CI accessibility check passes on every page
 - [ ] The manual keyboard and screen reader pass is done and its findings fixed

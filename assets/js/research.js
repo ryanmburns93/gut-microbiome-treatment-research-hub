@@ -75,14 +75,18 @@
 			input.id = id;
 			input.value = v;
 			input.setAttribute('data-group', g.key);
+			// The checkbox sits inside its label so the whole row is one click target.
 			var label = document.createElement('label');
 			label.htmlFor = id;
-			label.appendChild(document.createTextNode(labelOf(g.key, v) + ' '));
+			var name = document.createElement('span');
+			name.className = 'facet-name';
+			name.textContent = labelOf(g.key, v);
 			var count = document.createElement('span');
 			count.className = 'count';
+			label.appendChild(input);
+			label.appendChild(name);
 			label.appendChild(count);
 			countEls[g.key][v] = { count: count, row: row, input: input };
-			row.appendChild(input);
 			row.appendChild(label);
 			fs.appendChild(row);
 		});
@@ -126,10 +130,18 @@
 		});
 
 		var active = terms.length || GROUPS.some(function (g) { return selected[g.key].length; });
-		status.textContent = active ? 'Showing ' + shown + ' of ' + items.length + ' studies' : items.length + ' studies';
+		setStatus(active ? 'Showing ' + shown + ' of ' + items.length + ' studies' : items.length + ' studies');
 		empty.hidden = shown > 0;
 		clearBtn.hidden = !active;
 		if (!skipUrl) writeUrl();
+	}
+
+	// The count is a live region; wait for a pause in typing so screen
+	// readers announce the result once, not after every keystroke.
+	var statusTimer;
+	function setStatus(text) {
+		clearTimeout(statusTimer);
+		statusTimer = setTimeout(function () { status.textContent = text; }, 500);
 	}
 
 	function writeUrl() {
@@ -200,6 +212,10 @@
 			var det = target.querySelector('details');
 			if (det) det.open = true;
 			target.scrollIntoView({ block: 'start' });
+			// Move keyboard focus too, so Tab continues from the opened study.
+			// The <li> has tabindex="-1": the browser's own fragment navigation
+			// focuses the target, and would reset focus set on anything else.
+			target.focus({ preventScroll: true });
 		}
 	}
 
