@@ -57,7 +57,7 @@ Reference databases and registries belong in
 3. Write the body in Markdown below the front matter.
 
 The article appears under **Reading** at the top of Resources & Reading.
-The two articles in `_reading/` are outlines: rewrite or delete them.
+The two articles already in `_reading/` are written and cited; use them as examples of the format.
 
 ## Add studies to Research
 
