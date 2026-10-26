@@ -20,7 +20,7 @@
 	// A blank cell (a day with an unusable entry) is NaN: it is left out of
 	// the 7-day averages and shown as "not recorded" in the hover readout.
 	function num(v) { return v === '' || v == null ? NaN : +v; }
-	var KEYS = ['sleep', 'depressed', 'elevated', 'irritability', 'anxiety'];
+	var KEYS = ['sleep', 'depressed', 'elevated'];
 	var days = raw.map(function (r) {
 		var d = { t: parseDate(r.date) };
 		KEYS.forEach(function (k) { d[k] = num(r[k]); });
@@ -40,10 +40,6 @@
 	var doseTimes = doseList.map(function (d) { return d.t; });
 	var doseByTime = {};
 	doseList.forEach(function (d) { doseByTime[d.t] = d; });
-	// One row per donor in the dose panel; a dose from two donors appears in both.
-	var DONOR_ROWS = ['1', '2', '4', '7', '?'];
-	var DONOR_LABEL = { '?': 'Unknown' };
-	var MAX_CAPS = 25;
 
 	var panels = [
 		{
@@ -55,22 +51,11 @@
 			]
 		},
 		{
-			id: 'other', title: 'Irritability and anxiety, 7-day average', min: 1, max: 4, height: 150,
-			ticks: [[1, 'None'], [2, 'Mild'], [3, 'Moderate'], [4, 'Severe']],
-			series: [
-				{ key: 'irritabilityAvg', label: 'Irritability', cls: 'series-irritability', color: '#7b4ea3' },
-				{ key: 'anxietyAvg', label: 'Anxiety', cls: 'series-anxiety', color: '#b0295a' }
-			]
-		},
-		{
 			id: 'sleep', title: 'Hours of sleep per night', min: 0, max: 24, height: 170,
 			ticks: [[0, '0'], [6, '6'], [12, '12'], [18, '18'], [24, '24 hrs']],
 			// Daily values as faint dots behind the average, so long nights in bed stay visible.
 			dots: { key: 'sleep', cls: 'series-sleep', color: '#00809a' },
 			series: [{ key: 'sleepAvg', label: 'Sleep', cls: 'series-sleep', color: '#00809a' }]
-		},
-		{
-			id: 'doses', title: 'FMT doses by donor (height = capsules)', doses: true, height: DONOR_ROWS.length * 18, series: []
 		}
 	];
 
@@ -94,7 +79,7 @@
 		var total = panels.reduce(function (s, p) { return s + p.height + m.top + m.bottom; }, 0) + AXIS_H;
 
 		var svg = el('svg', { viewBox: '0 0 ' + width + ' ' + total, width: width, height: total, role: 'img',
-			'aria-label': 'Line charts of Monica\'s daily mood ratings, irritability, anxiety and hours of sleep from January to October 2026, with FMT doses marked and broken out by donor. A table of averages by period follows.' }, root);
+			'aria-label': 'Line charts of Monica\'s daily mood ratings and hours of sleep from January to October 2026, with FMT doses marked. A table of averages by period follows.' }, root);
 
 		var y0 = 0, bands = [];
 		panels.forEach(function (p) {
@@ -109,30 +94,6 @@
 				var a = x(Math.max(t0, parseDate(pr.start))), b = x(Math.min(t1, parseDate(pr.end) + DAY));
 				if (b > a) bands.push(el('rect', { x: a, y: top, width: b - a, height: p.height, class: 'chart-band', fill: 'rgba(163, 59, 0, 0.08)' }, svg));
 			});
-
-			if (p.doses) {
-				var rowH = p.height / DONOR_ROWS.length;
-				DONOR_ROWS.forEach(function (dn, ri) {
-					var cy = top + rowH * (ri + 0.5);
-					el('line', { x1: m.left, x2: m.left + plotW, y1: cy, y2: cy, class: 'chart-grid', stroke: '#e4e8ec' }, svg);
-					el('text', { x: m.left - 8, y: cy + 4, class: 'chart-tick', 'text-anchor': 'end' }, svg)
-						.textContent = (narrow && dn === '?' ? 'D?' : DONOR_LABEL[dn]) || (narrow ? 'D' + dn : 'Donor ' + dn);
-				});
-				doseList.forEach(function (d) {
-					var rows = d.donors ? Object.keys(d.donors) : ['?'];
-					rows.forEach(function (dn) {
-						var ri = DONOR_ROWS.indexOf(dn);
-						if (ri < 0) return;
-						var cy = top + rowH * (ri + 0.5);
-						var caps = d.donors ? d.donors[dn] : 0;
-						var h = d.donors ? 4 + caps / MAX_CAPS * (rowH - 6) : 6;
-						el('rect', { x: x(d.t) - 2, y: cy - h / 2, width: 4, height: h, rx: 1.5, class: 'chart-dose-mark' + (d.donors ? '' : ' unknown'),
-							fill: d.donors ? '#a33b00' : 'none', stroke: '#a33b00', 'stroke-width': d.donors ? 0 : 1.5 }, svg);
-					});
-				});
-				y0 = bottom + m.bottom;
-				return;
-			}
 
 			p.ticks.forEach(function (tk) {
 				el('line', { x1: m.left, x2: m.left + plotW, y1: y(tk[0]), y2: y(tk[0]), class: 'chart-grid', stroke: '#e4e8ec' }, svg);
@@ -198,21 +159,12 @@
 			cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.setAttribute('visibility', 'visible');
 			dots.forEach(function (o) { o.c.setAttribute('cx', cx); o.c.setAttribute('cy', o.p.y(d[o.s.key])); o.c.setAttribute('visibility', 'visible'); });
 			var dose = doseByTime[d.t];
-			var doseTxt = '';
-			if (dose) {
-				doseTxt = dose.donors
-					? dose.capsules + ' capsules (' + Object.keys(dose.donors).map(function (k) { return 'donor ' + k + ': ' + dose.donors[k]; }).join(', ') + ')'
-					: 'amount and donor not recorded';
-			}
 			function row(cls, label, v, avg, unit) {
 				return '<span><i class="key ' + cls + '"></i>' + label + ' ' + (isFinite(v) ? v + (unit || '') : 'not recorded') + ' <em>(avg ' + avg.toFixed(1) + ')</em></span>';
 			}
 			tip.innerHTML = '<strong>' + fmt(d.t) + '</strong>' + (dose ? ' <span class="tip-dose">FMT dose</span>' : '') +
-				(dose ? '<span><em>' + doseTxt + '</em></span>' : '') +
 				row('series-depressed', 'Depressed', d.depressed, d.depressedAvg) +
 				row('series-elevated', 'Elevated', d.elevated, d.elevatedAvg) +
-				row('series-irritability', 'Irritability', d.irritability, d.irritabilityAvg) +
-				row('series-anxiety', 'Anxiety', d.anxiety, d.anxietyAvg) +
 				row('series-sleep', 'Sleep', d.sleep, d.sleepAvg, ' hrs');
 			tip.hidden = false;
 			var left = cx / width * box.width;
