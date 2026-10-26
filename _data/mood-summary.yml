@@ -40,3 +40,18 @@
   depressed: 3.3
   elevated: 2.4
   sleep: 11.2
+- period: "August 15–31"
+  days: 17
+  depressed: 3.9
+  elevated: 1.7
+  sleep: 16.8
+- period: "September"
+  days: 30
+  depressed: 3.3
+  elevated: 2.5
+  sleep: 13.8
+- period: "October 1–25"
+  days: 25
+  depressed: 2.9
+  elevated: 2.8
+  sleep: 12.0

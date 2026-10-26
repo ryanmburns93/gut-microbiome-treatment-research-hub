@@ -564,6 +564,8 @@ label { font-weight: 600; }
 	--series-depressed: #005ea2;
 	--series-elevated: #c05600;
 	--series-sleep: #00809a;
+	--series-irritability: #7b4ea3;
+	--series-anxiety: #b0295a;
 	--chart-grid: #e4e8ec;
 	--chart-band: rgba(163, 59, 0, 0.08);
 }
@@ -572,6 +574,8 @@ label { font-weight: 600; }
 		--series-depressed: #3d8fd6;
 		--series-elevated: #d9732f;
 		--series-sleep: #2a9fb3;
+		--series-irritability: #a98bd0;
+		--series-anxiety: #e8639a;
 		--chart-grid: #26364a;
 		--chart-band: rgba(240, 152, 96, 0.12);
 	}
@@ -590,10 +594,16 @@ label { font-weight: 600; }
 .chart-line.series-depressed { stroke: var(--series-depressed); }
 .chart-line.series-elevated { stroke: var(--series-elevated); }
 .chart-line.series-sleep { stroke: var(--series-sleep); }
+.chart-line.series-irritability { stroke: var(--series-irritability); }
+.chart-line.series-anxiety { stroke: var(--series-anxiety); }
 .chart-end { stroke: var(--bg); stroke-width: 2; }
 .chart-end.series-depressed { fill: var(--series-depressed); }
 .chart-end.series-elevated { fill: var(--series-elevated); }
 .chart-end.series-sleep { fill: var(--series-sleep); }
+.chart-end.series-irritability { fill: var(--series-irritability); }
+.chart-end.series-anxiety { fill: var(--series-anxiety); }
+.chart-dose-mark { fill: var(--story); }
+.chart-dose-mark.unknown { fill: none; stroke: var(--story); }
 .chart-cross { stroke: var(--border-strong); stroke-width: 1; }
 .chart-hit { fill: transparent; cursor: crosshair; touch-action: pan-y; }
 
@@ -603,6 +613,8 @@ label { font-weight: 600; }
 .key.series-depressed { background: var(--series-depressed); }
 .key.series-elevated { background: var(--series-elevated); }
 .key.series-sleep { background: var(--series-sleep); }
+.key.series-irritability { background: var(--series-irritability); }
+.key.series-anxiety { background: var(--series-anxiety); }
 .key-band { display: inline-block; width: 0.9rem; height: 0.9rem; background: var(--chart-band); border: 1px solid var(--border); }
 .key-dose { display: inline-block; width: 2px; height: 0.8rem; background: var(--story); }
 

@@ -7,16 +7,18 @@
 	<div class="chart-legend" aria-hidden="true">
 		<span><i class="key series-depressed"></i>Depressed mood</span>
 		<span><i class="key series-elevated"></i>Elevated mood</span>
+		<span><i class="key series-irritability"></i>Irritability</span>
+		<span><i class="key series-anxiety"></i>Anxiety</span>
 		<span><i class="key series-sleep"></i>Sleep (7-day average)</span>
 		<span><i class="key-dot series-sleep"></i>Hours slept each night</span>
-		<span><i class="key-band"></i>First FMT course</span>
+		<span><i class="key-band"></i>FMT courses (first: Feb 4–28; second: from Aug 19)</span>
 		<span><i class="key-dose"></i>FMT dose</span>
 	</div>
 	<div id="mood-chart" class="mood-chart"></div>
 	<script id="mood-data" type="application/json">{{ site.data.mood | jsonify }}</script>
 	<script id="dose-data" type="application/json">{{ site.data.fmt-doses | jsonify }}</script>
-	<script id="period-data" type="application/json">[{"start":"2026-02-04","end":"2026-02-28"}]</script>
-	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to August 14, 2026. Lines are 7-day averages; dots show the hours slept each night, up to 21. Hover or tap for daily values. Ticks mark FMT doses: seven in February, then March 25, April 22, July 26, August 5 and August 11. A new round began August 19, after this data ends.</figcaption>
+	<script id="period-data" type="application/json">[{"start":"2026-02-04","end":"2026-02-28"},{"start":"2026-08-19","end":"2026-12-31"}]</script>
+	<figcaption>Monica's self-reported ratings from the eMoods app (1 none, 2 mild, 3 moderate, 4 severe) and hours slept, January 1 to October 25, 2026. Lines are 7-day averages; dots show the hours slept each night, up to 24. Hover or tap for daily values. Ticks mark FMT doses, and the bottom panel shows each dose by donor, with taller marks for more capsules; the August 5 dose has no recorded amount or donor. The October 2 depressed-mood entry (7) is outside the 1–4 scale and is left out.</figcaption>
 </figure>
 
 <div class="table-wrap">

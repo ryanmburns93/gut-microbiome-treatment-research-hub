@@ -17,28 +17,49 @@
 	function parseDate(s) { var p = s.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
 	function fmt(t) { return new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }); }
 
+	// A blank cell (a day with an unusable entry) is NaN: it is left out of
+	// the 7-day averages and shown as "not recorded" in the hover readout.
+	function num(v) { return v === '' || v == null ? NaN : +v; }
+	var KEYS = ['sleep', 'depressed', 'elevated', 'irritability', 'anxiety'];
 	var days = raw.map(function (r) {
-		return { t: parseDate(r.date), sleep: +r.sleep, depressed: +r.depressed, elevated: +r.elevated };
+		var d = { t: parseDate(r.date) };
+		KEYS.forEach(function (k) { d[k] = num(r[k]); });
+		return d;
 	});
 	// Trailing 7-day averages smooth the 1-4 ratings, which jump day to day.
-	['sleep', 'depressed', 'elevated'].forEach(function (k) {
+	KEYS.forEach(function (k) {
 		days.forEach(function (d, i) {
-			var win = days.slice(Math.max(0, i - 6), i + 1);
-			d[k + 'Avg'] = win.reduce(function (s, w) { return s + w[k]; }, 0) / win.length;
+			var win = days.slice(Math.max(0, i - 6), i + 1).filter(function (w) { return isFinite(w[k]); });
+			d[k + 'Avg'] = win.length ? win.reduce(function (s, w) { return s + w[k]; }, 0) / win.length : NaN;
 		});
 	});
 	var t0 = days[0].t, t1 = days[days.length - 1].t;
-	// Doses after the last day of data (e.g. Aug 19) fall off the chart.
-	var doseTimes = doses.map(function (d) { return parseDate(d.date); })
-		.filter(function (t) { return t >= t0 && t <= t1; });
+	// Doses after the last day of data fall off the chart.
+	var doseList = doses.map(function (d) { d.t = parseDate(d.date); return d; })
+		.filter(function (d) { return d.t >= t0 && d.t <= t1; });
+	var doseTimes = doseList.map(function (d) { return d.t; });
+	var doseByTime = {};
+	doseList.forEach(function (d) { doseByTime[d.t] = d; });
+	// One row per donor in the dose panel; a dose from two donors appears in both.
+	var DONOR_ROWS = ['1', '2', '4', '7', '?'];
+	var DONOR_LABEL = { '?': 'Unknown' };
+	var MAX_CAPS = 25;
 
 	var panels = [
 		{
 			id: 'mood', title: 'Mood ratings, 7-day average', min: 1, max: 4, height: 200,
 			ticks: [[1, 'None'], [2, 'Mild'], [3, 'Moderate'], [4, 'Severe']],
 			series: [
-				{ key: 'depressedAvg', label: 'Depressed mood', cls: 'series-depressed', color: '#005ea2' },
-				{ key: 'elevatedAvg', label: 'Elevated mood', cls: 'series-elevated', color: '#c05600' }
+				{ key: 'depressedAvg', label: 'Depressed', cls: 'series-depressed', color: '#005ea2' },
+				{ key: 'elevatedAvg', label: 'Elevated', cls: 'series-elevated', color: '#c05600' }
+			]
+		},
+		{
+			id: 'other', title: 'Irritability and anxiety, 7-day average', min: 1, max: 4, height: 150,
+			ticks: [[1, 'None'], [2, 'Mild'], [3, 'Moderate'], [4, 'Severe']],
+			series: [
+				{ key: 'irritabilityAvg', label: 'Irritability', cls: 'series-irritability', color: '#7b4ea3' },
+				{ key: 'anxietyAvg', label: 'Anxiety', cls: 'series-anxiety', color: '#b0295a' }
 			]
 		},
 		{
@@ -47,6 +68,9 @@
 			// Daily values as faint dots behind the average, so long nights in bed stay visible.
 			dots: { key: 'sleep', cls: 'series-sleep', color: '#00809a' },
 			series: [{ key: 'sleepAvg', label: 'Sleep', cls: 'series-sleep', color: '#00809a' }]
+		},
+		{
+			id: 'doses', title: 'FMT doses by donor (height = capsules)', doses: true, height: DONOR_ROWS.length * 18, series: []
 		}
 	];
 
@@ -64,13 +88,13 @@
 		root.innerHTML = '';
 		var width = Math.max(320, root.clientWidth);
 		var narrow = width < 560;
-		var m = { top: M.top, right: narrow ? 16 : M.right, bottom: M.bottom, left: narrow ? 56 : M.left };
+		var m = { top: M.top, right: narrow ? 16 : M.right, bottom: M.bottom, left: narrow ? 66 : M.left };
 		var plotW = width - m.left - m.right;
 		var x = function (t) { return m.left + (t - t0) / (t1 - t0) * plotW; };
 		var total = panels.reduce(function (s, p) { return s + p.height + m.top + m.bottom; }, 0) + AXIS_H;
 
 		var svg = el('svg', { viewBox: '0 0 ' + width + ' ' + total, width: width, height: total, role: 'img',
-			'aria-label': 'Line charts of Monica\'s daily mood ratings and hours of sleep from January to August 2026, with FMT doses marked. A table of monthly averages follows.' }, root);
+			'aria-label': 'Line charts of Monica\'s daily mood ratings, irritability, anxiety and hours of sleep from January to October 2026, with FMT doses marked and broken out by donor. A table of averages by period follows.' }, root);
 
 		var y0 = 0, bands = [];
 		panels.forEach(function (p) {
@@ -85,6 +109,30 @@
 				var a = x(Math.max(t0, parseDate(pr.start))), b = x(Math.min(t1, parseDate(pr.end) + DAY));
 				if (b > a) bands.push(el('rect', { x: a, y: top, width: b - a, height: p.height, class: 'chart-band', fill: 'rgba(163, 59, 0, 0.08)' }, svg));
 			});
+
+			if (p.doses) {
+				var rowH = p.height / DONOR_ROWS.length;
+				DONOR_ROWS.forEach(function (dn, ri) {
+					var cy = top + rowH * (ri + 0.5);
+					el('line', { x1: m.left, x2: m.left + plotW, y1: cy, y2: cy, class: 'chart-grid', stroke: '#e4e8ec' }, svg);
+					el('text', { x: m.left - 8, y: cy + 4, class: 'chart-tick', 'text-anchor': 'end' }, svg)
+						.textContent = (narrow && dn === '?' ? 'D?' : DONOR_LABEL[dn]) || (narrow ? 'D' + dn : 'Donor ' + dn);
+				});
+				doseList.forEach(function (d) {
+					var rows = d.donors ? Object.keys(d.donors) : ['?'];
+					rows.forEach(function (dn) {
+						var ri = DONOR_ROWS.indexOf(dn);
+						if (ri < 0) return;
+						var cy = top + rowH * (ri + 0.5);
+						var caps = d.donors ? d.donors[dn] : 0;
+						var h = d.donors ? 4 + caps / MAX_CAPS * (rowH - 6) : 6;
+						el('rect', { x: x(d.t) - 2, y: cy - h / 2, width: 4, height: h, rx: 1.5, class: 'chart-dose-mark' + (d.donors ? '' : ' unknown'),
+							fill: d.donors ? '#a33b00' : 'none', stroke: '#a33b00', 'stroke-width': d.donors ? 0 : 1.5 }, svg);
+					});
+				});
+				y0 = bottom + m.bottom;
+				return;
+			}
 
 			p.ticks.forEach(function (tk) {
 				el('line', { x1: m.left, x2: m.left + plotW, y1: y(tk[0]), y2: y(tk[0]), class: 'chart-grid', stroke: '#e4e8ec' }, svg);
@@ -102,21 +150,25 @@
 				});
 			}
 
+			var pending = [];
 			p.series.forEach(function (s) {
 				var d = days.map(function (r, i) { return (i ? 'L' : 'M') + x(r.t).toFixed(1) + ' ' + y(r[s.key]).toFixed(1); }).join('');
 				el('path', { d: d, class: 'chart-line ' + s.cls, fill: 'none', stroke: s.color, 'stroke-width': 2 }, svg);
 				var last = days[days.length - 1];
 				el('circle', { cx: x(last.t), cy: y(last[s.key]), r: 4, class: 'chart-end ' + s.cls, fill: s.color }, svg);
-				if (!narrow) {
-					var lab = el('text', { x: x(last.t) + 10, y: y(last[s.key]) + 4, class: 'chart-label' }, svg);
-					lab.textContent = s.label;
-				}
+				if (!narrow) pending.push({ s: s, y: y(last[s.key]) + 4 });
+			});
+			// Keep end-of-line labels from overlapping when the lines finish close together.
+			pending.sort(function (a, b) { return a.y - b.y; });
+			for (var i = 1; i < pending.length; i++) pending[i].y = Math.max(pending[i].y, pending[i - 1].y + 15);
+			pending.forEach(function (l) {
+				el('text', { x: x(t1) + 10, y: l.y, class: 'chart-label' }, svg).textContent = l.s.label;
 			});
 			y0 = bottom + m.bottom;
 		});
 
 		// Shared month axis under the bottom panel.
-		for (var mo = 0; mo < 8; mo++) {
+		for (var mo = 0; mo < 12; mo++) {
 			var t = Date.UTC(2026, mo, 1);
 			if (t < t0 || t > t1) continue;
 			var tx = el('text', { x: x(t), y: y0 + 18, class: 'chart-tick', 'text-anchor': 'middle' }, svg);
@@ -124,7 +176,7 @@
 		}
 
 		// Hover: crosshair across both panels plus one readout.
-		var cross = el('line', { y1: panels[0].top, y2: panels[1].bottom, class: 'chart-cross', stroke: '#a9aeb1', visibility: 'hidden' }, svg);
+		var cross = el('line', { y1: panels[0].top, y2: panels[panels.length - 1].bottom, class: 'chart-cross', stroke: '#a9aeb1', visibility: 'hidden' }, svg);
 		var dots = [];
 		panels.forEach(function (p) {
 			p.series.forEach(function (s) {
@@ -136,7 +188,7 @@
 		tip.hidden = true;
 		root.appendChild(tip);
 
-		var hit = el('rect', { x: m.left, y: panels[0].top, width: plotW, height: panels[1].bottom - panels[0].top, class: 'chart-hit', fill: 'transparent' }, svg);
+		var hit = el('rect', { x: m.left, y: panels[0].top, width: plotW, height: panels[panels.length - 1].bottom - panels[0].top, class: 'chart-hit', fill: 'transparent' }, svg);
 		function show(clientX) {
 			var box = svg.getBoundingClientRect();
 			var px = (clientX - box.left) * (width / box.width);
@@ -145,11 +197,23 @@
 			var d = days[i], cx = x(d.t);
 			cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.setAttribute('visibility', 'visible');
 			dots.forEach(function (o) { o.c.setAttribute('cx', cx); o.c.setAttribute('cy', o.p.y(d[o.s.key])); o.c.setAttribute('visibility', 'visible'); });
-			var dose = doseTimes.indexOf(d.t) > -1;
+			var dose = doseByTime[d.t];
+			var doseTxt = '';
+			if (dose) {
+				doseTxt = dose.donors
+					? dose.capsules + ' capsules (' + Object.keys(dose.donors).map(function (k) { return 'donor ' + k + ': ' + dose.donors[k]; }).join(', ') + ')'
+					: 'amount and donor not recorded';
+			}
+			function row(cls, label, v, avg, unit) {
+				return '<span><i class="key ' + cls + '"></i>' + label + ' ' + (isFinite(v) ? v + (unit || '') : 'not recorded') + ' <em>(avg ' + avg.toFixed(1) + ')</em></span>';
+			}
 			tip.innerHTML = '<strong>' + fmt(d.t) + '</strong>' + (dose ? ' <span class="tip-dose">FMT dose</span>' : '') +
-				'<span><i class="key series-depressed"></i>Depressed ' + d.depressed + ' <em>(avg ' + d.depressedAvg.toFixed(1) + ')</em></span>' +
-				'<span><i class="key series-elevated"></i>Elevated ' + d.elevated + ' <em>(avg ' + d.elevatedAvg.toFixed(1) + ')</em></span>' +
-				'<span><i class="key series-sleep"></i>Sleep ' + d.sleep + ' hrs <em>(avg ' + d.sleepAvg.toFixed(1) + ')</em></span>';
+				(dose ? '<span><em>' + doseTxt + '</em></span>' : '') +
+				row('series-depressed', 'Depressed', d.depressed, d.depressedAvg) +
+				row('series-elevated', 'Elevated', d.elevated, d.elevatedAvg) +
+				row('series-irritability', 'Irritability', d.irritability, d.irritabilityAvg) +
+				row('series-anxiety', 'Anxiety', d.anxiety, d.anxietyAvg) +
+				row('series-sleep', 'Sleep', d.sleep, d.sleepAvg, ' hrs');
 			tip.hidden = false;
 			var left = cx / width * box.width;
 			tip.style.left = Math.min(box.width - tip.offsetWidth, Math.max(0, left + 12 > box.width / 2 ? left - tip.offsetWidth - 12 : left + 12)) + 'px';
