@@ -62,7 +62,7 @@ sources:
     note: Single-patient case report.
   - title: "Creedon et al. A randomised controlled trial of a diverse whole-food plant-based dietary intervention (Daily30) and its effects on gut microbiome, gut symptoms, energy and hunger in healthy adults. British Journal of Nutrition, 2026"
     url: https://doi.org/10.1017/S0007114526107703
-    note: 349 healthy adults, six weeks. Funded by the product's maker.
+    note: 349 healthy adults, six weeks. Funded by the product's maker, whose co-founders are authors.
 ---
 
 ## Overview
@@ -90,7 +90,9 @@ Fruits and vegetables are the easiest way to add variety. Whole grains, legumes,
 
 Some companies sell products designed to add variety. One example is ZOE's Daily30+, a powder blend of more than 30 plant foods that is sprinkled on meals. The maker describes it as a complement to a healthy diet, not a replacement. [14]
 
-It has been tested in a randomized trial published in the *British Journal of Nutrition* in 2026. In that six-week trial, 349 healthy adults with low fiber intake took a 30-plant blend, a probiotic, or a bread-crouton control. The blend group had more changes in gut bacterial species (57, compared with 14 for the control and 4 for the probiotic) and reported modest improvements in energy and some digestive symptoms. Body weight, blood metabolite profiles and sleep quality did not change meaningfully. [17] Caveats: ZOE funded the trial, its authors include ZOE staff, and the company sells the product. The trial was short, it enrolled healthy adults rather than people with mood disorders, and the symptom results were self-reported. The recipe has also been updated since an earlier version, so the trial may not have tested the current formula. [13] A consumer review also noted that similar variety can be reached more cheaply with everyday foods. [13]
+It has been tested in a randomized trial published in the *British Journal of Nutrition* in 2026. In that six-week trial, 349 healthy UK adults with low fiber intake took the 30-plant blend, a probiotic, or a bread-crouton control. More bacterial species changed in abundance in the blend group (57, compared with 14 for the control and 4 for the probiotic), and species richness fell slightly. The trial's main pre-specified comparison, whether the species that changed were ones that ZOE's own ranking tool rates as favorable, did not differ significantly between groups. Compared with the control, the blend group reported small improvements in energy, happiness and some digestive symptoms (indigestion, constipation, flatulence and heartburn). The energy gain was similar to the probiotic's, and anxiety ratings did not differ. The authors call these changes small and of uncertain clinical significance, and say the secondary outcomes were exploratory and not adjusted for multiple comparisons. Body weight, blood markers and overall sleep quality did not differ between groups. [17]
+
+Caveats: ZOE funded the trial, and several authors work for ZOE, including its two co-founders, who are also authors. The company sells the product. Participants were recruited from ZOE's mailing list and product waitlist and could not be fully blinded. The trial was short, most participants were women (75%) and White (93%), and it enrolled healthy people rather than people with mood disorders. The recipe has been updated since an earlier version, so the trial may not have tested the current formula. [13] A consumer review also noted that similar variety can be reached more cheaply with everyday foods. [13]
 
 The site mentions it because it is something Monica and Ryan tried, not as an endorsement.
 
