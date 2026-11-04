@@ -58,9 +58,19 @@ One challenge they faced that Jane had not was that they couldn't safely source 
 
 **It wasn't only good news.** Elevated mood also rose and stayed high, and her sleep fell to about five hours a night, sometimes less. On April 12 she logged psychotic symptoms. In bipolar disorder that pattern can be hypomania, so as a precaution she restarted one of her antipsychotic medications.
 
-**In August, depression came back.** As her mood started to slip, Monica took the stool left over from April (July 26, August 5 and August 11), but by August 9 her depressed mood was severe again and she was sleeping 11 to 20 hours a day. Stool stored since April may not have survived. Ryan and Monica also think her gut slipped back toward dysbiosis: they didn't keep to the high-fiber diet that helps transplanted microbes take hold, and atypical antipsychotics may themselves disrupt the gut microbiome. On August 19 she started a new round with fresh stool. The data here ends August 14.
+**In August, depression came back.** As her mood started to slip, Monica took the stool left over from April (July 28, August 5 and August 11), but by August 9 her depressed mood was severe again and she was sleeping 11 to 20 hours a day. Stool stored since April may not have survived. Ryan and Monica also think her gut slipped back toward dysbiosis: they didn't keep to the high-fiber diet that helps transplanted microbes take hold, and atypical antipsychotics may themselves disrupt the gut microbiome. On August 19 she started a new round with fresh stool.
+
+**The second round (August 19 onward).** Over the next two months the pattern eased but did not return to where it had been in the spring. Monica's depressed mood averaged about 3.9 in the second half of August, 3.3 in September and 3.0 in October (3 is "moderate" and 4 is "severe"), compared with about 1.5 to 1.9 from April through July. Her sleep fell from about 17 hours a night in late August to about 12 in October, and elevated mood rose from 1.7 to 2.8. Several things changed at once during this round, including new stool donors, so the chart can't tell us which of them mattered. The data here ends October 25.
 
 This is one person's self-reported data, with medication changes, diet, and life happening at the same time. It shows what happened to Monica, not what FMT does in general.
+
+## Food as part of the treatment
+
+After the August relapse, diet became part of the plan rather than an afterthought. During the second round, Monica followed a Mediterranean-style diet strictly: mostly vegetables, fruit, whole grains, legumes, nuts and olive oil, with little red meat or processed food. The reasoning was that a transplant gives the gut new microbes, and plant fiber is what many of them feed on.
+
+One goal was variety, with a target of about 30 different plants a week. That number comes from the American Gut Project, a large citizen-science study in which people who ate 30 or more types of plant a week had more diverse gut microbiomes than those who ate 10 or fewer. It is an association based on survey answers, not proof that variety changes anything. They also tried ZOE's [Daily30+](https://zoe.com/learn/daily30-and-what-it-contains), a powder blend of roughly 30 plant foods that is sprinkled on meals to add variety. A company-funded six-week trial in healthy adults found changes in gut bacteria and small improvements in some digestive symptoms, but it didn't test people with bipolar disorder. We mention it because we tried it, not as an endorsement.
+
+The chart can't tell us whether the diet made a difference for Monica, since the second round also involved new donors and other changes. For what research does and doesn't show about diet, depression and bipolar disorder, see [Mediterranean diet, gut microbes and mood]({{ '/reading/mediterranean-diet-and-mood/' | relative_url }}).
 
 ## Her microbiome, before and after
 

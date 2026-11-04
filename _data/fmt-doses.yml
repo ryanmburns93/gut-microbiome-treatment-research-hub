@@ -1,16 +1,27 @@
-# FMT capsule doses, from the FMT Visualizations notebook. Shown as ticks on
-# the Our Story mood chart. Capsule counts and donors are known only for the
-# first course (25 capsules on Feb 4, then 15; donor 2 from Feb 24).
-- { date: 2026-02-04, round: First course }
-- { date: 2026-02-05, round: First course }
-- { date: 2026-02-10, round: First course }
-- { date: 2026-02-16, round: First course }
-- { date: 2026-02-21, round: First course }
-- { date: 2026-02-24, round: First course }
-- { date: 2026-02-28, round: First course }
-- { date: 2026-03-25, round: Spring }
-- { date: 2026-04-22, round: Spring }
-- { date: 2026-07-26, round: Summer (April stool) }
+# FMT capsule doses, from the "Monica FMT Admin Tracking" Google Sheet. Shown as
+# ticks on the Our Story mood chart and as one row per donor in its dose panel.
+# capsules: total taken; donors: capsules from each donor. Both are omitted where
+# the sheet has no record (Aug 5). Donor 1 was the first-course donor; donors 4
+# and 7 were added from late August.
+- { date: 2026-02-04, round: First course, capsules: 25, donors: { "1": 25 } }
+- { date: 2026-02-05, round: First course, capsules: 15, donors: { "1": 15 } }
+- { date: 2026-02-10, round: First course, capsules: 15, donors: { "1": 15 } }
+- { date: 2026-02-16, round: First course, capsules: 15, donors: { "1": 15 } }
+- { date: 2026-02-21, round: First course, capsules: 15, donors: { "1": 15 } }
+- { date: 2026-02-24, round: First course, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-02-28, round: First course, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-03-25, round: Spring, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-04-22, round: Spring, capsules: 10, donors: { "1": 10 } }
+- { date: 2026-07-28, round: Summer (April stool), capsules: 21, donors: { "2": 21 } }
 - { date: 2026-08-05, round: Summer (April stool) }
-- { date: 2026-08-11, round: Summer (April stool) }
-- { date: 2026-08-19, round: New stool }
+- { date: 2026-08-11, round: Summer (April stool), capsules: 15, donors: { "2": 15 } }
+- { date: 2026-08-19, round: New stool, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-08-25, round: New stool, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-08-31, round: New stool, capsules: 15, donors: { "2": 5, "4": 10 } }
+- { date: 2026-09-07, round: New stool, capsules: 15, donors: { "4": 15 } }
+- { date: 2026-09-11, round: New stool, capsules: 15, donors: { "2": 5, "4": 10 } }
+- { date: 2026-09-20, round: New stool, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-09-28, round: New stool, capsules: 15, donors: { "2": 15 } }
+- { date: 2026-10-03, round: New stool, capsules: 15, donors: { "7": 15 } }
+- { date: 2026-10-10, round: New stool, capsules: 15, donors: { "7": 15 } }
+- { date: 2026-10-17, round: New stool, capsules: 15, donors: { "2": 10, "7": 5 } }
