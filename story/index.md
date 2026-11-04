@@ -64,6 +64,14 @@ One challenge they faced that Jane had not was that they couldn't safely source 
 
 This is one person's self-reported data, with medication changes, diet, and life happening at the same time. It shows what happened to Monica, not what FMT does in general.
 
+## Food as part of the treatment
+
+After the August relapse, diet became part of the plan rather than an afterthought. During the second round, Monica followed a Mediterranean-style diet strictly: mostly vegetables, fruit, whole grains, legumes, nuts and olive oil, with little red meat or processed food. The reasoning was that a transplant gives the gut new microbes, and plant fiber is what many of them feed on.
+
+One goal was variety, with a target of about 30 different plants a week. That number comes from the American Gut Project, a large citizen-science study in which people who ate 30 or more types of plant a week had more diverse gut microbiomes than those who ate 10 or fewer. It is an association based on survey answers, not proof that variety changes anything. They also tried ZOE's [Daily30+](https://zoe.com/learn/daily30-and-what-it-contains), a powder blend of roughly 30 plant foods that is sprinkled on meals to add variety. We mention it because we tried it, not as an endorsement.
+
+The chart can't tell us whether the diet made a difference for Monica, since the second round also involved new donors and other changes. For what research does and doesn't show about diet, depression and bipolar disorder, see [Mediterranean diet, gut microbes and mood]({{ '/reading/mediterranean-diet-and-mood/' | relative_url }}).
+
 ## Her microbiome, before and after
 
 <figure class="story-figure">
